@@ -10,7 +10,8 @@
 	let { topics }: Props = $props();
     let fullTopicsArray;
     if(topics){
-        fullTopicsArray =    = [...topics.primaryTopics,...topics.secondaryTopics]
+        fullTopicsArray  = [...topics.primaryTopics,...topics.secondaryTopics]
+
     }
   const topicColors = {
     Addition: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
@@ -25,7 +26,7 @@
 
 <div class="flex flex-wrap gap-2">
   {#each fullTopicsArray as topic}
-    <Badge class={`${topicColors[topic] || 'bg-gray-800 text-gray-800 dark:bg-gray-700 dark:text-gray-300'} font-medium`}>
+    <Badge class={`${topicColors[topic] || 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'} font-medium`}>
       {topic}
     </Badge>
   {/each}
