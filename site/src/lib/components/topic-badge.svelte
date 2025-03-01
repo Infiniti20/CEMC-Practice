@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { getQuestionTopics } from '$lib';
 	import { Badge } from '$lib/components/ui/badge';
 
 	interface Props {
@@ -9,10 +10,7 @@
 	}
 	let { topics }: Props = $props();
 	let fullTopicsArray: number[] = $derived.by(() => {
-		if (topics) {
-			return [...topics.primaryTopics, ...topics.secondaryTopics];
-		}
-		return [];
+		return getQuestionTopics(topics);
 	});
 
 	const topicColors = {

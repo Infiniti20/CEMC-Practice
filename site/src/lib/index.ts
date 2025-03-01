@@ -58,5 +58,10 @@ function processAnswer(html: string) {
 	return math(remove(remove(html, '\\('), '\\)'));
 }
 
-
-export { processAnswer, processHTMLBlock, isAnswerCorrect};
+function getQuestionTopics(topics?:{primaryTopics: number[],secondaryTopics: number[]} ){
+return [
+	...(topics?.primaryTopics ?? []),
+	...(topics?.secondaryTopics ?? [])
+];
+}
+export { processAnswer, processHTMLBlock, isAnswerCorrect,getQuestionTopics};
