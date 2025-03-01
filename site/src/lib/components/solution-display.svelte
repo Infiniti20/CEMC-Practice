@@ -31,7 +31,7 @@
         {/if}
       </div>
 
-      <div class="p-4 bg-muted rounded-lg">
+      <div class="p-4  rounded-lg">
         <h3 class="font-medium mb-2">Solution:</h3>
         <p class="text-muted-foreground">{@html processHTMLBlock(question.solutions.solution)}</p>
       </div>

@@ -21,7 +21,7 @@
 </script>
 
 <div class="space-y-4">
-	<div class="space-y-2 p-4 bg-muted rounded-lg">
+	<div class="space-y-2 p-4 rounded-lg">
         <div class="text-xl font-medium" id="question">{@html processHTMLBlock(question.question)}</div>
         <TopicBadge topics={question.topics} />
       </div>
@@ -61,7 +61,7 @@
 	}
     :global(#question > :last-child) {
 		margin: 1em 0;
-        margin-bottom: 0;
+        margin-bottom: 0.5em;
 	}
 	div :global(.center) {
 		text-align: center;
