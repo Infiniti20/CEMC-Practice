@@ -1,6 +1,7 @@
 import { math, display } from 'mathlifier';
 import { decode } from 'html-entities';
 
+
 function remove(str: string, pattern: string | RegExp): string {
 	return str.replaceAll(pattern, '');
 }
