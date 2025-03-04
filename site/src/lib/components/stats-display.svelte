@@ -143,7 +143,7 @@
                 <div>Incorrect: {topicStats.incorrect}</div>
                 <div class="flex items-center gap-1">
                   <Clock class="h-4 w-4" />
-                  {topicStats.time.toFixed(1)}s
+                  {topicStats.time.toFixed(1)}m
                 </div>
               </div>
             </AccordionContent>

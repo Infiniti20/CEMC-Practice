@@ -30,7 +30,8 @@
 		incorrect: 0,
 		streak: 0,
 		history: [],
-		topicStats: {}
+		topicStats: {},
+		time:0
 	});
 
 	onMount(() => {
@@ -42,7 +43,7 @@
 
 		selectedAnswer = answer;
 		const isCorrect = isAnswerCorrect(currentQuestion, answer);
-		const timeSpent = (Date.now() - startTime) / 1000; // time in seconds
+		const timeSpent = (Date.now() - startTime) / 60000; // time in minutes
 
 		// Update topicStats for each topic in the question
 		const newTopicStats = { ...stats.topicStats };
@@ -73,7 +74,8 @@
 					topics: getQuestionTopics(currentQuestion.topics)
 				}
 			],
-			topicStats: newTopicStats
+			topicStats: newTopicStats,
+			time:stats.time += timeSpent
 		};
 
 		showSolution = true;

@@ -39,4 +39,5 @@ interface Stats {
 	streak: number;
 	history: { question: string; correct: boolean; topics: number[] }[];
 	topicStats: { [key: number]: TopicStats };
+	time:number
 }
