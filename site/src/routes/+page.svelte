@@ -1,6 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '$lib/components/ui/card';
+	import {
+		Card,
+		CardContent,
+		CardDescription,
+		CardHeader,
+		CardTitle
+	} from '$lib/components/ui/card';
 	import { Button } from '$lib/components/ui/button';
 	import { Progress } from '$lib/components/ui/progress';
 	import { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
@@ -9,44 +15,76 @@
 	import SolutionDisplay from '$lib/components/solution-display.svelte';
 	import StatsDisplay from '$lib/components/stats-display.svelte';
 	import type { PageProps } from './$types';
-	import { isAnswerCorrect } from '$lib';
-			
-	let  {data} : PageProps = $props();
+	import { getQuestionTopics, isAnswerCorrect } from '$lib';
+
+	let { data }: PageProps = $props();
 	let currentQuestion: Question = $state(data);
-	let selectedAnswer:string|undefined = $state(undefined);
+	let selectedAnswer: string | undefined = $state(undefined);
 	let showSolution = $state(false);
 
-	let stats:any = $state({
+	let startTime: number = Date.now();
+
+	let stats: Stats = $state({
 		total: 0,
 		correct: 0,
 		incorrect: 0,
 		streak: 0,
-		history: []
-	})
+		history: [],
+		topicStats: {}
+	});
 
-	function handleAnswerSelect(answer:any) {
+	onMount(() => {
+		startTime = Date.now();
+	});
+
+	function handleAnswerSelect(answer: any) {
 		if (selectedAnswer) return; // Prevent changing answer after selection
 
 		selectedAnswer = answer;
-		const isCorrect =isAnswerCorrect(currentQuestion, answer);
+		const isCorrect = isAnswerCorrect(currentQuestion, answer);
+		const timeSpent = (Date.now() - startTime) / 1000; // time in seconds
 
+		// Update topicStats for each topic in the question
+		const newTopicStats = { ...stats.topicStats };
+
+		getQuestionTopics(currentQuestion.topics).forEach((topic) => {
+			let topicRef = topic
+			if (!newTopicStats[topicRef]) {
+				newTopicStats[topicRef] = { total: 0, correct: 0, incorrect: 0, time: 0 };
+			}
+			newTopicStats[topicRef].total += 1;
+			newTopicStats[topicRef].time += timeSpent;
+			if (isCorrect) {
+				newTopicStats[topicRef].correct += 1;
+			} else {
+				newTopicStats[topicRef].incorrect += 1;
+			}
+		});
 		stats = {
 			total: stats.total + 1,
 			correct: isCorrect ? stats.correct + 1 : stats.correct,
 			incorrect: isCorrect ? stats.incorrect : stats.incorrect + 1,
 			streak: isCorrect ? stats.streak + 1 : 0,
-			history: [...stats.history, { question: currentQuestion.question, correct: isCorrect }]
+			history: [
+				...stats.history,
+				{
+					question: currentQuestion.question,
+					correct: isCorrect,
+					topics: getQuestionTopics(currentQuestion.topics)
+				}
+			],
+			topicStats: newTopicStats
 		};
 
 		showSolution = true;
 	}
 
 	async function handleNextQuestion() {
-		currentQuestion = (await (await fetch(`/api/getQuestion?contest=pascal`)).json());
-		selectedAnswer =undefined;
+		currentQuestion = await (await fetch(`/api/getQuestion?contest=pascal`)).json();
+		selectedAnswer = undefined;
 		showSolution = false;
+		startTime = Date.now();
 	}
-
 </script>
 
 <main class="min-h-screen p-4 md:p-8 flex items-center justify-center">

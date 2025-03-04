@@ -1,22 +1,50 @@
 <script lang="ts">
-  import { Card, CardContent, CardHeader, CardTitle } from "$lib/components/ui/card";
-  import { CheckCircle, XCircle, Trophy, Activity } from "lucide-svelte";
+  import { CheckCircle, XCircle, Trophy, Activity, Clock } from 'lucide-svelte';
+  
+  // Import your custom components
+  // Note: You'll need to create these Svelte components separately
+  import TopicBadge from '$lib/components/topic-badge.svelte';
+  import {Card, CardContent, CardHeader,CardTitle} from '$lib/components/ui/card/';
+  import {Accordion, AccordionContent,AccordionItem, AccordionTrigger} from '$lib/components/ui/accordion';
+  import {Select,SelectContent,SelectItem,SelectTrigger} from '$lib/components/ui/select';
+  import {Input} from '$lib/components/ui/input/';
 
-  interface StatsData {
-    total: number;
-    correct: number;
-    incorrect: number;
-    streak: number;
-    history: { question: string; correct: boolean }[];
+
+  let { stats }:{stats:Stats} = $props();
+  
+  let topicFilter = $state("");
+  let sortBy = $state("most_practiced"); // Default sort option
+  
+  
+  
+  
+  
+  function sortTopics(entries: [string, TopicStats][], criteria:string) {
+    switch (criteria) {
+      case "accuracy":
+        return [...entries].sort((a, b) => {
+          const aAccuracy = a[1].total > 0 ? a[1].correct / a[1].total : 0;
+          const bAccuracy = b[1].total > 0 ? b[1].correct / b[1].total : 0;
+          return bAccuracy - aAccuracy;
+        });
+      case "time":
+        return [...entries].sort((a, b) => a[1].time - b[1].time);
+      case "most_practiced":
+      default:
+        return [...entries].sort((a, b) => b[1].total - a[1].total);
+    }
   }
-
-  interface Props {
-    stats: StatsData;
+  
+  function handleSortChange(string:string) {
+    sortBy = string;
   }
-
-  let { stats }: Props = $props();
-
   let accuracy = $derived(stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0);
+
+
+  let sortedTopics = $derived(sortTopics(Object.entries(stats.topicStats), sortBy));
+  let filteredTopics = $derived(sortedTopics.filter(([topic]) => 
+    topic.toLowerCase().includes(topicFilter.toLowerCase())
+  ));
 </script>
 
 <div class="space-y-6">
@@ -70,6 +98,61 @@
     </CardHeader>
   </Card>
 
+  <Card>
+    <CardHeader class="p-4 pb-2">
+      <CardTitle>Topic Stats</CardTitle>
+    </CardHeader>
+    <CardContent class="p-4 pt-0">
+      <div class="mb-4 flex flex-col sm:flex-row gap-2">
+        <Input
+          placeholder="Filter topics..."
+          value={topicFilter}
+          oninput={(e) => {
+            if (e.target) {
+              topicFilter = (e.target as HTMLInputElement).value;
+            }
+          }}
+          class="flex-grow"
+        />
+        <Select onValueChange={handleSortChange} value={sortBy} type="single">
+          <SelectTrigger class="w-full sm:w-[180px]">
+            <span>Sort by</span>
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="most_practiced">Most practiced</SelectItem>
+            <SelectItem value="accuracy">Highest accuracy</SelectItem>
+            <SelectItem value="time">Fastest time</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+      <Accordion type="single">
+        {#each filteredTopics as [topic, topicStats]}
+          <AccordionItem value={topic}>
+            <AccordionTrigger class="hover:no-underline">
+              <div class="flex items-center justify-between w-full">
+                <TopicBadge topics={{primaryTopics:[+topic],secondaryTopics:[]}} />
+                <div class="text-sm text-muted-foreground">
+                  Accuracy: {topicStats.total > 0 ? Math.round((topicStats.correct / topicStats.total) * 100) : 0}%
+                </div>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent>
+              <div class="grid grid-cols-2 gap-2 text-sm pt-2">
+                <div>Total: {topicStats.total}</div>
+                <div>Correct: {topicStats.correct}</div>
+                <div>Incorrect: {topicStats.incorrect}</div>
+                <div class="flex items-center gap-1">
+                  <Clock class="h-4 w-4" />
+                  {topicStats.time.toFixed(1)}s
+                </div>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        {/each}
+      </Accordion>
+    </CardContent>
+  </Card>
+
   {#if stats.history.length > 0}
     <Card>
       <CardHeader class="p-4 pb-2">
@@ -77,14 +160,14 @@
       </CardHeader>
       <CardContent class="p-4 pt-0">
         <div class="space-y-2 max-h-60 overflow-y-auto">
-          {#each [...stats.history].reverse() as item, index}
+          {#each [...stats.history].reverse() as item, index (index)}
             <div class="flex items-center gap-2 p-2 rounded-lg bg-muted/50">
               {#if item.correct}
                 <CheckCircle class="h-4 w-4 shrink-0 text-green-500" />
               {:else}
                 <XCircle class="h-4 w-4 shrink-0 text-red-500" />
               {/if}
-              <span class="text-sm truncate">{item.question}</span>
+              <span class="text-sm truncate flex-grow">{item.question}</span>
             </div>
           {/each}
         </div>

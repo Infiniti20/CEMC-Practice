@@ -104,7 +104,7 @@
 			class={`${generateColor(topic) || 'bg-gray-900 text-neutral-50 dark:bg-gray-700 dark:text-gray-300'} font-medium`}
 			variant="secondary"
 		>
-			{legend[topic.toString()]}
+			{legend[topic.toString() as keyof typeof legend]}
 		</Badge>
 	{/each}
 </div>
