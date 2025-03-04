@@ -2,8 +2,13 @@
 	import { Card } from '$lib/components/ui/card';
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group';
 	import { Label } from '$lib/components/ui/label';
+	import { Input } from '$lib/components/ui/input';
+	import { Button } from '$lib/components/ui/button';
+
 	import { processHTMLBlock, processAnswer, isAnswerCorrect } from '$lib';
-    import TopicBadge from '$lib/components/topic-badge.svelte';
+	import TopicBadge from '$lib/components/topic-badge.svelte';
+
+	import { isMultipleChoice } from '$lib/index';
 
 	interface Props {
 		question: Question;
@@ -18,38 +23,58 @@
 		}
 	}
 
+	let freeAnswer = $state('');
+	const handleSubmit = (e: SubmitEvent) => {
+    e.preventDefault()
+    onAnswerSelect(freeAnswer)
+	freeAnswer = ''
+  }
 </script>
 
 <div class="space-y-4">
 	<div class="space-y-2 p-4 rounded-lg">
-        <div class="text-xl font-medium" id="question">{@html processHTMLBlock(question.question)}</div>
-        <TopicBadge topics={question.topics} />
-      </div>
-
-	<RadioGroup value={selectedAnswer} class="space-y-2">
-		{#each question.answers as option, index}
-			<Card
-				class="cursor-pointer transition-colors {selectedAnswer === option
-                ? isAnswerCorrect(question, option)
-                  ? "border-green-500 bg-green-50 dark:bg-green-950/20"
-                  : "border-red-500 bg-red-50 dark:bg-red-950/20"
-                : "hover:bg-muted/50"}"
-				onclick={() => handleSelect(option)}
-			>
-				<div class="flex items-center space-x-2 p-4">
-					<RadioGroupItem
-						value={option}
-						id={`option-${index}`}
-						disabled={selectedAnswer !== undefined}
-						class="sr-only"
-					/>
-					<Label for={`option-${index}`} class="flex-1 cursor-pointer text-base">
-						{@html processAnswer(option)}
-					</Label>
-				</div>
-			</Card>
-		{/each}
-	</RadioGroup>
+		<div class="text-xl font-medium" id="question">{@html processHTMLBlock(question.question)}</div>
+		<TopicBadge topics={question.topics} />
+	</div>
+	{#if isMultipleChoice(question.solutions.ans)}
+		<RadioGroup value={selectedAnswer} class="space-y-2">
+			{#each question.answers as option, index}
+				<Card
+					class="cursor-pointer transition-colors {selectedAnswer === option
+						? isAnswerCorrect(question, option)
+							? 'border-green-500 bg-green-50 dark:bg-green-950/20'
+							: 'border-red-500 bg-red-50 dark:bg-red-950/20'
+						: 'hover:bg-muted/50'}"
+					onclick={() => handleSelect(option)}
+				>
+					<div class="flex items-center space-x-2 p-4">
+						<RadioGroupItem
+							value={option}
+							id={`option-${index}`}
+							disabled={selectedAnswer !== undefined}
+							class="sr-only"
+						/>
+						<Label for={`option-${index}`} class="flex-1 cursor-pointer text-base">
+							{@html processAnswer(option)}
+						</Label>
+					</div>
+				</Card>
+			{/each}
+		</RadioGroup>
+	{:else}
+		<form onsubmit={handleSubmit} class="space-y-4">
+			<Input
+				type="text"
+				placeholder="Enter your answer (0-99)"
+				value={freeAnswer}
+				onchange={(e) => freeAnswer = (e.target as HTMLInputElement).value}
+				disabled={selectedAnswer !== undefined}
+			/>
+			<Button type="submit" class="w-full" disabled={selectedAnswer !== undefined}>
+				Submit Answer
+			</Button>
+		</form>
+	{/if}
 	<div class="text-xs text-muted-foreground px-4">
 		Source: {`Pascal ${question.source.year} #${question.source.number + 1}`}
 	</div>
@@ -59,9 +84,9 @@
 	div :global(p) {
 		margin: 1em 0;
 	}
-    :global(#question > :last-child) {
+	:global(#question > :last-child) {
 		margin: 1em 0;
-        margin-bottom: 0.5em;
+		margin-bottom: 0.5em;
 	}
 	div :global(.center) {
 		text-align: center;

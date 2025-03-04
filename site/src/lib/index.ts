@@ -6,9 +6,9 @@ function remove(str: string, pattern: string | RegExp): string {
 }
 
 // TODO: Implement isAnswerCorrect globally
-function isAnswerCorrect(question: Question, option:string|number) {
+function isAnswerCorrect(question: Question, option:string) {
 
-	if(Number.isNaN(parseInt(question.solutions.ans)) && typeof option == 'string'){
+	if(Number.isNaN(parseInt(question.solutions.ans))){
 		let correctIndex = question.solutions.ans.charCodeAt(0)-65
 		let index = question.answers.indexOf(option)
 
@@ -20,7 +20,10 @@ function isAnswerCorrect(question: Question, option:string|number) {
 
 		
 	} else {
-		return false;
+		    const normalizedUserAnswer = option.trim().toLowerCase().replace(/\s+/g, '');
+				const normalizedCorrectAnswer = question.solutions.ans.trim().toLowerCase().replace(/\s+/g, '');
+				return normalizedUserAnswer === normalizedCorrectAnswer;
+
 	}
 }
 
@@ -64,4 +67,9 @@ return [
 	...(topics?.secondaryTopics ?? [])
 ];
 }
-export { processAnswer, processHTMLBlock, isAnswerCorrect,getQuestionTopics};
+
+function isMultipleChoice(ans:string){
+	return Number.isNaN(parseInt(ans));
+}
+
+export { processAnswer, processHTMLBlock, isAnswerCorrect,getQuestionTopics,isMultipleChoice};
