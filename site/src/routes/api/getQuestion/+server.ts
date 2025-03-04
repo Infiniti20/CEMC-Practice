@@ -20,9 +20,8 @@ export const GET: RequestHandler = async ({ request, params, url }: RequestEvent
 		}
 		return Math.random() > 0.5 ? true : false;
 	});
-
 	const question = data[Math.floor(Math.random() * data.length)];
-	const questionData = JSON.parse(JSON.stringify(question));
+	const questionData = question;
 	questionData.question = decodeBase64Compression(questionData.question);
 	questionData.solutions.solution = decodeBase64Compression(questionData.solutions.solution);
 
