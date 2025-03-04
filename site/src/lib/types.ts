@@ -13,6 +13,7 @@ type Question = {
 		year: number;
 		number: number;
 	};
+	percentage_correct:number
 };
 type ContestFile = {
 	data: Question[];
