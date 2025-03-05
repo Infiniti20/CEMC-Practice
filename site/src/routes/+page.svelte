@@ -7,7 +7,6 @@
 		CardHeader,
 		CardTitle
 	} from '$lib/components/ui/card';
-	import { Button } from '$lib/components/ui/button';
 	import { Progress } from '$lib/components/ui/progress';
 	import { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
 	import { CheckCircle, ChartBar } from 'lucide-svelte';
@@ -16,7 +15,6 @@
 	import StatsDisplay from '$lib/components/stats-display.svelte';
 	import type { PageProps } from './$types';
 	import { getQuestionTopics, isAnswerCorrect } from '$lib';
-	import { json } from '@sveltejs/kit';
 
 	let { data }: PageProps = $props();
 	let currentQuestion: Question = $state(data);
