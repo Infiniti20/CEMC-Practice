@@ -37,7 +37,7 @@ interface Stats {
 	correct: number;
 	incorrect: number;
 	streak: number;
-	history: { question: string; correct: boolean; topics: number[] }[];
+	history: { question: string; correct: boolean; }[];
 	topicStats: { [key: string]: TopicStats };
 	time:number
 }

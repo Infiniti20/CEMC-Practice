@@ -86,12 +86,11 @@
 			incorrect: isCorrect ? stats.incorrect : stats.incorrect + 1,
 			streak: isCorrect ? stats.streak + 1 : 0,
 			history: [
-				// ...stats.history,
-				// {
-				// 	question: currentQuestion.question,
-				// 	correct: isCorrect,
-				// 	topics: getQuestionTopics(currentQuestion.topics)
-				// }
+				...stats.history,
+				{
+					question: `${currentQuestion.source.year} + ${currentQuestion.source.number}`,
+					correct:isCorrect
+				}
 			],
 			topicStats: newTopicStats,
 			time: (stats.time += timeSpent)
