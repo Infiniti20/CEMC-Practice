@@ -16,7 +16,6 @@ export const POST: RequestHandler = async ({ request, params, url }: RequestEven
 		questionData = JSON.parse(JSON.stringify(question));
 	} else {
 		const body = await request.json();
-		console.log(body);
 		let question = selectNextQuestion(data, body as Stats);
 		questionData = JSON.parse(JSON.stringify(question));
 	}
@@ -43,17 +42,15 @@ function selectNextQuestion(questions: Question[], userStats: Stats) {
 		let difficulty = 100 - question.percentage_correct;
 
 		// Get user statistics
-		let topicWeight = 0.9;
-		let timeFactorWeight = 1.5;
+		let topicWeight = 0.8;
+		let timeFactorWeight = 1;
 		if (topic) {
 			let s = getStatsPerQuestionTopics(topic, userStats.topicStats);
-			console.log(s)
 			let topicAccuracy = s.accuracy;
 			let avgTimeForTopic = s.time;
 			let overallAvgTime = userStats.time / userStats.total;
 			topicWeight = 1 - topicAccuracy; // Lower accuracy → higher weight
 			timeFactorWeight = Math.min(1.5, avgTimeForTopic / overallAvgTime);
-			console.log(timeFactorWeight+"  "+topicWeight)
 		}
 
 		// Calculate component weights
@@ -65,6 +62,7 @@ function selectNextQuestion(questions: Question[], userStats: Stats) {
 
 		// Calculate final question weight
 		let weight = topicWeight * difficultyWeight * timeFactorWeight;
+	
 
 		// Apply decay to recently answered questions
 
