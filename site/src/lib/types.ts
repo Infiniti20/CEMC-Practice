@@ -38,6 +38,6 @@ interface Stats {
 	incorrect: number;
 	streak: number;
 	history: { question: string; correct: boolean; topics: number[] }[];
-	topicStats: { [key: number]: TopicStats };
+	topicStats: { [key: string]: TopicStats };
 	time:number
 }

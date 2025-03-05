@@ -16,6 +16,7 @@
 	import StatsDisplay from '$lib/components/stats-display.svelte';
 	import type { PageProps } from './$types';
 	import { getQuestionTopics, isAnswerCorrect } from '$lib';
+	import { json } from '@sveltejs/kit';
 
 	let { data }: PageProps = $props();
 	let currentQuestion: Question = $state(data);
@@ -67,12 +68,12 @@
 			incorrect: isCorrect ? stats.incorrect : stats.incorrect + 1,
 			streak: isCorrect ? stats.streak + 1 : 0,
 			history: [
-				...stats.history,
-				{
-					question: currentQuestion.question,
-					correct: isCorrect,
-					topics: getQuestionTopics(currentQuestion.topics)
-				}
+				// ...stats.history,
+				// {
+				// 	question: currentQuestion.question,
+				// 	correct: isCorrect,
+				// 	topics: getQuestionTopics(currentQuestion.topics)
+				// }
 			],
 			topicStats: newTopicStats,
 			time:stats.time += timeSpent
@@ -82,7 +83,7 @@
 	}
 
 	async function handleNextQuestion() {
-		currentQuestion = await (await fetch(`/api/getQuestion?contest=pascal`)).json();
+		currentQuestion = await (await fetch(`/api/getQuestion?contest=pascal&topic=1`,{method:"POST",body:JSON.stringify(stats)})).json();
 		selectedAnswer = undefined;
 		showSolution = false;
 		startTime = Date.now();
