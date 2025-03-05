@@ -1,5 +1,4 @@
 import { math, display } from 'mathlifier';
-import { decode } from 'html-entities';
 
 
 function remove(str: string, pattern: string | RegExp): string {
@@ -72,5 +71,9 @@ return [
 function isMultipleChoice(ans:string){
 	return Number.isNaN(parseInt(ans));
 }
-
+function decode(html:string) {
+	var txt = document.createElement('textarea');
+	txt.innerHTML = html;
+	return txt.value;
+}
 export { processAnswer, processHTMLBlock, isAnswerCorrect,getQuestionTopics,isMultipleChoice};
