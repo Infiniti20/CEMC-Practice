@@ -42,7 +42,7 @@ function selectNextQuestion(questions: Question[], userStats: Stats) {
 		let difficulty = 100 - question.percentage_correct;
 
 		// Get user statistics
-		let topicWeight = 0.8;
+		let topicWeight = 0.85;
 		let timeFactorWeight = 1;
 		if (topic) {
 			let s = getStatsPerQuestionTopics(topic, userStats.topicStats);
