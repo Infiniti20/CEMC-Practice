@@ -32,11 +32,31 @@
 		streak: 0,
 		history: [],
 		topicStats: {},
-		time:0
+		time: 0
 	});
+
+	// Function to save stats to localStorage
+	function saveStatsToLocalStorage() {
+		try {
+			localStorage.setItem('mathPracticeStats', JSON.stringify(stats));
+		} catch (e) {
+			console.error('Failed to save stats to localStorage:', e);
+		}
+	}
 
 	onMount(() => {
 		startTime = Date.now();
+
+		// Load stats from localStorage if they exist
+		try {
+			const savedStats = localStorage.getItem('mathPracticeStats');
+			if (savedStats) {
+				stats = JSON.parse(savedStats);
+			}
+		} catch (e) {
+			console.error('Failed to load stats from localStorage:', e);
+			// Continue with default stats
+		}
 	});
 
 	function handleAnswerSelect(answer: any) {
@@ -50,7 +70,7 @@
 		const newTopicStats = { ...stats.topicStats };
 
 		getQuestionTopics(currentQuestion.topics).forEach((topic) => {
-			let topicRef = topic
+			let topicRef = topic;
 			if (!newTopicStats[topicRef]) {
 				newTopicStats[topicRef] = { total: 0, correct: 0, incorrect: 0, time: 0 };
 			}
@@ -76,14 +96,22 @@
 				// }
 			],
 			topicStats: newTopicStats,
-			time:stats.time += timeSpent
+			time: (stats.time += timeSpent)
 		};
+
+		// Save stats to localStorage after updating
+		saveStatsToLocalStorage();
 
 		showSolution = true;
 	}
 
 	async function handleNextQuestion() {
-		currentQuestion = await (await fetch(`/api/getQuestion?contest=pascal&topic=1`,{method:"POST",body:JSON.stringify(stats)})).json();
+		currentQuestion = await (
+			await fetch(`/api/getQuestion?contest=pascal&topic=1`, {
+				method: 'POST',
+				body: JSON.stringify(stats)
+			})
+		).json();
 		selectedAnswer = undefined;
 		showSolution = false;
 		startTime = Date.now();
