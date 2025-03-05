@@ -76,7 +76,7 @@ def add_percentage_correct(questions, csv_filepath):
         if "source" in question and "year" in question["source"] and "number" in question["source"]:
             try:
                 q_year = int(question["source"]["year"])
-                q_number = int(question["source"]["number"])
+                q_number = int(question["source"]["number"])+1
             except ValueError:
                 q_year = q_number = None
             # Look up the percentage correct using the (year, question number) key
