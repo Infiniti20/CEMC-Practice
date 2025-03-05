@@ -71,9 +71,22 @@ return [
 function isMultipleChoice(ans:string){
 	return Number.isNaN(parseInt(ans));
 }
-function decode(html:string) {
-	var txt = document.createElement('textarea');
-	txt.innerHTML = html;
-	return txt.value;
+function decode(encodedString:string) {
+	var translate_re = /&(nbsp|amp|quot|lt|gt);/g;
+	var translate = {
+		nbsp: ' ',
+		amp: '&',
+		quot: '"',
+		lt: '<',
+		gt: '>'
+	};
+	return encodedString
+		.replace(translate_re, function (match, entity: keyof typeof translate) {
+			return translate[entity];
+		})
+		.replace(/&#(\d+);/gi, function (match, numStr) {
+			var num = parseInt(numStr, 10);
+			return String.fromCharCode(num);
+		});
 }
 export { processAnswer, processHTMLBlock, isAnswerCorrect,getQuestionTopics,isMultipleChoice};
