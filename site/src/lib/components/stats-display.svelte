@@ -85,6 +85,19 @@
 		}
 	}
 
+	function processFilterString(s:string){
+		switch (s) {
+			case 'accuracy':
+				return "Accuracy"
+			case 'time':
+				return "Time"
+			case 'most_practiced':
+				return "Most Practiced"
+			default:
+				return null
+		}
+	}
+
 	function handleSortChange(string: string) {
 		sortBy = string;
 	}
@@ -167,7 +180,7 @@
 				/>
 				<Select onValueChange={handleSortChange} value={sortBy} type="single">
 					<SelectTrigger class="w-full sm:w-[180px]">
-						<span>Sort by</span>
+						<span>{(processFilterString(sortBy) ?? "Sort by")}</span>
 					</SelectTrigger>
 					<SelectContent>
 						<SelectItem value="most_practiced">Most practiced</SelectItem>
