@@ -61,7 +61,7 @@ def parse_pascal_results(text_content):
         
         # Pattern for open-ended questions (newer format)
         # Format: question_num answer_value answer_value (percentage)
-        open_match = re.match(r'^\s*(\d+)\s+(\d+)\s+\2\s+\(([\d.]+)\)', line)
+        open_match = re.match(r'^\s*(\d+)\s+(\d+)(?:\s+\d+\s+\([\d.]+\))*\s+\2\s+\(([\d.]+)\)', line)
         if open_match:
             question_num = int(open_match.group(1))
             correct_answer = open_match.group(2)
