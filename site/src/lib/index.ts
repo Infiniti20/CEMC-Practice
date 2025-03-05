@@ -89,4 +89,7 @@ function decode(encodedString:string) {
 			return String.fromCharCode(num);
 		});
 }
-export { processAnswer, processHTMLBlock, isAnswerCorrect,getQuestionTopics,isMultipleChoice};
+function capitalize(s: string) {
+	return String(s[0]).toUpperCase() + String(s).slice(1);
+}
+export { processAnswer, processHTMLBlock, isAnswerCorrect,getQuestionTopics,isMultipleChoice, capitalize};

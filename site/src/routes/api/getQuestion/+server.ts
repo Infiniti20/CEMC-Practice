@@ -8,7 +8,7 @@ import { decompress } from 'brotli';
 export const POST: RequestHandler = async ({ request, params, url }: RequestEvent) => {
 	let questionData;
 	let topic = parseInt(url.searchParams.get('topic') ?? '0');
-	let contest = url.searchParams.get('contest');
+	let contest = url.searchParams.get('contest')?.toLowerCase();
 
 	let data = jsonFiles[`/static/contest_files/${contest}_questions.json`]['data'];
 	if (topic == 0) {

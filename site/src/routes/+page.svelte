@@ -14,12 +14,13 @@
 	import SolutionDisplay from '$lib/components/solution-display.svelte';
 	import StatsDisplay from '$lib/components/stats-display.svelte';
 	import type { PageProps } from './$types';
-	import { getQuestionTopics, isAnswerCorrect } from '$lib';
+	import { capitalize, getQuestionTopics, isAnswerCorrect } from '$lib';
 
 	let { data }: PageProps = $props();
-	let currentQuestion: Question = $state(data);
+	let currentQuestion: Question = $state(data.question);
 	let selectedAnswer: string | undefined = $state(undefined);
 	let showSolution = $state(false);
+	let contest:string = data.contest
 
 	let startTime: number = Date.now();
 
@@ -88,7 +89,7 @@
 			history: [
 				...stats.history,
 				{
-					question: `${currentQuestion.source.year} + ${currentQuestion.source.number}`,
+					question: `${capitalize(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number}`,
 					correct:isCorrect
 				}
 			],
@@ -104,7 +105,7 @@
 
 	async function handleNextQuestion() {
 		currentQuestion = await (
-			await fetch(`/api/getQuestion?contest=pascal&topic=1`, {
+			await fetch(`/api/getQuestion?contest=${contest}&topic=1`, {
 				method: 'POST',
 				body: JSON.stringify(stats)
 			})
@@ -156,6 +157,7 @@
 							question={currentQuestion}
 							{selectedAnswer}
 							onAnswerSelect={handleAnswerSelect}
+							{contest}
 						/>
 
 						{#if showSolution}

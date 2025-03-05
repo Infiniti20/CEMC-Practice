@@ -5,7 +5,7 @@
 	import { Input } from '$lib/components/ui/input';
 	import { Button } from '$lib/components/ui/button';
 
-	import { processHTMLBlock, processAnswer, isAnswerCorrect } from '$lib';
+	import { processHTMLBlock, processAnswer, isAnswerCorrect, capitalize } from '$lib';
 	import TopicBadge from '$lib/components/topic-badge.svelte';
 
 	import { isMultipleChoice } from '$lib/index';
@@ -14,9 +14,10 @@
 		question: Question;
 		selectedAnswer: string | undefined;
 		onAnswerSelect: (option: string) => void;
+		contest: string;
 	}
 
-	let { question, selectedAnswer, onAnswerSelect }: Props = $props();
+	let { question, selectedAnswer, onAnswerSelect, contest }: Props = $props();
 	function handleSelect(option: string) {
 		if (!selectedAnswer) {
 			onAnswerSelect(option);
@@ -25,10 +26,12 @@
 
 	let freeAnswer = $state('');
 	const handleSubmit = (e: SubmitEvent) => {
-    e.preventDefault()
-    onAnswerSelect(freeAnswer)
-	freeAnswer = ''
-  }
+		e.preventDefault();
+		onAnswerSelect(freeAnswer);
+		freeAnswer = '';
+	};
+
+	
 </script>
 
 <div class="space-y-4">
@@ -67,7 +70,7 @@
 				type="text"
 				placeholder="Enter your answer (0-99)"
 				value={freeAnswer}
-				onchange={(e) => freeAnswer = (e.target as HTMLInputElement).value}
+				onchange={(e) => (freeAnswer = (e.target as HTMLInputElement).value)}
 				disabled={selectedAnswer !== undefined}
 			/>
 			<Button type="submit" class="w-full" disabled={selectedAnswer !== undefined}>
@@ -76,7 +79,7 @@
 		</form>
 	{/if}
 	<div class="text-xs text-muted-foreground px-4">
-		Source: {`Pascal ${question.source.year} #${question.source.number + 1}`}
+		Source: {`${capitalize(contest)} ${question.source.year} #${question.source.number + 1}`}
 	</div>
 </div>
 
