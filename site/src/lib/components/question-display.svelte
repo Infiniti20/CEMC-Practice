@@ -5,7 +5,7 @@
 	import { Input } from '$lib/components/ui/input';
 	import { Button } from '$lib/components/ui/button';
 
-	import { processHTMLBlock, processAnswer, isAnswerCorrect, capitalize } from '$lib';
+	import { processHTMLBlock, processAnswer, isAnswerCorrect, formatName } from '$lib';
 	import TopicBadge from '$lib/components/topic-badge.svelte';
 
 	import { isMultipleChoice } from '$lib/index';
@@ -79,7 +79,7 @@
 		</form>
 	{/if}
 	<div class="text-xs text-muted-foreground px-4">
-		Source: {`${capitalize(contest)} ${question.source.year} #${question.source.number + 1}`}
+		Source: {`${formatName(contest)} ${question.source.year} #${question.source.number + 1}`}
 	</div>
 </div>
 

@@ -89,7 +89,11 @@ function decode(encodedString:string) {
 			return String.fromCharCode(num);
 		});
 }
-function capitalize(s: string) {
-	return String(s[0]).toUpperCase() + String(s).slice(1);
+function formatName(s: string) {
+	const legend: { [key: string]: string } = {
+		"pascal": "Pascal",
+		"gauss7": "Gauss (Gr. 7)"
+	}
+	return legend[s]
 }
-export { processAnswer, processHTMLBlock, isAnswerCorrect,getQuestionTopics,isMultipleChoice, capitalize};
+export { processAnswer, processHTMLBlock, isAnswerCorrect,getQuestionTopics,isMultipleChoice, formatName};

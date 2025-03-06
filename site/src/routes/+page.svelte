@@ -14,7 +14,7 @@
 	import SolutionDisplay from '$lib/components/solution-display.svelte';
 	import StatsDisplay from '$lib/components/stats-display.svelte';
 	import type { PageProps } from './$types';
-	import { capitalize, getQuestionTopics, isAnswerCorrect } from '$lib';
+	import { formatName, getQuestionTopics, isAnswerCorrect } from '$lib';
 
 	let { data }: PageProps = $props();
 	let currentQuestion: Question = $state(data.question);
@@ -89,7 +89,7 @@
 			history: [
 				...stats.history,
 				{
-					question: `${capitalize(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number}`,
+					question: `${formatName(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number}`,
 					correct:isCorrect
 				}
 			],
