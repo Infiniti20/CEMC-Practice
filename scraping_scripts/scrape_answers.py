@@ -5,7 +5,8 @@ import re
 
 # Fetch the metadata from the URL with the specified headers
 year = 2013;
-url = f"https://cemc.uwaterloo.ca/sites/default/files/documents/{year}/{year}PascalSolution.html"
+contest = "Pascal"
+url = f"https://cemc.uwaterloo.ca/sites/default/files/documents/{year}/{year}{contest}Solution.html"
 headers = {"Accept": "application/vnd.citationstyles.csl+json"}
 response = requests.get(url, headers=headers)
 metadata = response.text
