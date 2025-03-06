@@ -4,6 +4,7 @@
   import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "$lib/components/ui/card";
   import { Select, SelectContent, SelectItem, SelectTrigger } from "$lib/components/ui/select";
   import { Button } from "$lib/components/ui/button";
+	import { formatName } from '$lib';
 
   let selectedGrade = '';
   let selectedTopic = '';
@@ -13,8 +14,8 @@
   ];
 
   const topicOptions = {
-    "9th Grade": ["Pascal"],
-    "7th Grade": ["Advanced Algebra", "Geometry", "Statistics Introduction"],
+    "9th Grade": ["pascal"],
+    "7th Grade": ["gauss7"],
     "8th Grade": ["Linear Equations", "Functions", "Pythagorean Theorem"],
   };
 
@@ -49,14 +50,14 @@
 
       {#if selectedGrade}
         <div class="space-y-2">
-          <label for="topic-select" class="text-sm font-medium">Select a topic:</label>
+          <label for="topic-select" class="text-sm font-medium">Select a contest:</label>
           <Select bind:value={selectedTopic} type="single">
             <SelectTrigger id="topic-select">
-                {selectedTopic || "Choose a topic"}
+                {formatName(selectedTopic) || "Choose a contest"}
             </SelectTrigger>
             <SelectContent>
               {#each topicOptions[selectedGrade as keyof typeof topicOptions] as topic}
-                <SelectItem value={topic}>{topic}</SelectItem>
+                <SelectItem value={topic}>{formatName(topic)}</SelectItem>
               {/each}
             </SelectContent>
           </Select>
