@@ -1,5 +1,6 @@
 import json
 import csv
+import math
 
 def generate_topic_ids(data):
     topic_set = set()
@@ -86,6 +87,12 @@ def add_percentage_correct(questions, csv_filepath):
 
     return questions
 
+def add_difficulty_curve(questions):
+    for question in questions["data"]:
+       x = int(question["source"]["number"])+1
+       d = -0.00325384 * x**3 + 0.00798779 * x ** 2 + -1.9921642*x + 98.90434170400468
+       question["percentage_correct"] = round(d,2)
+    return questions
 
 def add_solution_data(questions, csv_filepath,output):
     with open(questions, "r", encoding="utf-8") as f:
@@ -97,5 +104,16 @@ def add_solution_data(questions, csv_filepath,output):
     # Optionally, write the updated questions back to a new JSON file
     with open(output, "w", encoding="utf-8") as f:
         json.dump(updated_questions, f, indent=2)
-# process_json("contest_data/pascal/pascal.json","contest_data/pascal/pascal_id.json")
-add_solution_data("contest_data/pascal/pascal_questions.json","test/all_pascal_results.csv","contest_data/pascal/pascal_questions.json")
+def add_solution_curve(questions, output):
+    with open(questions, "r", encoding="utf-8") as f:
+        questions = json.load(f)
+    
+    # Update questions by adding percentage correct from the CSV
+    updated_questions = add_difficulty_curve(questions)
+    
+    # Optionally, write the updated questions back to a new JSON file
+    with open(output, "w", encoding="utf-8") as f:
+        json.dump(updated_questions, f, indent=2)
+# process_json("contest_data/gauss7/gauss7.json","contest_data/gauss7/gauss7_id.json")
+# add_solution_data("contest_data/pascal/pascal_questions.json","test/all_pascal_results.csv","contest_data/pascal/pascal_questions.json")
+add_solution_curve("contest_data/gauss7/gauss7_questions.json","contest_data/gauss7/gauss7_questions.json")

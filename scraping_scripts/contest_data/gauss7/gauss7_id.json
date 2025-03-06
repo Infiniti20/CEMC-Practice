@@ -1,0 +1,3546 @@
+{
+  "data": {
+    "2005": {
+      "1": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19,
+          27
+        ]
+      },
+      "2": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          10,
+          27
+        ]
+      },
+      "3": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          10,
+          15,
+          22
+        ]
+      },
+      "4": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          11,
+          27
+        ]
+      },
+      "5": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          10
+        ]
+      },
+      "6": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36
+        ]
+      },
+      "7": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          31
+        ]
+      },
+      "8": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          2,
+          41
+        ]
+      },
+      "9": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      },
+      "10": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          25
+        ]
+      },
+      "11": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          15,
+          22
+        ]
+      },
+      "12": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          38,
+          10,
+          15,
+          25
+        ]
+      },
+      "13": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          41,
+          3
+        ]
+      },
+      "14": {
+        "primaryTopics": [
+          29
+        ],
+        "secondaryTopics": [
+          27,
+          24
+        ]
+      },
+      "15": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          37,
+          41
+        ]
+      },
+      "16": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          19,
+          38
+        ]
+      },
+      "17": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          27,
+          13
+        ]
+      },
+      "18": {
+        "primaryTopics": [
+          29,
+          8
+        ],
+        "secondaryTopics": [
+          20,
+          36
+        ]
+      },
+      "19": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          30
+        ]
+      },
+      "20": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          38
+        ]
+      },
+      "21": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          31,
+          38
+        ]
+      },
+      "22": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19
+        ]
+      },
+      "23": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          24,
+          13
+        ]
+      },
+      "24": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          19,
+          13
+        ]
+      },
+      "25": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7,
+          10
+        ]
+      }
+    },
+    "2006": {
+      "1": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "2": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          2
+        ]
+      },
+      "3": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "4": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          32,
+          33
+        ]
+      },
+      "5": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19,
+          27
+        ]
+      },
+      "6": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27,
+          11
+        ]
+      },
+      "8": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "9": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36
+        ]
+      },
+      "10": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          10,
+          25,
+          15
+        ]
+      },
+      "11": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          31,
+          10
+        ]
+      },
+      "12": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          42
+        ]
+      },
+      "14": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          22,
+          5
+        ]
+      },
+      "15": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          31,
+          38
+        ]
+      },
+      "16": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19
+        ]
+      },
+      "17": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          25
+        ]
+      },
+      "18": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          38
+        ]
+      },
+      "19": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          25,
+          15
+        ]
+      },
+      "20": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          40
+        ]
+      },
+      "21": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          13,
+          25
+        ]
+      },
+      "22": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          24,
+          3
+        ]
+      },
+      "23": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          24,
+          13,
+          11
+        ]
+      },
+      "24": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          41
+        ]
+      },
+      "25": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          4,
+          7
+        ]
+      }
+    },
+    "2007": {
+      "1": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "2": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          11
+        ]
+      },
+      "4": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          31
+        ]
+      },
+      "5": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19,
+          10
+        ]
+      },
+      "6": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19,
+          10
+        ]
+      },
+      "7": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          25,
+          22
+        ]
+      },
+      "8": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          2,
+          41
+        ]
+      },
+      "9": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          40
+        ]
+      },
+      "11": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          30
+        ]
+      },
+      "12": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36
+        ]
+      },
+      "13": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          12
+        ]
+      },
+      "14": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      },
+      "15": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          12,
+          7
+        ]
+      },
+      "17": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          38,
+          13
+        ]
+      },
+      "18": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7,
+          30
+        ]
+      },
+      "19": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      },
+      "20": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          32
+        ]
+      },
+      "21": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      },
+      "22": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          4
+        ]
+      },
+      "23": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          19
+        ]
+      },
+      "24": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          11,
+          27
+        ]
+      },
+      "25": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7,
+          38
+        ]
+      }
+    },
+    "2008": {
+      "1": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "2": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          10
+        ]
+      },
+      "3": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19
+        ]
+      },
+      "4": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          33,
+          32
+        ]
+      },
+      "5": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          10
+        ]
+      },
+      "6": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          2
+        ]
+      },
+      "7": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          34
+        ]
+      },
+      "8": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19,
+          30
+        ]
+      },
+      "9": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          22,
+          19
+        ]
+      },
+      "13": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          2,
+          41
+        ]
+      },
+      "15": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          40
+        ]
+      },
+      "16": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          31,
+          3
+        ]
+      },
+      "17": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          32,
+          13
+        ]
+      },
+      "18": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          4
+        ]
+      },
+      "19": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          40
+        ]
+      },
+      "20": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          18
+        ]
+      },
+      "21": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          38,
+          19
+        ]
+      },
+      "22": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          37
+        ]
+      },
+      "23": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      },
+      "24": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          41,
+          3
+        ]
+      },
+      "25": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          11,
+          7
+        ]
+      }
+    },
+    "2009": {
+      "1": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27,
+          10
+        ]
+      },
+      "2": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          32
+        ]
+      },
+      "3": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          34
+        ]
+      },
+      "4": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          10
+        ]
+      },
+      "5": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          22,
+          15
+        ]
+      },
+      "7": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          38,
+          25
+        ]
+      },
+      "8": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          2,
+          41
+        ]
+      },
+      "9": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      },
+      "10": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          40
+        ]
+      },
+      "11": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          38
+        ]
+      },
+      "12": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          41
+        ]
+      },
+      "13": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          27,
+          25
+        ]
+      },
+      "14": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          15
+        ]
+      },
+      "15": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          18
+        ]
+      },
+      "16": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          13
+        ]
+      },
+      "17": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          4
+        ]
+      },
+      "19": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36
+        ]
+      },
+      "20": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          37
+        ]
+      },
+      "21": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19
+        ]
+      },
+      "22": {
+        "primaryTopics": [
+          29
+        ],
+        "secondaryTopics": [
+          20
+        ]
+      },
+      "23": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          31,
+          19
+        ]
+      },
+      "24": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          37,
+          3,
+          41
+        ]
+      },
+      "25": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      }
+    },
+    "2010": {
+      "1": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          22
+        ]
+      },
+      "2": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          31
+        ]
+      },
+      "3": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "4": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          22
+        ]
+      },
+      "5": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "6": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          10,
+          11
+        ]
+      },
+      "7": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          2
+        ]
+      },
+      "8": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          42,
+          35
+        ]
+      },
+      "9": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          24,
+          27
+        ]
+      },
+      "10": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          18
+        ]
+      },
+      "11": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3
+        ]
+      },
+      "12": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19
+        ]
+      },
+      "13": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          30,
+          4
+        ]
+      },
+      "14": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19,
+          31
+        ]
+      },
+      "15": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          32
+        ]
+      },
+      "16": {
+        "primaryTopics": [
+          29
+        ],
+        "secondaryTopics": [
+          20,
+          24
+        ]
+      },
+      "17": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          11,
+          24
+        ]
+      },
+      "18": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      },
+      "19": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19,
+          28
+        ]
+      },
+      "20": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      },
+      "21": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          38,
+          4
+        ]
+      },
+      "22": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          36
+        ]
+      },
+      "23": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "24": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      },
+      "25": {
+        "primaryTopics": [
+          8,
+          26
+        ],
+        "secondaryTopics": [
+          38,
+          12
+        ]
+      }
+    },
+    "2011": {
+      "1": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "2": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "3": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          31,
+          22
+        ]
+      },
+      "4": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          38
+        ]
+      },
+      "5": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          10
+        ]
+      },
+      "6": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36
+        ]
+      },
+      "7": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19
+        ]
+      },
+      "8": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19
+        ]
+      },
+      "9": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          40
+        ]
+      },
+      "10": {
+        "primaryTopics": [
+          29
+        ],
+        "secondaryTopics": [
+          24
+        ]
+      },
+      "11": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          2,
+          13
+        ]
+      },
+      "12": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          32
+        ]
+      },
+      "13": {
+        "primaryTopics": [
+          29
+        ],
+        "secondaryTopics": [
+          24,
+          23
+        ]
+      },
+      "14": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          11
+        ]
+      },
+      "15": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          38
+        ]
+      },
+      "16": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      },
+      "17": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36
+        ]
+      },
+      "18": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          13,
+          24
+        ]
+      },
+      "19": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "20": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          42,
+          35
+        ]
+      },
+      "21": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          30
+        ]
+      },
+      "22": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          38,
+          13
+        ]
+      },
+      "23": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27,
+          11
+        ]
+      },
+      "24": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      },
+      "25": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      }
+    },
+    "2012": {
+      "1": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "2": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          11
+        ]
+      },
+      "3": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36
+        ]
+      },
+      "4": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19
+        ]
+      },
+      "5": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          2
+        ]
+      },
+      "7": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          23,
+          24,
+          23
+        ]
+      },
+      "8": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          31,
+          19
+        ]
+      },
+      "9": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          4,
+          22
+        ]
+      },
+      "10": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          25,
+          38,
+          22
+        ]
+      },
+      "11": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          32,
+          3
+        ]
+      },
+      "12": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19,
+          27
+        ]
+      },
+      "13": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          36,
+          31
+        ]
+      },
+      "14": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          11,
+          27
+        ]
+      },
+      "15": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          38
+        ]
+      },
+      "16": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          34,
+          18
+        ]
+      },
+      "17": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19
+        ]
+      },
+      "18": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          13,
+          27
+        ]
+      },
+      "19": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          4
+        ]
+      },
+      "20": {
+        "primaryTopics": [
+          29
+        ],
+        "secondaryTopics": [
+          24,
+          20
+        ]
+      },
+      "21": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          42,
+          35,
+          25
+        ]
+      },
+      "22": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          4,
+          31
+        ]
+      },
+      "23": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          11,
+          12
+        ]
+      },
+      "24": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          37
+        ]
+      },
+      "25": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          30
+        ]
+      }
+    },
+    "2013": {
+      "1": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "2": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          12
+        ]
+      },
+      "3": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          11,
+          10
+        ]
+      },
+      "4": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "5": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          2
+        ]
+      },
+      "6": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "7": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19,
+          28
+        ]
+      },
+      "8": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          19,
+          25
+        ]
+      },
+      "9": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          13,
+          14
+        ]
+      },
+      "10": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          11,
+          28
+        ]
+      },
+      "11": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          39,
+          35
+        ]
+      },
+      "12": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          12,
+          18
+        ]
+      },
+      "13": {
+        "primaryTopics": [
+          29
+        ],
+        "secondaryTopics": [
+          24
+        ]
+      },
+      "15": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          30
+        ]
+      },
+      "16": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          4
+        ]
+      },
+      "18": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3
+        ]
+      },
+      "19": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36
+        ]
+      },
+      "20": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          30,
+          7
+        ]
+      },
+      "21": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          11
+        ]
+      },
+      "22": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          30,
+          24
+        ]
+      },
+      "23": {
+        "primaryTopics": [
+          21,
+          26
+        ],
+        "secondaryTopics": [
+          41,
+          19,
+          3
+        ]
+      },
+      "24": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7,
+          24
+        ]
+      },
+      "25": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19,
+          28
+        ]
+      }
+    },
+    "2014": {
+      "1": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "2": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          15
+        ]
+      },
+      "4": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36
+        ]
+      },
+      "5": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          38
+        ]
+      },
+      "6": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19
+        ]
+      },
+      "7": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          12,
+          7
+        ]
+      },
+      "9": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          40,
+          2
+        ]
+      },
+      "10": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "11": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          10
+        ]
+      },
+      "12": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          41,
+          37
+        ]
+      },
+      "14": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      },
+      "15": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          40,
+          6
+        ]
+      },
+      "16": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          22,
+          4
+        ]
+      },
+      "17": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          2,
+          41
+        ]
+      },
+      "18": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          32
+        ]
+      },
+      "19": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          15,
+          3
+        ]
+      },
+      "20": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          30
+        ]
+      },
+      "21": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          31,
+          10
+        ]
+      },
+      "22": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      },
+      "23": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36
+        ]
+      },
+      "24": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          19
+        ]
+      },
+      "25": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          6,
+          30
+        ]
+      }
+    },
+    "2015": {
+      "1": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19,
+          5
+        ]
+      },
+      "2": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "3": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          22
+        ]
+      },
+      "5": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          15,
+          25
+        ]
+      },
+      "6": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          25
+        ]
+      },
+      "7": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          32
+        ]
+      },
+      "8": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          4
+        ]
+      },
+      "9": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          7,
+          12
+        ]
+      },
+      "10": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7,
+          11
+        ]
+      },
+      "11": {
+        "primaryTopics": [
+          9,
+          26
+        ],
+        "secondaryTopics": [
+          22,
+          31
+        ]
+      },
+      "12": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          16,
+          30
+        ]
+      },
+      "13": {
+        "primaryTopics": [
+          26,
+          8
+        ],
+        "secondaryTopics": [
+          12,
+          7
+        ]
+      },
+      "15": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          41,
+          37
+        ]
+      },
+      "16": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          10,
+          38
+        ]
+      },
+      "17": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      },
+      "18": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          40
+        ]
+      },
+      "19": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          30
+        ]
+      },
+      "20": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          19,
+          41,
+          2
+        ]
+      },
+      "21": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          30,
+          28
+        ]
+      },
+      "22": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          32
+        ]
+      },
+      "23": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          19,
+          7
+        ]
+      },
+      "24": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          41
+        ]
+      },
+      "25": {
+        "primaryTopics": [
+          26,
+          8
+        ],
+        "secondaryTopics": [
+          34,
+          7
+        ]
+      }
+    },
+    "2016": {
+      "1": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "2": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          22
+        ]
+      },
+      "3": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          12
+        ]
+      },
+      "4": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19
+        ]
+      },
+      "5": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          40
+        ]
+      },
+      "6": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          2,
+          41
+        ]
+      },
+      "7": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36,
+          19
+        ]
+      },
+      "8": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          38
+        ]
+      },
+      "9": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          38
+        ]
+      },
+      "10": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          4
+        ]
+      },
+      "11": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          19,
+          7
+        ]
+      },
+      "12": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          11,
+          27
+        ]
+      },
+      "13": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          42
+        ]
+      },
+      "14": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      },
+      "15": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          30
+        ]
+      },
+      "17": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          40
+        ]
+      },
+      "18": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          4
+        ]
+      },
+      "19": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          25,
+          19
+        ]
+      },
+      "20": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "21": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36,
+          19
+        ]
+      },
+      "22": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          24
+        ]
+      },
+      "23": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36,
+          19
+        ]
+      },
+      "24": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          30
+        ]
+      },
+      "25": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          30
+        ]
+      }
+    },
+    "2017": {
+      "1": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "2": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          22
+        ]
+      },
+      "3": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "4": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          18,
+          27
+        ]
+      },
+      "5": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27,
+          10
+        ]
+      },
+      "6": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          2,
+          41,
+          33
+        ]
+      },
+      "7": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          12,
+          19
+        ]
+      },
+      "8": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          17
+        ]
+      },
+      "9": {
+        "primaryTopics": [
+          26,
+          1
+        ],
+        "secondaryTopics": [
+          4,
+          30
+        ]
+      },
+      "10": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          32,
+          41
+        ]
+      },
+      "11": {
+        "primaryTopics": [
+          1,
+          26
+        ],
+        "secondaryTopics": [
+          19
+        ]
+      },
+      "12": {
+        "primaryTopics": [
+          1,
+          26
+        ],
+        "secondaryTopics": [
+          28,
+          27
+        ]
+      },
+      "13": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          40,
+          41
+        ]
+      },
+      "14": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "15": {
+        "primaryTopics": [
+          29
+        ],
+        "secondaryTopics": [
+          23,
+          24
+        ]
+      },
+      "16": {
+        "primaryTopics": [
+          8,
+          26
+        ],
+        "secondaryTopics": [
+          36,
+          12
+        ]
+      },
+      "17": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          4
+        ]
+      },
+      "18": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          31
+        ]
+      },
+      "19": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          33
+        ]
+      },
+      "20": {
+        "primaryTopics": [
+          26,
+          21
+        ],
+        "secondaryTopics": [
+          38,
+          25
+        ]
+      },
+      "21": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          32
+        ]
+      },
+      "22": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          11
+        ]
+      },
+      "23": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7,
+          17
+        ]
+      },
+      "24": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          37
+        ]
+      },
+      "25": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          12
+        ]
+      }
+    },
+    "2018": {
+      "1": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "2": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          31
+        ]
+      },
+      "3": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "4": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3
+        ]
+      },
+      "5": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "6": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19
+        ]
+      },
+      "7": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36
+        ]
+      },
+      "8": {
+        "primaryTopics": [
+          1,
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "9": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          2
+        ]
+      },
+      "10": {
+        "primaryTopics": [
+          29
+        ],
+        "secondaryTopics": [
+          30
+        ]
+      },
+      "11": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          33
+        ]
+      },
+      "12": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          39
+        ]
+      },
+      "13": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "14": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          12,
+          27
+        ]
+      },
+      "16": {
+        "primaryTopics": [
+          26,
+          21
+        ],
+        "secondaryTopics": [
+          5
+        ]
+      },
+      "17": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          5,
+          19
+        ]
+      },
+      "18": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "19": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          25
+        ]
+      },
+      "20": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          2,
+          41
+        ]
+      },
+      "21": {
+        "primaryTopics": [
+          8,
+          21
+        ],
+        "secondaryTopics": [
+          7,
+          33
+        ]
+      },
+      "23": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          11
+        ]
+      },
+      "24": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          12,
+          7
+        ]
+      },
+      "25": {
+        "primaryTopics": [
+          29
+        ],
+        "secondaryTopics": [
+          27,
+          13,
+          24
+        ]
+      }
+    },
+    "2019": {
+      "1": {
+        "primaryTopics": [
+          26,
+          1
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "2": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          6
+        ]
+      },
+      "3": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          31
+        ]
+      },
+      "4": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27,
+          10
+        ]
+      },
+      "5": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          22
+        ]
+      },
+      "6": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          17
+        ]
+      },
+      "7": {
+        "primaryTopics": [
+          1,
+          26
+        ],
+        "secondaryTopics": [
+          13,
+          27
+        ]
+      },
+      "8": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19,
+          27
+        ]
+      },
+      "9": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          2
+        ]
+      },
+      "10": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          4
+        ]
+      },
+      "11": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          18
+        ]
+      },
+      "12": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          6
+        ]
+      },
+      "13": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          30
+        ]
+      },
+      "14": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36,
+          34
+        ]
+      },
+      "15": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          28,
+          27
+        ]
+      },
+      "16": {
+        "primaryTopics": [
+          26,
+          8
+        ],
+        "secondaryTopics": [
+          11
+        ]
+      },
+      "17": {
+        "primaryTopics": [
+          1,
+          29
+        ],
+        "secondaryTopics": [
+          17,
+          24
+        ]
+      },
+      "18": {
+        "primaryTopics": [
+          21,
+          1
+        ],
+        "secondaryTopics": [
+          3,
+          13
+        ]
+      },
+      "19": {
+        "primaryTopics": [
+          26,
+          1
+        ],
+        "secondaryTopics": [
+          23
+        ]
+      },
+      "20": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          18
+        ]
+      },
+      "21": {
+        "primaryTopics": [
+          29,
+          1
+        ],
+        "secondaryTopics": [
+          24,
+          23
+        ]
+      },
+      "22": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          11,
+          18
+        ]
+      },
+      "23": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          3,
+          19
+        ]
+      },
+      "24": {
+        "primaryTopics": [
+          1,
+          21,
+          26
+        ],
+        "secondaryTopics": [
+          30,
+          6
+        ]
+      },
+      "25": {
+        "primaryTopics": [
+          21,
+          1
+        ],
+        "secondaryTopics": [
+          39,
+          12,
+          17
+        ]
+      }
+    },
+    "2020": {
+      "1": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "2": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          6
+        ]
+      },
+      "3": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27,
+          23
+        ]
+      },
+      "4": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "5": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          4
+        ]
+      },
+      "6": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          22,
+          19
+        ]
+      },
+      "7": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          30
+        ]
+      },
+      "8": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          25
+        ]
+      },
+      "9": {
+        "primaryTopics": [
+          1,
+          21
+        ],
+        "secondaryTopics": [
+          32
+        ]
+      },
+      "10": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          12
+        ]
+      },
+      "11": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "12": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "13": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          6,
+          3
+        ]
+      },
+      "14": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36
+        ]
+      },
+      "16": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          6
+        ]
+      },
+      "17": {
+        "primaryTopics": [
+          1,
+          26
+        ],
+        "secondaryTopics": [
+          17
+        ]
+      },
+      "18": {
+        "primaryTopics": [
+          21,
+          1
+        ],
+        "secondaryTopics": [
+          2,
+          41
+        ]
+      },
+      "19": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          35
+        ]
+      },
+      "20": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36
+        ]
+      },
+      "21": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          11,
+          7
+        ]
+      },
+      "22": {
+        "primaryTopics": [
+          1
+        ],
+        "secondaryTopics": [
+          13,
+          4,
+          19
+        ]
+      },
+      "23": {
+        "primaryTopics": [
+          1,
+          26
+        ],
+        "secondaryTopics": [
+          30,
+          7,
+          17
+        ]
+      },
+      "24": {
+        "primaryTopics": [
+          21,
+          8
+        ],
+        "secondaryTopics": [
+          7,
+          6,
+          3
+        ]
+      },
+      "25": {
+        "primaryTopics": [
+          1,
+          8
+        ],
+        "secondaryTopics": [
+          38,
+          13,
+          17,
+          7
+        ]
+      }
+    },
+    "2021": {
+      "1": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          23
+        ]
+      },
+      "2": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          32
+        ]
+      },
+      "3": {
+        "primaryTopics": [
+          1,
+          26
+        ],
+        "secondaryTopics": [
+          13,
+          27
+        ]
+      },
+      "4": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          22
+        ]
+      },
+      "5": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          19
+        ]
+      },
+      "6": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          36
+        ]
+      },
+      "8": {
+        "primaryTopics": [
+          9
+        ],
+        "secondaryTopics": [
+          22
+        ]
+      },
+      "9": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          30
+        ]
+      },
+      "10": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          7
+        ]
+      },
+      "11": {
+        "primaryTopics": [
+          26,
+          1
+        ],
+        "secondaryTopics": [
+          30
+        ]
+      },
+      "12": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          40
+        ]
+      },
+      "13": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          2,
+          41
+        ]
+      },
+      "14": {
+        "primaryTopics": [
+          26,
+          1
+        ],
+        "secondaryTopics": [
+          30,
+          17
+        ]
+      },
+      "15": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          11
+        ]
+      },
+      "16": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          18
+        ]
+      },
+      "17": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          31
+        ]
+      },
+      "18": {
+        "primaryTopics": [
+          21
+        ],
+        "secondaryTopics": [
+          25,
+          41
+        ]
+      },
+      "19": {
+        "primaryTopics": [
+          1,
+          26
+        ],
+        "secondaryTopics": [
+          11,
+          27
+        ]
+      },
+      "20": {
+        "primaryTopics": [
+          8
+        ],
+        "secondaryTopics": [
+          34,
+          36
+        ]
+      },
+      "21": {
+        "primaryTopics": [
+          26,
+          1
+        ],
+        "secondaryTopics": [
+          11
+        ]
+      },
+      "22": {
+        "primaryTopics": [
+          1,
+          21
+        ],
+        "secondaryTopics": [
+          30,
+          13,
+          30,
+          32
+        ]
+      },
+      "23": {
+        "primaryTopics": [
+          26,
+          1
+        ],
+        "secondaryTopics": [
+          27
+        ]
+      },
+      "24": {
+        "primaryTopics": [
+          26
+        ],
+        "secondaryTopics": [
+          18,
+          7,
+          12
+        ]
+      },
+      "25": {
+        "primaryTopics": [
+          21,
+          8,
+          1
+        ],
+        "secondaryTopics": [
+          39,
+          7,
+          17
+        ]
+      }
+    }
+  },
+  "legend": {
+    "Algebra and Equations": 1,
+    "Angles": 2,
+    "Area": 3,
+    "Averages": 4,
+    "Circles": 5,
+    "Coordinate Geometry": 6,
+    "Counting": 7,
+    "Counting and Probability": 8,
+    "Data Analysis": 9,
+    "Decimals": 10,
+    "Digits": 11,
+    "Divisibility": 12,
+    "Equations Solving": 13,
+    "Equations of Lines": 14,
+    "Estimation": 15,
+    "Exponents": 16,
+    "Expressions": 17,
+    "Factoring": 18,
+    "Fractions/Ratios": 19,
+    "Games": 20,
+    "Geometry and Measurement": 21,
+    "Graphs": 22,
+    "Inequalities": 23,
+    "Logic": 24,
+    "Measurement": 25,
+    "Number Sense": 26,
+    "Operations": 27,
+    "Optimization": 28,
+    "Other": 29,
+    "Patterning/Sequences/Series": 30,
+    "Percentages": 31,
+    "Perimeter": 32,
+    "Polygons": 33,
+    "Prime Numbers": 34,
+    "Prisms": 35,
+    "Probability": 36,
+    "Quadrilaterals": 37,
+    "Rates": 38,
+    "Surface Area": 39,
+    "Transformations": 40,
+    "Triangles": 41,
+    "Volume": 42
+  }
+}

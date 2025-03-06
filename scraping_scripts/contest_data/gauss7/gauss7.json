@@ -1,0 +1,3500 @@
+{
+  "2005": {
+    "1": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Operations"
+      ]
+    },
+    "2": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Decimals",
+        "Operations"
+      ]
+    },
+    "3": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Decimals",
+        "Estimation",
+        "Graphs"
+      ]
+    },
+    "4": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits",
+        "Operations"
+      ]
+    },
+    "5": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Decimals"
+      ]
+    },
+    "6": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability"
+      ]
+    },
+    "7": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Percentages"
+      ]
+    },
+    "8": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Angles",
+        "Triangles"
+      ]
+    },
+    "9": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    },
+    "10": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Measurement"
+      ]
+    },
+    "11": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Estimation",
+        "Graphs"
+      ]
+    },
+    "12": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Rates",
+        "Decimals",
+        "Estimation",
+        "Measurement"
+      ]
+    },
+    "13": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Triangles",
+        "Area"
+      ]
+    },
+    "14": {
+      "primaryTopics": [
+        "Other"
+      ],
+      "secondaryTopics": [
+        "Operations",
+        "Logic"
+      ]
+    },
+    "15": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Quadrilaterals",
+        "Triangles"
+      ]
+    },
+    "16": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Rates"
+      ]
+    },
+    "17": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Operations",
+        "Equations Solving"
+      ]
+    },
+    "18": {
+      "primaryTopics": [
+        "Other",
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Games",
+        "Probability"
+      ]
+    },
+    "19": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series"
+      ]
+    },
+    "20": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Rates"
+      ]
+    },
+    "21": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Percentages",
+        "Rates"
+      ]
+    },
+    "22": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios"
+      ]
+    },
+    "23": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Logic",
+        "Equations Solving"
+      ]
+    },
+    "24": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Equations Solving"
+      ]
+    },
+    "25": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting",
+        "Decimals"
+      ]
+    }
+  },
+  "2006": {
+    "1": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "2": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Angles"
+      ]
+    },
+    "3": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "4": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Perimeter",
+        "Polygons"
+      ]
+    },
+    "5": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Operations"
+      ]
+    },
+    "6": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations",
+        "Digits"
+      ]
+    },
+    "8": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "9": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability"
+      ]
+    },
+    "10": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Decimals",
+        "Measurement",
+        "Estimation"
+      ]
+    },
+    "11": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Percentages",
+        "Decimals"
+      ]
+    },
+    "12": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Volume"
+      ]
+    },
+    "14": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Graphs",
+        "Circles"
+      ]
+    },
+    "15": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Percentages",
+        "Rates"
+      ]
+    },
+    "16": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios"
+      ]
+    },
+    "17": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Measurement"
+      ]
+    },
+    "18": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Rates"
+      ]
+    },
+    "19": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Measurement",
+        "Estimation"
+      ]
+    },
+    "20": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Transformations"
+      ]
+    },
+    "21": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Equations Solving",
+        "Measurement"
+      ]
+    },
+    "22": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Logic",
+        "Area"
+      ]
+    },
+    "23": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Logic",
+        "Equations Solving",
+        "Digits"
+      ]
+    },
+    "24": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Triangles"
+      ]
+    },
+    "25": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Averages",
+        "Counting"
+      ]
+    }
+  },
+  "2007": {
+    "1": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "2": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits"
+      ]
+    },
+    "4": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Percentages"
+      ]
+    },
+    "5": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Decimals"
+      ]
+    },
+    "6": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Decimals"
+      ]
+    },
+    "7": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Measurement",
+        "Graphs"
+      ]
+    },
+    "8": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Angles",
+        "Triangles"
+      ]
+    },
+    "9": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Transformations"
+      ]
+    },
+    "11": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series"
+      ]
+    },
+    "12": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability"
+      ]
+    },
+    "13": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Divisibility"
+      ]
+    },
+    "14": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    },
+    "15": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Divisibility",
+        "Counting"
+      ]
+    },
+    "17": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Rates",
+        "Equations Solving"
+      ]
+    },
+    "18": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting",
+        "Patterning/Sequences/Series"
+      ]
+    },
+    "19": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    },
+    "20": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Perimeter"
+      ]
+    },
+    "21": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    },
+    "22": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Averages"
+      ]
+    },
+    "23": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Fractions/Ratios"
+      ]
+    },
+    "24": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits",
+        "Operations"
+      ]
+    },
+    "25": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting",
+        "Rates"
+      ]
+    }
+  },
+  "2008": {
+    "1": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "2": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Decimals"
+      ]
+    },
+    "3": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios"
+      ]
+    },
+    "4": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Polygons",
+        "Perimeter"
+      ]
+    },
+    "5": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Decimals"
+      ]
+    },
+    "6": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Angles"
+      ]
+    },
+    "7": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Prime Numbers"
+      ]
+    },
+    "8": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Patterning/Sequences/Series"
+      ]
+    },
+    "9": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Graphs",
+        "Fractions/Ratios"
+      ]
+    },
+    "13": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Angles",
+        "Triangles"
+      ]
+    },
+    "15": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Transformations"
+      ]
+    },
+    "16": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Percentages",
+        "Area"
+      ]
+    },
+    "17": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Perimeter",
+        "Equations Solving"
+      ]
+    },
+    "18": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Averages"
+      ]
+    },
+    "19": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Transformations"
+      ]
+    },
+    "20": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Factoring"
+      ]
+    },
+    "21": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Rates",
+        "Fractions/Ratios"
+      ]
+    },
+    "22": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Quadrilaterals"
+      ]
+    },
+    "23": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    },
+    "24": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Triangles",
+        "Area"
+      ]
+    },
+    "25": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Digits",
+        "Counting"
+      ]
+    }
+  },
+  "2009": {
+    "1": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations",
+        "Decimals"
+      ]
+    },
+    "2": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Perimeter"
+      ]
+    },
+    "3": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Prime Numbers"
+      ]
+    },
+    "4": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Decimals"
+      ]
+    },
+    "5": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Graphs",
+        "Estimation"
+      ]
+    },
+    "7": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Rates",
+        "Measurement"
+      ]
+    },
+    "8": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Angles",
+        "Triangles"
+      ]
+    },
+    "9": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    },
+    "10": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Transformations"
+      ]
+    },
+    "11": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Rates"
+      ]
+    },
+    "12": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Triangles"
+      ]
+    },
+    "13": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Operations",
+        "Measurement"
+      ]
+    },
+    "14": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Estimation"
+      ]
+    },
+    "15": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Factoring"
+      ]
+    },
+    "16": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Equations Solving"
+      ]
+    },
+    "17": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Averages"
+      ]
+    },
+    "19": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability"
+      ]
+    },
+    "20": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Quadrilaterals"
+      ]
+    },
+    "21": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios"
+      ]
+    },
+    "22": {
+      "primaryTopics": [
+        "Other"
+      ],
+      "secondaryTopics": [
+        "Games"
+      ]
+    },
+    "23": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Percentages",
+        "Fractions/Ratios"
+      ]
+    },
+    "24": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Quadrilaterals",
+        "Area",
+        "Triangles"
+      ]
+    },
+    "25": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    }
+  },
+  "2010": {
+    "1": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Graphs"
+      ]
+    },
+    "2": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Percentages"
+      ]
+    },
+    "3": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "4": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Graphs"
+      ]
+    },
+    "5": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "6": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Decimals",
+        "Digits"
+      ]
+    },
+    "7": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Angles"
+      ]
+    },
+    "8": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Volume",
+        "Prisms"
+      ]
+    },
+    "9": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Logic",
+        "Operations"
+      ]
+    },
+    "10": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Factoring"
+      ]
+    },
+    "11": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area"
+      ]
+    },
+    "12": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios"
+      ]
+    },
+    "13": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series",
+        "Averages"
+      ]
+    },
+    "14": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Percentages"
+      ]
+    },
+    "15": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Perimeter"
+      ]
+    },
+    "16": {
+      "primaryTopics": [
+        "Other"
+      ],
+      "secondaryTopics": [
+        "Games",
+        "Logic"
+      ]
+    },
+    "17": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits",
+        "Logic"
+      ]
+    },
+    "18": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    },
+    "19": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Optimization"
+      ]
+    },
+    "20": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    },
+    "21": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Rates",
+        "Averages"
+      ]
+    },
+    "22": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Probability"
+      ]
+    },
+    "23": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "24": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    },
+    "25": {
+      "primaryTopics": [
+        "Counting and Probability",
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Rates",
+        "Divisibility"
+      ]
+    }
+  },
+  "2011": {
+    "1": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "2": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "3": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Percentages",
+        "Graphs"
+      ]
+    },
+    "4": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Rates"
+      ]
+    },
+    "5": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Decimals"
+      ]
+    },
+    "6": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability"
+      ]
+    },
+    "7": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios"
+      ]
+    },
+    "8": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios"
+      ]
+    },
+    "9": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Transformations"
+      ]
+    },
+    "10": {
+      "primaryTopics": [
+        "Other"
+      ],
+      "secondaryTopics": [
+        "Logic"
+      ]
+    },
+    "11": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Angles",
+        "Equations Solving"
+      ]
+    },
+    "12": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Perimeter"
+      ]
+    },
+    "13": {
+      "primaryTopics": [
+        "Other"
+      ],
+      "secondaryTopics": [
+        "Logic",
+        "Inequalities"
+      ]
+    },
+    "14": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits"
+      ]
+    },
+    "15": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Rates"
+      ]
+    },
+    "16": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    },
+    "17": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability"
+      ]
+    },
+    "18": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Equations Solving",
+        "Logic"
+      ]
+    },
+    "19": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "20": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Volume",
+        "Prisms"
+      ]
+    },
+    "21": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series"
+      ]
+    },
+    "22": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Rates",
+        "Equations Solving"
+      ]
+    },
+    "23": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations",
+        "Digits"
+      ]
+    },
+    "24": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    },
+    "25": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    }
+  },
+  "2012": {
+    "1": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "2": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits"
+      ]
+    },
+    "3": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability"
+      ]
+    },
+    "4": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios"
+      ]
+    },
+    "5": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Angles"
+      ]
+    },
+    "7": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Inequalities",
+        "Logic",
+        "Inequalities"
+      ]
+    },
+    "8": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Percentages",
+        "Fractions/Ratios"
+      ]
+    },
+    "9": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Averages",
+        "Graphs"
+      ]
+    },
+    "10": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Measurement",
+        "Rates",
+        "Graphs"
+      ]
+    },
+    "11": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Perimeter",
+        "Area"
+      ]
+    },
+    "12": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Operations"
+      ]
+    },
+    "13": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Probability",
+        "Percentages"
+      ]
+    },
+    "14": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits",
+        "Operations"
+      ]
+    },
+    "15": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Rates"
+      ]
+    },
+    "16": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Prime Numbers",
+        "Factoring"
+      ]
+    },
+    "17": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios"
+      ]
+    },
+    "18": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Equations Solving",
+        "Operations"
+      ]
+    },
+    "19": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Averages"
+      ]
+    },
+    "20": {
+      "primaryTopics": [
+        "Other"
+      ],
+      "secondaryTopics": [
+        "Logic",
+        "Games"
+      ]
+    },
+    "21": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Volume",
+        "Prisms",
+        "Measurement"
+      ]
+    },
+    "22": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Averages",
+        "Percentages"
+      ]
+    },
+    "23": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits",
+        "Divisibility"
+      ]
+    },
+    "24": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Quadrilaterals"
+      ]
+    },
+    "25": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series"
+      ]
+    }
+  },
+  "2013": {
+    "1": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "2": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Divisibility"
+      ]
+    },
+    "3": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits",
+        "Decimals"
+      ]
+    },
+    "4": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "5": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Angles"
+      ]
+    },
+    "6": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "7": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Optimization"
+      ]
+    },
+    "8": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Measurement"
+      ]
+    },
+    "9": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Equations Solving",
+        "Equations of Lines"
+      ]
+    },
+    "10": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits",
+        "Optimization"
+      ]
+    },
+    "11": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Surface Area",
+        "Prisms"
+      ]
+    },
+    "12": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Divisibility",
+        "Factoring"
+      ]
+    },
+    "13": {
+      "primaryTopics": [
+        "Other"
+      ],
+      "secondaryTopics": [
+        "Logic"
+      ]
+    },
+    "15": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series"
+      ]
+    },
+    "16": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Averages"
+      ]
+    },
+    "18": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area"
+      ]
+    },
+    "19": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability"
+      ]
+    },
+    "20": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series",
+        "Counting"
+      ]
+    },
+    "21": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits"
+      ]
+    },
+    "22": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series",
+        "Logic"
+      ]
+    },
+    "23": {
+      "primaryTopics": [
+        "Geometry and Measurement",
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Triangles",
+        "Fractions/Ratios",
+        "Area"
+      ]
+    },
+    "24": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting",
+        "Logic"
+      ]
+    },
+    "25": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Optimization"
+      ]
+    }
+  },
+  "2014": {
+    "1": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "2": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Estimation"
+      ]
+    },
+    "4": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability"
+      ]
+    },
+    "5": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Rates"
+      ]
+    },
+    "6": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios"
+      ]
+    },
+    "7": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Divisibility",
+        "Counting"
+      ]
+    },
+    "9": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Transformations",
+        "Angles"
+      ]
+    },
+    "10": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "11": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Decimals"
+      ]
+    },
+    "12": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Triangles",
+        "Quadrilaterals"
+      ]
+    },
+    "14": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    },
+    "15": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Transformations",
+        "Coordinate Geometry"
+      ]
+    },
+    "16": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Graphs",
+        "Averages"
+      ]
+    },
+    "17": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Angles",
+        "Triangles"
+      ]
+    },
+    "18": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Perimeter"
+      ]
+    },
+    "19": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Estimation",
+        "Area"
+      ]
+    },
+    "20": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series"
+      ]
+    },
+    "21": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Percentages",
+        "Decimals"
+      ]
+    },
+    "22": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    },
+    "23": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability"
+      ]
+    },
+    "24": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Fractions/Ratios"
+      ]
+    },
+    "25": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Coordinate Geometry",
+        "Patterning/Sequences/Series"
+      ]
+    }
+  },
+  "2015": {
+    "1": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Circles"
+      ]
+    },
+    "2": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "3": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Graphs"
+      ]
+    },
+    "5": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Estimation",
+        "Measurement"
+      ]
+    },
+    "6": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Measurement"
+      ]
+    },
+    "7": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Perimeter"
+      ]
+    },
+    "8": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Averages"
+      ]
+    },
+    "9": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Counting",
+        "Divisibility"
+      ]
+    },
+    "10": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting",
+        "Digits"
+      ]
+    },
+    "11": {
+      "primaryTopics": [
+        "Data Analysis",
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Graphs",
+        "Percentages"
+      ]
+    },
+    "12": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Exponents",
+        "Patterning/Sequences/Series"
+      ]
+    },
+    "13": {
+      "primaryTopics": [
+        "Number Sense",
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Divisibility",
+        "Counting"
+      ]
+    },
+    "15": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Triangles",
+        "Quadrilaterals"
+      ]
+    },
+    "16": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Decimals",
+        "Rates"
+      ]
+    },
+    "17": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    },
+    "18": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Transformations"
+      ]
+    },
+    "19": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series"
+      ]
+    },
+    "20": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Triangles",
+        "Angles"
+      ]
+    },
+    "21": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series",
+        "Optimization"
+      ]
+    },
+    "22": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Perimeter"
+      ]
+    },
+    "23": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Counting"
+      ]
+    },
+    "24": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Triangles"
+      ]
+    },
+    "25": {
+      "primaryTopics": [
+        "Number Sense",
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Prime Numbers",
+        "Counting"
+      ]
+    }
+  },
+  "2016": {
+    "1": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "2": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Graphs"
+      ]
+    },
+    "3": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Divisibility"
+      ]
+    },
+    "4": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios"
+      ]
+    },
+    "5": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Transformations"
+      ]
+    },
+    "6": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Angles",
+        "Triangles"
+      ]
+    },
+    "7": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability",
+        "Fractions/Ratios"
+      ]
+    },
+    "8": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Rates"
+      ]
+    },
+    "9": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Rates"
+      ]
+    },
+    "10": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Averages"
+      ]
+    },
+    "11": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Counting"
+      ]
+    },
+    "12": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits",
+        "Operations"
+      ]
+    },
+    "13": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Volume"
+      ]
+    },
+    "14": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    },
+    "15": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series"
+      ]
+    },
+    "17": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Transformations"
+      ]
+    },
+    "18": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Averages"
+      ]
+    },
+    "19": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Measurement",
+        "Fractions/Ratios"
+      ]
+    },
+    "20": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "21": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability",
+        "Fractions/Ratios"
+      ]
+    },
+    "22": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Logic"
+      ]
+    },
+    "23": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability",
+        "Fractions/Ratios"
+      ]
+    },
+    "24": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series"
+      ]
+    },
+    "25": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series"
+      ]
+    }
+  },
+  "2017": {
+    "1": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "2": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Graphs"
+      ]
+    },
+    "3": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "4": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Factoring",
+        "Operations"
+      ]
+    },
+    "5": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations",
+        "Decimals"
+      ]
+    },
+    "6": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Angles",
+        "Triangles",
+        "Polygons"
+      ]
+    },
+    "7": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Divisibility",
+        "Fractions/Ratios"
+      ]
+    },
+    "8": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Expressions"
+      ]
+    },
+    "9": {
+      "primaryTopics": [
+        "Number Sense",
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Averages",
+        "Patterning/Sequences/Series"
+      ]
+    },
+    "10": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Perimeter",
+        "Triangles"
+      ]
+    },
+    "11": {
+      "primaryTopics": [
+        "Algebra and Equations",
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios"
+      ]
+    },
+    "12": {
+      "primaryTopics": [
+        "Algebra and Equations",
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Optimization",
+        "Operations"
+      ]
+    },
+    "13": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Transformations",
+        "Triangles"
+      ]
+    },
+    "14": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "15": {
+      "primaryTopics": [
+        "Other"
+      ],
+      "secondaryTopics": [
+        "Inequalities",
+        "Logic"
+      ]
+    },
+    "16": {
+      "primaryTopics": [
+        "Counting and Probability",
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Probability",
+        "Divisibility"
+      ]
+    },
+    "17": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Averages"
+      ]
+    },
+    "18": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Percentages"
+      ]
+    },
+    "19": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Polygons"
+      ]
+    },
+    "20": {
+      "primaryTopics": [
+        "Number Sense",
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Rates",
+        "Measurement"
+      ]
+    },
+    "21": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Perimeter"
+      ]
+    },
+    "22": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits"
+      ]
+    },
+    "23": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting",
+        "Expressions"
+      ]
+    },
+    "24": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Quadrilaterals"
+      ]
+    },
+    "25": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Divisibility"
+      ]
+    }
+  },
+  "2018": {
+    "1": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "2": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Percentages"
+      ]
+    },
+    "3": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "4": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area"
+      ]
+    },
+    "5": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "6": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios"
+      ]
+    },
+    "7": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability"
+      ]
+    },
+    "8": {
+      "primaryTopics": [
+        "Algebra and Equations",
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "9": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Angles"
+      ]
+    },
+    "10": {
+      "primaryTopics": [
+        "Other"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series"
+      ]
+    },
+    "11": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Polygons"
+      ]
+    },
+    "12": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Surface Area"
+      ]
+    },
+    "13": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "14": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Divisibility",
+        "Operations"
+      ]
+    },
+    "16": {
+      "primaryTopics": [
+        "Number Sense",
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Circles"
+      ]
+    },
+    "17": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Circles",
+        "Fractions/Ratios"
+      ]
+    },
+    "18": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "19": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Measurement"
+      ]
+    },
+    "20": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Angles",
+        "Triangles"
+      ]
+    },
+    "21": {
+      "primaryTopics": [
+        "Counting and Probability",
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Counting",
+        "Polygons"
+      ]
+    },
+    "23": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits"
+      ]
+    },
+    "24": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Divisibility",
+        "Counting"
+      ]
+    },
+    "25": {
+      "primaryTopics": [
+        "Other"
+      ],
+      "secondaryTopics": [
+        "Operations",
+        "Equations Solving",
+        "Logic"
+      ]
+    }
+  },
+  "2019": {
+    "1": {
+      "primaryTopics": [
+        "Number Sense",
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "2": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Coordinate Geometry"
+      ]
+    },
+    "3": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Percentages"
+      ]
+    },
+    "4": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations",
+        "Decimals"
+      ]
+    },
+    "5": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Graphs"
+      ]
+    },
+    "6": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Expressions"
+      ]
+    },
+    "7": {
+      "primaryTopics": [
+        "Algebra and Equations",
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Equations Solving",
+        "Operations"
+      ]
+    },
+    "8": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios",
+        "Operations"
+      ]
+    },
+    "9": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Angles"
+      ]
+    },
+    "10": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Averages"
+      ]
+    },
+    "11": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Factoring"
+      ]
+    },
+    "12": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Coordinate Geometry"
+      ]
+    },
+    "13": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series"
+      ]
+    },
+    "14": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability",
+        "Prime Numbers"
+      ]
+    },
+    "15": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Optimization",
+        "Operations"
+      ]
+    },
+    "16": {
+      "primaryTopics": [
+        "Number Sense",
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Digits"
+      ]
+    },
+    "17": {
+      "primaryTopics": [
+        "Algebra and Equations",
+        "Other"
+      ],
+      "secondaryTopics": [
+        "Expressions",
+        "Logic"
+      ]
+    },
+    "18": {
+      "primaryTopics": [
+        "Geometry and Measurement",
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Equations Solving"
+      ]
+    },
+    "19": {
+      "primaryTopics": [
+        "Number Sense",
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Inequalities"
+      ]
+    },
+    "20": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Factoring"
+      ]
+    },
+    "21": {
+      "primaryTopics": [
+        "Other",
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Logic",
+        "Inequalities"
+      ]
+    },
+    "22": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits",
+        "Factoring"
+      ]
+    },
+    "23": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Area",
+        "Fractions/Ratios"
+      ]
+    },
+    "24": {
+      "primaryTopics": [
+        "Algebra and Equations",
+        "Geometry and Measurement",
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series",
+        "Coordinate Geometry"
+      ]
+    },
+    "25": {
+      "primaryTopics": [
+        "Geometry and Measurement",
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Surface Area",
+        "Divisibility",
+        "Expressions"
+      ]
+    }
+  },
+  "2020": {
+    "1": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "2": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Coordinate Geometry"
+      ]
+    },
+    "3": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations",
+        "Inequalities"
+      ]
+    },
+    "4": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "5": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Averages"
+      ]
+    },
+    "6": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Graphs",
+        "Fractions/Ratios"
+      ]
+    },
+    "7": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series"
+      ]
+    },
+    "8": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Measurement"
+      ]
+    },
+    "9": {
+      "primaryTopics": [
+        "Algebra and Equations",
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Perimeter"
+      ]
+    },
+    "10": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Divisibility"
+      ]
+    },
+    "11": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "12": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "13": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Coordinate Geometry",
+        "Area"
+      ]
+    },
+    "14": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability"
+      ]
+    },
+    "16": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Coordinate Geometry"
+      ]
+    },
+    "17": {
+      "primaryTopics": [
+        "Algebra and Equations",
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Expressions"
+      ]
+    },
+    "18": {
+      "primaryTopics": [
+        "Geometry and Measurement",
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Angles",
+        "Triangles"
+      ]
+    },
+    "19": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Prisms"
+      ]
+    },
+    "20": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability"
+      ]
+    },
+    "21": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits",
+        "Counting"
+      ]
+    },
+    "22": {
+      "primaryTopics": [
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Equations Solving",
+        "Averages",
+        "Fractions/Ratios"
+      ]
+    },
+    "23": {
+      "primaryTopics": [
+        "Algebra and Equations",
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series",
+        "Counting",
+        "Expressions"
+      ]
+    },
+    "24": {
+      "primaryTopics": [
+        "Geometry and Measurement",
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting",
+        "Coordinate Geometry",
+        "Area"
+      ]
+    },
+    "25": {
+      "primaryTopics": [
+        "Algebra and Equations",
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Rates",
+        "Equations Solving",
+        "Expressions",
+        "Counting"
+      ]
+    }
+  },
+  "2021": {
+    "1": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Inequalities"
+      ]
+    },
+    "2": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Perimeter"
+      ]
+    },
+    "3": {
+      "primaryTopics": [
+        "Algebra and Equations",
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Equations Solving",
+        "Operations"
+      ]
+    },
+    "4": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Graphs"
+      ]
+    },
+    "5": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Fractions/Ratios"
+      ]
+    },
+    "6": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Probability"
+      ]
+    },
+    "8": {
+      "primaryTopics": [
+        "Data Analysis"
+      ],
+      "secondaryTopics": [
+        "Graphs"
+      ]
+    },
+    "9": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series"
+      ]
+    },
+    "10": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Counting"
+      ]
+    },
+    "11": {
+      "primaryTopics": [
+        "Number Sense",
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series"
+      ]
+    },
+    "12": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Transformations"
+      ]
+    },
+    "13": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Angles",
+        "Triangles"
+      ]
+    },
+    "14": {
+      "primaryTopics": [
+        "Number Sense",
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series",
+        "Expressions"
+      ]
+    },
+    "15": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits"
+      ]
+    },
+    "16": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Factoring"
+      ]
+    },
+    "17": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Percentages"
+      ]
+    },
+    "18": {
+      "primaryTopics": [
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Measurement",
+        "Triangles"
+      ]
+    },
+    "19": {
+      "primaryTopics": [
+        "Algebra and Equations",
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Digits",
+        "Operations"
+      ]
+    },
+    "20": {
+      "primaryTopics": [
+        "Counting and Probability"
+      ],
+      "secondaryTopics": [
+        "Prime Numbers",
+        "Probability"
+      ]
+    },
+    "21": {
+      "primaryTopics": [
+        "Number Sense",
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Digits"
+      ]
+    },
+    "22": {
+      "primaryTopics": [
+        "Algebra and Equations",
+        "Geometry and Measurement"
+      ],
+      "secondaryTopics": [
+        "Patterning/Sequences/Series",
+        "Equations Solving",
+        "Patterning/Sequences/Series",
+        "Perimeter"
+      ]
+    },
+    "23": {
+      "primaryTopics": [
+        "Number Sense",
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Operations"
+      ]
+    },
+    "24": {
+      "primaryTopics": [
+        "Number Sense"
+      ],
+      "secondaryTopics": [
+        "Factoring",
+        "Counting",
+        "Divisibility"
+      ]
+    },
+    "25": {
+      "primaryTopics": [
+        "Geometry and Measurement",
+        "Counting and Probability",
+        "Algebra and Equations"
+      ],
+      "secondaryTopics": [
+        "Surface Area",
+        "Counting",
+        "Expressions"
+      ]
+    }
+  }
+}
