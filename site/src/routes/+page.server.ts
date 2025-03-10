@@ -1,4 +1,6 @@
 import { redirect } from '@sveltejs/kit';
+import type { Question } from '$lib/types';
+
 
 const ssr = false;
 export async function load({ fetch, params ,cookies }) {
@@ -6,6 +8,10 @@ export async function load({ fetch, params ,cookies }) {
         if(!contest) redirect(307, '/login');
 
 
-    let question: Question = (await (await fetch(`/api/getQuestion?contest=${contest}`,{method:"POST",body:JSON.stringify({})})).json());
+    const response = await fetch(`/api/getQuestion?contest=${contest}`, {
+        method: "POST",
+        body: JSON.stringify({})
+    });
+    const question: Question = await response.json();
     return {question:question, contest:contest}
 }

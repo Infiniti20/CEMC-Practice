@@ -1,4 +1,5 @@
 import { math, display } from 'mathlifier';
+import type { Question } from './types';
 
 
 function remove(str: string, pattern: string | RegExp): string {
@@ -92,7 +93,8 @@ function decode(encodedString:string) {
 function formatName(s: string) {
 	const legend: { [key: string]: string } = {
 		"pascal": "Pascal",
-		"gauss7": "Gauss (Gr. 7)"
+		"gauss7": "Gauss (Gr. 7)",
+		"fryer":"Fryer"
 	}
 	return legend[s]
 }

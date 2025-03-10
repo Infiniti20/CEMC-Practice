@@ -14,7 +14,7 @@
   ];
 
   const topicOptions = {
-    "9th Grade": ["pascal"],
+    "9th Grade": ["pascal","fryer"],
     "7th Grade": ["gauss7"],
     "8th Grade": ["Linear Equations", "Functions", "Pythagorean Theorem"],
   };
@@ -22,6 +22,9 @@
   function handleStartPractice() {
     if (selectedGrade && selectedTopic) {
       document.cookie = `contest=${selectedTopic}`
+      if(selectedTopic == "fryer"){
+        goto("/fgh")
+      }
       goto(`/`);
     }
   }

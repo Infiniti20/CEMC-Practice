@@ -14,18 +14,20 @@
 	import SolutionDisplay from '$lib/components/solution-display.svelte';
 	import StatsDisplay from '$lib/components/stats-display.svelte';
 	import type { PageProps } from './$types';
-	import { formatName, getQuestionTopics, isAnswerCorrect } from '$lib';
-	import type { Question, Stats } from '$lib/types';
+	import { formatName} from '$lib';
+	import { Button } from '$lib/components/ui/button';
+	import type { SequenceQuestion, SequenceStats, } from '$lib/types';
+	import SequenceDisplay from '$lib/components/sequence-display.svelte';
 
 	let { data }: PageProps = $props();
-	let currentQuestion: Question = $state(data.question);
-	let selectedAnswer: string | undefined = $state(undefined);
-	let showSolution = $state(false);
+	let currentQuestion: SequenceQuestion = $state(data.question);
+	let sequenceAnswers: string[] | undefined = $state(undefined);
+	let isSubmitted = $state(false);
 	let contest:string = data.contest
 
 	let startTime: number = Date.now();
 
-	let stats: Stats = $state({
+	let stats: SequenceStats = $state({
 		total: 0,
 		correct: 0,
 		incorrect: 0,
@@ -38,7 +40,7 @@
 	// Function to save stats to localStorage
 	function saveStatsToLocalStorage() {
 		try {
-			localStorage.setItem('mathPracticeStats', JSON.stringify(stats));
+			localStorage.setItem('fghStats', JSON.stringify(stats));
 		} catch (e) {
 			console.error('Failed to save stats to localStorage:', e);
 		}
@@ -49,7 +51,7 @@
 
 		// Load stats from localStorage if they exist
 		try {
-			const savedStats = localStorage.getItem('mathPracticeStats');
+			const savedStats = localStorage.getItem('fghStats');
 			if (savedStats) {
 				stats = JSON.parse(savedStats);
 			}
@@ -59,60 +61,45 @@
 		}
 	});
 
-	function handleAnswerSelect(answer: any) {
-		if (selectedAnswer) return; // Prevent changing answer after selection
+	function handleSequenceSubmit(answers: string[],marks: number[]) {
+		sequenceAnswers = answers
+        isSubmitted = true;
+        const totalSubQuestions = currentQuestion.subQuestions?.length || 0
+        		const timeSpent = (Date.now() - startTime) / 60000; // time in minutes
 
-		selectedAnswer = answer;
-		const isCorrect = isAnswerCorrect(currentQuestion, answer);
-		const timeSpent = (Date.now() - startTime) / 60000; // time in minutes
+
 
 		// Update topicStats for each topic in the question
-		const newTopicStats = { ...stats.topicStats };
 
-		getQuestionTopics(currentQuestion.topics).forEach((topic) => {
-			let topicRef = topic;
-			if (!newTopicStats[topicRef]) {
-				newTopicStats[topicRef] = { total: 0, correct: 0, incorrect: 0, time: 0 };
-			}
-			newTopicStats[topicRef].total += 1;
-			newTopicStats[topicRef].time += timeSpent;
-			if (isCorrect) {
-				newTopicStats[topicRef].correct += 1;
-			} else {
-				newTopicStats[topicRef].incorrect += 1;
-			}
-		});
-		stats = {
-			total: stats.total + 1,
-			correct: isCorrect ? stats.correct + 1 : stats.correct,
-			incorrect: isCorrect ? stats.incorrect : stats.incorrect + 1,
-			streak: isCorrect ? stats.streak + 1 : 0,
-			history: [
-				...stats.history,
-				{
-					question: `${formatName(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number}`,
-					correct:isCorrect
-				}
-			],
-			topicStats: newTopicStats,
-			time: (stats.time += timeSpent)
-		};
+
+		// stats = {
+		// 	total: stats.total + totalSubQuestions,
+		// 	correct: stats.correct + correctCount,
+		// 	incorrect: stats.incorrect + (totalSubQuestions - correctCount),
+		// 	streak: correctCount === totalSubQuestions ? stats.streak + 1 : 0,
+		// 	history: [
+		// 		...stats.history,
+		// 		{
+		// 			question: `${formatName(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number}`,
+		// 		}
+		// 	],
+		// 	time: (stats.time += timeSpent)
+		// };
 
 		// Save stats to localStorage after updating
 		saveStatsToLocalStorage();
 
-		showSolution = true;
 	}
 
 	async function handleNextQuestion() {
 		currentQuestion = await (
-			await fetch(`/api/getQuestion?contest=${contest}&topic=1`, {
+			await fetch(`/api/getSequence?contest=${contest}&topic=1`, {
 				method: 'POST',
 				body: JSON.stringify(stats)
 			})
 		).json();
-		selectedAnswer = undefined;
-		showSolution = false;
+		sequenceAnswers = []
+		isSubmitted = false;
 		startTime = Date.now();
 	}
 </script>
@@ -154,25 +141,23 @@
 							</div>
 						</div>
 
-						<QuestionDisplay
+						<SequenceDisplay
 							question={currentQuestion}
-							{selectedAnswer}
-							onAnswerSelect={handleAnswerSelect}
-							{contest}
+							onSequenceSubmit={handleSequenceSubmit}
+							isSubmitted={isSubmitted}
+							contest={contest}
 						/>
 
-						{#if showSolution}
-							<SolutionDisplay
-								question={currentQuestion}
-								{selectedAnswer}
-								onNextQuestion={handleNextQuestion}
-							/>
+						{#if isSubmitted}
+							<Button class="w-full mt-4" onclick={handleNextQuestion}>
+                  Next Question
+                </Button>
 						{/if}
 					</div>
 				</TabsContent>
 
 				<TabsContent value="stats" class="mt-0">
-					<StatsDisplay {stats} />
+					<!-- <StatsDisplay {stats} /> -->
 					<!-- <Button variant="outline" class="mt-4 w-full" onclick={switchToPracticeTab}>
 						Back to Practice
 					</Button> -->

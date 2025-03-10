@@ -15,6 +15,21 @@ type Question = {
 	};
 	percentage_correct:number
 };
+type SequenceQuestion = {
+	base: string;
+
+	subQuestions: SubQuestion[];
+	source: {
+		year: number;
+		number: number;
+	};
+};
+type SubQuestion = {
+	solution: string;
+	type: "full" | "short";
+	html:string;
+	points: number;
+}
 type ContestFile = {
 	data: Question[];
 	legend: {
@@ -41,3 +56,13 @@ interface Stats {
 	topicStats: { [key: string]: TopicStats };
 	time:number
 }
+interface SequenceStats {
+	total: number;
+	correct: number;
+	incorrect: number;
+	streak: number;
+	history: { question: string; }[];
+	time: number;
+}
+
+export type {Question, SubQuestion, SequenceQuestion,Stats,TopicStats,SequenceStats, ContestDirectory}

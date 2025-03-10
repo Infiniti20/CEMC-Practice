@@ -1,4 +1,5 @@
 import { getQuestionTopics } from '$lib';
+import type { ContestDirectory, Question, Stats, TopicStats } from '$lib/types';
 import type { RequestEvent, RequestHandler } from '@sveltejs/kit';
 const jsonFiles: ContestDirectory = import.meta.glob('/static/contest_files/*.json', {
 	eager: true

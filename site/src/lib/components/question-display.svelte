@@ -9,6 +9,7 @@
 	import TopicBadge from '$lib/components/topic-badge.svelte';
 
 	import { isMultipleChoice } from '$lib/index';
+	import type { Question } from '$lib/types';
 
 	interface Props {
 		question: Question;
@@ -98,4 +99,5 @@
 		max-width: 100%;
 		min-width: 250px;
 	}
+	
 </style>

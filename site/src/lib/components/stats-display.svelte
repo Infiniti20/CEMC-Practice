@@ -13,6 +13,7 @@
 	} from '$lib/components/ui/accordion';
 	import { Select, SelectContent, SelectItem, SelectTrigger } from '$lib/components/ui/select';
 	import { Input } from '$lib/components/ui/input/';
+	import type { Stats, TopicStats } from '$lib/types';
 
 	const legend = {
 		'1': 'Algebra and Equations',
