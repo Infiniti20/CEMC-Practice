@@ -1,11 +1,6 @@
-import { getQuestionTopics } from '$lib';
 import type {
 	ContestDirectory,
-	Question,
 	SequenceQuestion,
-	SequenceStats,
-	Stats,
-	TopicStats
 } from '$lib/types';
 import type { RequestEvent, RequestHandler } from '@sveltejs/kit';
 const jsonFiles: ContestDirectory = import.meta.glob('/static/contest_files/fryer_questions.json', {

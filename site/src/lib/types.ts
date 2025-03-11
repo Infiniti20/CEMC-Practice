@@ -61,7 +61,7 @@ interface SequenceStats {
 	correct: number;
 	incorrect: number;
 	streak: number;
-	history: { question: string; }[];
+	history: { question: string;correct:number,total:number }[];
 	time: number;
 }
 

@@ -9,21 +9,23 @@
 	} from '$lib/components/ui/card';
 	import { Progress } from '$lib/components/ui/progress';
 	import { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
-	import { CheckCircle, ChartBar } from 'lucide-svelte';
+	import { CheckCircle, ChartBar, Loader2 } from 'lucide-svelte';
 	import QuestionDisplay from '$lib/components/question-display.svelte';
 	import SolutionDisplay from '$lib/components/solution-display.svelte';
 	import StatsDisplay from '$lib/components/stats-display.svelte';
 	import type { PageProps } from './$types';
-	import { formatName} from '$lib';
+	import { formatName } from '$lib';
 	import { Button } from '$lib/components/ui/button';
-	import type { SequenceQuestion, SequenceStats, } from '$lib/types';
+	import type { SequenceQuestion, SequenceStats } from '$lib/types';
 	import SequenceDisplay from '$lib/components/sequence-display.svelte';
 
 	let { data }: PageProps = $props();
 	let currentQuestion: SequenceQuestion = $state(data.question);
 	let sequenceAnswers: string[] | undefined = $state(undefined);
 	let isSubmitted = $state(false);
-	let contest:string = data.contest
+	let contest: string = data.contest;
+	let isLoadingNextQuestion = $state(false);
+	let solutions: string[] = $state([]);
 
 	let startTime: number = Date.now();
 
@@ -61,46 +63,59 @@
 		}
 	});
 
-	function handleSequenceSubmit(answers: string[],marks: number[]) {
-		sequenceAnswers = answers
-        isSubmitted = true;
-        const totalSubQuestions = currentQuestion.subQuestions?.length || 0
-        		const timeSpent = (Date.now() - startTime) / 60000; // time in minutes
+	function handleSequenceSubmit(answers: string[], marks: number[], customSolutions: string[]) {
+		sequenceAnswers = answers;
+		isSubmitted = true;
+		solutions = customSolutions;
 
+		const totalSubQuestions = currentQuestion.subQuestions?.length || 0;
+		const timeSpent = (Date.now() - startTime) / 60000; // time in minutes
+		const correctCount = marks.filter((mark) => mark > 2).length;
 
-
-		// Update topicStats for each topic in the question
-
-
-		// stats = {
-		// 	total: stats.total + totalSubQuestions,
-		// 	correct: stats.correct + correctCount,
-		// 	incorrect: stats.incorrect + (totalSubQuestions - correctCount),
-		// 	streak: correctCount === totalSubQuestions ? stats.streak + 1 : 0,
-		// 	history: [
-		// 		...stats.history,
-		// 		{
-		// 			question: `${formatName(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number}`,
-		// 		}
-		// 	],
-		// 	time: (stats.time += timeSpent)
-		// };
+		// Update stats
+		stats = {
+			...stats,
+			total: stats.total + totalSubQuestions,
+			correct: stats.correct + correctCount,
+			incorrect: stats.incorrect + (totalSubQuestions - correctCount),
+			streak: correctCount === totalSubQuestions ? stats.streak + 1 : 0,
+			history: [
+				...stats.history,
+				{
+					question: `${formatName(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number}`,
+					correct: correctCount,
+					total: totalSubQuestions
+				}
+			],
+			time: stats.time + timeSpent
+		};
 
 		// Save stats to localStorage after updating
 		saveStatsToLocalStorage();
-
 	}
 
 	async function handleNextQuestion() {
-		currentQuestion = await (
-			await fetch(`/api/getSequence?contest=${contest}&topic=1`, {
+		isLoadingNextQuestion = true;
+		try {
+			const response = await fetch(`/api/getSequence?contest=${contest}&topic=1`, {
 				method: 'POST',
 				body: JSON.stringify(stats)
-			})
-		).json();
-		sequenceAnswers = []
-		isSubmitted = false;
-		startTime = Date.now();
+			});
+
+			if (!response.ok) {
+				throw new Error('Failed to fetch next question');
+			}
+
+			currentQuestion = await response.json();
+			sequenceAnswers = [];
+			solutions = [];
+			isSubmitted = false;
+			startTime = Date.now();
+		} catch (error) {
+			console.error('Error fetching next question:', error);
+		} finally {
+			isLoadingNextQuestion = false;
+		}
 	}
 </script>
 
@@ -144,23 +159,29 @@
 						<SequenceDisplay
 							question={currentQuestion}
 							onSequenceSubmit={handleSequenceSubmit}
-							isSubmitted={isSubmitted}
-							contest={contest}
+							{isSubmitted}
+							{contest}
 						/>
 
 						{#if isSubmitted}
-							<Button class="w-full mt-4" onclick={handleNextQuestion}>
-                  Next Question
-                </Button>
+							<Button
+								class="w-full mt-4"
+								onclick={handleNextQuestion}
+								disabled={isLoadingNextQuestion}
+							>
+								{#if isLoadingNextQuestion}
+									<Loader2 class="h-4 w-4 mr-2 animate-spin" />
+									Loading Next Question...
+								{:else}
+									Next Question
+								{/if}
+							</Button>
 						{/if}
 					</div>
 				</TabsContent>
 
 				<TabsContent value="stats" class="mt-0">
 					<!-- <StatsDisplay {stats} /> -->
-					<!-- <Button variant="outline" class="mt-4 w-full" onclick={switchToPracticeTab}>
-						Back to Practice
-					</Button> -->
 				</TabsContent>
 			</Tabs>
 		</CardContent>
