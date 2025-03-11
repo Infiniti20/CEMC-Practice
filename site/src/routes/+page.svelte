@@ -9,13 +9,15 @@
 	} from '$lib/components/ui/card';
 	import { Progress } from '$lib/components/ui/progress';
 	import { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
-	import { CheckCircle, ChartBar } from 'lucide-svelte';
+	import { CheckCircle, ChartBar, SwitchCamera } from 'lucide-svelte';
 	import QuestionDisplay from '$lib/components/question-display.svelte';
 	import SolutionDisplay from '$lib/components/solution-display.svelte';
 	import StatsDisplay from '$lib/components/stats-display.svelte';
 	import type { PageProps } from './$types';
 	import { formatName, getQuestionTopics, isAnswerCorrect } from '$lib';
 	import type { Question, Stats } from '$lib/types';
+	import { Button } from '$lib/components/ui/button';
+	import { goto } from '$app/navigation';
 
 	let { data }: PageProps = $props();
 	let currentQuestion: Question = $state(data.question);
@@ -119,10 +121,16 @@
 
 <main class="min-h-screen p-4 md:p-8 flex items-center justify-center">
 	<Card class="w-full max-w-3xl">
-		<CardHeader>
-			<CardTitle class="text-2xl">Math Practice</CardTitle>
-			<CardDescription>Solve math problems and track your progress</CardDescription>
-		</CardHeader>
+		<CardHeader class="flex flex-row items-center justify-between">
+        <div>
+          <CardTitle class="text-2xl">Math Practice</CardTitle>
+          <CardDescription>Solve math problems and track your progress</CardDescription>
+        </div>
+          <Button variant="outline" onclick={()=>{ goto("/login")}}>
+            <SwitchCamera class="mr-2 h-4 w-4" />
+            Switch Contests
+          </Button>
+      </CardHeader>
 		<CardContent>
 			<Tabs value="practice">
 				<TabsList class="mb-4">
