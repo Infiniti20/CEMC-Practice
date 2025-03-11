@@ -14,7 +14,7 @@
 </script>
 
 <div class="space-y-4">
-	<div class="text-xl font-medium p-4 bg-muted rounded-lg">
+	<div class="text-xl font-medium p-4 rounded-lg">
 		{@html processHTMLBlock(question.base)}
 	</div>
 
