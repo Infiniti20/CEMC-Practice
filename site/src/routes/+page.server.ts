@@ -1,18 +1,24 @@
 import { redirect } from '@sveltejs/kit';
 import type { Question } from '$lib/types';
 
-
 const ssr = false;
-export async function load({ fetch, params ,cookies }) {
-    	const contest = cookies.get('contest');
-        if(!contest) redirect(307, '/login');
-        if(contest == "fryer") redirect(307, '/fgh');
+export async function load({ fetch, params, cookies }) {
+	const contest = cookies.get('contest');
+	if (!contest) redirect(307, '/login');
+	// if(contest == "fryer") redirect(307, '/fgh');
+	let response;
+	if (contest == 'fryer') {
+		response = await fetch(`/api/getSequence?contest=${contest}`, {
+			method: 'POST',
+			body: JSON.stringify({})
+		});
+	} else {
+		response = await fetch(`/api/getQuestion?contest=${contest}`, {
+			method: 'POST',
+			body: JSON.stringify({})
+		});
+	}
 
-
-    const response = await fetch(`/api/getQuestion?contest=${contest}`, {
-        method: "POST",
-        body: JSON.stringify({})
-    });
-    const question: Question = await response.json();
-    return {question:question, contest:contest}
+	const question: Question = await response.json();
+	return { question: question, contest: contest };
 }

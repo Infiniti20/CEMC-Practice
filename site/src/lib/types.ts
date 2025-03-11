@@ -13,16 +13,17 @@ type Question = {
 		year: number;
 		number: number;
 	};
-	percentage_correct:number
+	percentage_correct:number;
+	type: "Question";
 };
 type SequenceQuestion = {
 	base: string;
-
 	subQuestions: SubQuestion[];
 	source: {
 		year: number;
 		number: number;
 	};
+	type: "SequenceQuestion";
 };
 type SubQuestion = {
 	solution: string;
@@ -54,7 +55,7 @@ interface Stats {
 	streak: number;
 	history: { question: string; correct: boolean; }[];
 	topicStats: { [key: string]: TopicStats };
-	time:number
+	time:number;
 }
 interface SequenceStats {
 	total: number;
