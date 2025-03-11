@@ -3,6 +3,7 @@
   import { Card, CardContent } from "$lib/components/ui/card";
   import { CheckCircle, XCircle, ArrowRight } from "lucide-svelte";
   import {isAnswerCorrect, processHTMLBlock} from '$lib'
+	import type { Question } from "$lib/types";
 
 
   interface Props {

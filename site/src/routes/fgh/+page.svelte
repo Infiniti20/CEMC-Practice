@@ -1,22 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import {
-		Card,
-		CardContent,
-		CardDescription,
-		CardHeader,
-		CardTitle
-	} from '$lib/components/ui/card';
-	import { Progress } from '$lib/components/ui/progress';
-	import { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
-	import { CheckCircle, ChartBar, Loader2, SwitchCamera } from 'lucide-svelte';
-	import type { PageProps } from './$types';
 	import { formatName } from '$lib';
-	import { Button } from '$lib/components/ui/button';
+	import type { PageProps } from './$types';
 	import type { SequenceQuestion, SequenceStats } from '$lib/types';
 	import SequenceDisplay from '$lib/components/sequence-display.svelte';
-	import { goto } from '$app/navigation';
-	import StatsDisplay from '$lib/components/stats-display.svelte';
+	import ContestLayout from '$lib/components/contest-layout.svelte';
+	import { sequenceStats } from '$lib/stores/statsStore.svelte';
+	import { Button } from '$lib/components/ui/button';
+	import { Loader2 } from 'lucide-svelte';
 
 	let { data }: PageProps = $props();
 	let currentQuestion: SequenceQuestion = $state(data.question);
@@ -25,41 +16,15 @@
 	let contest: string = data.contest;
 	let isLoadingNextQuestion = $state(false);
 	let solutions: string[] = $state([]);
-
 	let startTime: number = Date.now();
 
-	let stats: SequenceStats = $state({
-		total: 0,
-		correct: 0,
-		incorrect: 0,
-		streak: 0,
-		history: [],
-		topicStats: {},
-		time: 0
-	});
-
-	// Function to save stats to localStorage
-	function saveStatsToLocalStorage() {
-		try {
-			localStorage.setItem('fghStats', JSON.stringify(stats));
-		} catch (e) {
-			console.error('Failed to save stats to localStorage:', e);
-		}
-	}
+	// Create local stats object to track changes
+	let stats: SequenceStats = $state({ ...sequenceStats.get() });
 
 	onMount(() => {
 		startTime = Date.now();
-
-		// Load stats from localStorage if they exist
-		try {
-			const savedStats = localStorage.getItem('fghStats');
-			if (savedStats) {
-				stats = JSON.parse(savedStats);
-			}
-		} catch (e) {
-			console.error('Failed to load stats from localStorage:', e);
-			// Continue with default stats
-		}
+		  sequenceStats.setupEffect();
+		stats = { ...sequenceStats.get() };
 	});
 
 	function handleSequenceSubmit(answers: string[], marks: number[], customSolutions: string[]) {
@@ -72,7 +37,7 @@
 		const correctCount = marks.filter((mark) => mark > 2).length;
 
 		// Update stats
-		stats = {
+		const updatedStats: SequenceStats = {
 			...stats,
 			total: stats.total + totalSubQuestions,
 			correct: stats.correct + correctCount,
@@ -81,7 +46,7 @@
 			history: [
 				...stats.history,
 				{
-					question: `${formatName(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number+1}`,
+					question: `${formatName(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number + 1}`,
 					correct: correctCount,
 					total: totalSubQuestions
 				}
@@ -89,8 +54,8 @@
 			time: stats.time + timeSpent
 		};
 
-		// Save stats to localStorage after updating
-		saveStatsToLocalStorage();
+		stats = updatedStats;
+		sequenceStats.update(updatedStats);
 	}
 
 	async function handleNextQuestion() {
@@ -118,79 +83,22 @@
 	}
 </script>
 
-<main class="min-h-screen p-4 md:p-8 flex items-center justify-center">
-	<Card class="w-full max-w-3xl">
-		<CardHeader>
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div>
-            <CardTitle class="text-2xl">{formatName(contest)} Contest Practice</CardTitle>
-            <CardDescription>Solve math problems and track your progress</CardDescription>
-          </div>
-          <Button variant="outline" onclick={()=>{ goto("/login")}}>
-            <SwitchCamera class="mr-2 h-4 w-4" />
-            Switch Contests
-          </Button>
-        </div>
-      </CardHeader>
-		<CardContent>
-			<Tabs value="practice">
-				<TabsList class="mb-4">
-					<TabsTrigger value="practice" data-value="practice">Practice</TabsTrigger>
-					<TabsTrigger value="stats">
-						<ChartBar class="h-4 w-4 mr-2" />
-						Stats
-					</TabsTrigger>
-				</TabsList>
+<ContestLayout {contest} {stats}>
+		<SequenceDisplay
+			question={currentQuestion}
+			onSequenceSubmit={handleSequenceSubmit}
+			{isSubmitted}
+			{contest}
+		/>
 
-				<TabsContent value="practice" class="mt-0">
-					<div class="space-y-6">
-						<div class="flex justify-between items-center">
-							<div class="flex items-center gap-2">
-								<span class="font-medium">Streak:</span>
-								<span class="flex items-center gap-1">
-									{stats.streak}
-									<CheckCircle class="h-4 w-4 text-green-500" />
-								</span>
-							</div>
-							<div class="flex items-center gap-2">
-								<span class="font-medium">Accuracy:</span>
-								<Progress
-									value={stats.total > 0 ? (stats.correct / stats.total) * 100 : 0}
-									class="w-24 h-2"
-								/>
-								<span>{stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0}%</span
-								>
-							</div>
-						</div>
-
-						<SequenceDisplay
-							question={currentQuestion}
-							onSequenceSubmit={handleSequenceSubmit}
-							{isSubmitted}
-							{contest}
-						/>
-
-						{#if isSubmitted}
-							<Button
-								class="w-full mt-4"
-								onclick={handleNextQuestion}
-								disabled={isLoadingNextQuestion}
-							>
-								{#if isLoadingNextQuestion}
-									<Loader2 class="h-4 w-4 mr-2 animate-spin" />
-									Loading Next Question...
-								{:else}
-									Next Question
-								{/if}
-							</Button>
-						{/if}
-					</div>
-				</TabsContent>
-
-				<TabsContent value="stats" class="mt-0">
-					<StatsDisplay {stats} />
-				</TabsContent>
-			</Tabs>
-		</CardContent>
-	</Card>
-</main>
+		{#if isSubmitted}
+			<Button class="w-full mt-4" onclick={handleNextQuestion} disabled={isLoadingNextQuestion}>
+				{#if isLoadingNextQuestion}
+					<Loader2 class="h-4 w-4 mr-2 animate-spin" />
+					Loading Next Question...
+				{:else}
+					Next Question
+				{/if}
+			</Button>
+		{/if}
+</ContestLayout>

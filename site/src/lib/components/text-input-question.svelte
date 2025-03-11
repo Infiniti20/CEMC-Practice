@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { Card } from '$lib/components/ui/card';
-	import { Input } from '$lib/components/ui/input';
 	import { Button } from '$lib/components/ui/button';
 	import { CheckCircle, XCircle, Loader2 } from 'lucide-svelte';
 	import type { SubQuestion } from '$lib/types';
 	import { processHTMLBlock } from '$lib';
 	import ContentEditable from './content-editable.svelte';
+	import { onMount } from 'svelte';
 
 	interface Props {
 		base: string;
@@ -22,20 +22,26 @@
 
 	let { subQuestions = [], onAnswersSubmit, isSubmitted = false, contest, base }: Props = $props();
 
-	let answers: string[] = $state(Array(5).fill(''));
-
+	let answers: string[] = $state([]);
 	let marks: number[] = $state([]);
 	let explanations: string[] = $state([]);
 	let isLoading: boolean = $state(false);
 
-	// Reset answers whenever subQuestions change (i.e., when a new question loads)
+	onMount(() => {
+		resetAnswers();
+	});
+
+	// Reset answers whenever subQuestions change (for a new question)
 	$effect(() => {
-  // Explicitly reference properties of subQuestions to create a dependency
-  const questions = subQuestions;
-  const questionCount = subQuestions.length;
-  // Reset states when subQuestions changes
-  answers = Array(5).fill('');
-});
+		if (subQuestions) {
+			resetAnswers();
+		}
+	});
+
+	function resetAnswers() {
+		answers = Array(subQuestions.length).fill('');
+	}
+
 	function handleInputChange(index: number, event: CustomEvent<{ html: string; text: string }>) {
 		answers[index] = event.detail.html;
 		answers = [...answers]; // trigger reactivity
@@ -61,7 +67,7 @@
 			}
 
 			const result = await response.json();
-			// Extract marks and explanations from the new response shape
+			// Extract marks and explanations
 			marks = result.map((item: { mark: number }) => item.mark);
 			explanations = result.map((item: { explanation: number }) => item.explanation);
 
@@ -81,13 +87,9 @@
 	}
 
 	let allAnswered = $derived(
-		answers.every((answer, i) => (i < subQuestions.length ? answer.trim() !== '' : true))
+		answers.length > 0 &&
+			answers.every((answer, i) => (i < subQuestions.length ? answer.trim() !== '' : true))
 	);
-
-	// Track both raw and processed text
-	function processText(text: string): string {
-		return text;
-	}
 </script>
 
 <div class="space-y-6">
@@ -101,7 +103,7 @@
 						placeholder={subQuestion.type == 'short'
 							? 'Short answer (part marks are awarded if relevant work is shown)'
 							: 'Full solution (a correct solution poorly presented will not earn full marks)'}
-						{processText}
+						processText={(text) => text}
 						value={answers[index] || ''}
 						on:input={(e) => handleInputChange(index, e)}
 						className={subQuestion.type == 'full' ? 'h-40' : ''}

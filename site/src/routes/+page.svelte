@@ -1,64 +1,28 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import {
-		Card,
-		CardContent,
-		CardDescription,
-		CardHeader,
-		CardTitle
-	} from '$lib/components/ui/card';
-	import { Progress } from '$lib/components/ui/progress';
-	import { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
-	import { CheckCircle, ChartBar, SwitchCamera } from 'lucide-svelte';
+	import { isAnswerCorrect, formatName, getQuestionTopics } from '$lib';
+	import type { Question, Stats } from '$lib/types';
+	import type { PageProps } from './$types';
 	import QuestionDisplay from '$lib/components/question-display.svelte';
 	import SolutionDisplay from '$lib/components/solution-display.svelte';
-	import StatsDisplay from '$lib/components/stats-display.svelte';
-	import type { PageProps } from './$types';
-	import { formatName, getQuestionTopics, isAnswerCorrect } from '$lib';
-	import type { Question, Stats } from '$lib/types';
-	import { Button } from '$lib/components/ui/button';
-	import { goto } from '$app/navigation';
+	import ContestLayout from '$lib/components/contest-layout.svelte';
+	import { multipleChoiceStats } from '$lib/stores/statsStore.svelte';
 
 	let { data }: PageProps = $props();
 	let currentQuestion: Question = $state(data.question);
 	let selectedAnswer: string | undefined = $state(undefined);
 	let showSolution = $state(false);
-	let contest:string = data.contest
-
+	let contest: string = data.contest;
+	let isLoadingNextQuestion = $state(false);
 	let startTime: number = Date.now();
 
-	let stats: Stats = $state({
-		total: 0,
-		correct: 0,
-		incorrect: 0,
-		streak: 0,
-		history: [],
-		topicStats: {},
-		time: 0
-	});
-
-	// Function to save stats to localStorage
-	function saveStatsToLocalStorage() {
-		try {
-			localStorage.setItem('mathPracticeStats', JSON.stringify(stats));
-		} catch (e) {
-			console.error('Failed to save stats to localStorage:', e);
-		}
-	}
+	// Create local stats object to track changes
+	let stats: Stats = $state({ ...multipleChoiceStats.get() });
 
 	onMount(() => {
 		startTime = Date.now();
-
-		// Load stats from localStorage if they exist
-		try {
-			const savedStats = localStorage.getItem('mathPracticeStats');
-			if (savedStats) {
-				stats = JSON.parse(savedStats);
-			}
-		} catch (e) {
-			console.error('Failed to load stats from localStorage:', e);
-			// Continue with default stats
-		}
+		  multipleChoiceStats.setupEffect();
+		stats = { ...multipleChoiceStats.get() };
 	});
 
 	function handleAnswerSelect(answer: any) {
@@ -84,7 +48,8 @@
 				newTopicStats[topicRef].incorrect += 1;
 			}
 		});
-		stats = {
+
+		const updatedStats: Stats = {
 			total: stats.total + 1,
 			correct: isCorrect ? stats.correct + 1 : stats.correct,
 			incorrect: isCorrect ? stats.incorrect : stats.incorrect + 1,
@@ -93,101 +58,55 @@
 				...stats.history,
 				{
 					question: `${formatName(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number}`,
-					correct:isCorrect
+					correct: isCorrect
 				}
 			],
 			topicStats: newTopicStats,
-			time: (stats.time += timeSpent)
+			time: stats.time + timeSpent
 		};
 
-		// Save stats to localStorage after updating
-		saveStatsToLocalStorage();
-
+		stats = updatedStats;
+		multipleChoiceStats.update(updatedStats);
 		showSolution = true;
 	}
 
 	async function handleNextQuestion() {
-		currentQuestion = await (
-			await fetch(`/api/getQuestion?contest=${contest}&topic=1`, {
+		isLoadingNextQuestion = true;
+		try {
+			const response = await fetch(`/api/getQuestion?contest=${contest}&topic=1`, {
 				method: 'POST',
 				body: JSON.stringify(stats)
-			})
-		).json();
-		selectedAnswer = undefined;
-		showSolution = false;
-		startTime = Date.now();
+			});
+
+			if (!response.ok) {
+				throw new Error('Failed to fetch next question');
+			}
+
+			currentQuestion = await response.json();
+			selectedAnswer = undefined;
+			showSolution = false;
+			startTime = Date.now();
+		} catch (error) {
+			console.error('Error fetching next question:', error);
+		} finally {
+			isLoadingNextQuestion = false;
+		}
 	}
 </script>
 
-<main class="min-h-screen p-4 md:p-8 flex items-center justify-center">
-	<Card class="w-full max-w-3xl">
-		<CardHeader>
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div>
-            <CardTitle class="text-2xl">{formatName(contest)} Contest Practice</CardTitle>
-            <CardDescription>Solve math problems and track your progress</CardDescription>
-          </div>
-          <Button variant="outline" onclick={()=>{ goto("/login")}}>
-            <SwitchCamera class="mr-2 h-4 w-4" />
-            Switch Contests
-          </Button>
-        </div>
-      </CardHeader>
-		<CardContent>
-			<Tabs value="practice">
-				<TabsList class="mb-4">
-					<TabsTrigger value="practice" data-value="practice">Practice</TabsTrigger>
-					<TabsTrigger value="stats">
-						<ChartBar class="h-4 w-4 mr-2" />
-						Stats
-					</TabsTrigger>
-				</TabsList>
+<ContestLayout {contest} {stats}>
+		<QuestionDisplay
+			question={currentQuestion}
+			{selectedAnswer}
+			onAnswerSelect={handleAnswerSelect}
+			{contest}
+		/>
 
-				<TabsContent value="practice" class="mt-0">
-					<div class="space-y-6">
-						<div class="flex justify-between items-center">
-							<div class="flex items-center gap-2">
-								<span class="font-medium">Streak:</span>
-								<span class="flex items-center gap-1">
-									{stats.streak}
-									<CheckCircle class="h-4 w-4 text-green-500" />
-								</span>
-							</div>
-							<div class="flex items-center gap-2">
-								<span class="font-medium">Accuracy:</span>
-								<Progress
-									value={stats.total > 0 ? (stats.correct / stats.total) * 100 : 0}
-									class="w-24 h-2"
-								/>
-								<span>{stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0}%</span
-								>
-							</div>
-						</div>
-
-						<QuestionDisplay
-							question={currentQuestion}
-							{selectedAnswer}
-							onAnswerSelect={handleAnswerSelect}
-							{contest}
-						/>
-
-						{#if showSolution}
-							<SolutionDisplay
-								question={currentQuestion}
-								{selectedAnswer}
-								onNextQuestion={handleNextQuestion}
-							/>
-						{/if}
-					</div>
-				</TabsContent>
-
-				<TabsContent value="stats" class="mt-0">
-					<StatsDisplay {stats} />
-					<!-- <Button variant="outline" class="mt-4 w-full" onclick={switchToPracticeTab}>
-						Back to Practice
-					</Button> -->
-				</TabsContent>
-			</Tabs>
-		</CardContent>
-	</Card>
-</main>
+		{#if showSolution}
+			<SolutionDisplay
+				question={currentQuestion}
+				{selectedAnswer}
+				onNextQuestion={handleNextQuestion}
+			/>
+		{/if}
+</ContestLayout>
