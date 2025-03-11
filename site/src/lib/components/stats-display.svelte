@@ -13,7 +13,7 @@
 	} from '$lib/components/ui/accordion';
 	import { Select, SelectContent, SelectItem, SelectTrigger } from '$lib/components/ui/select';
 	import { Input } from '$lib/components/ui/input/';
-	import type { Stats, TopicStats } from '$lib/types';
+	import type { SequenceStats, Stats, TopicStats } from '$lib/types';
 
 	const legend = {
 		'1': 'Algebra and Equations',
@@ -65,7 +65,7 @@
 	function convertTopicIndex(topicInt: string) {
 		return legend[topicInt as keyof typeof legend];
 	}
-	let { stats }: { stats: Stats } = $props();
+	let { stats }: { stats: Stats | SequenceStats } = $props();
 
 	let topicFilter = $state('');
 	let sortBy = $state('most_practiced'); // Default sort option
@@ -86,16 +86,16 @@
 		}
 	}
 
-	function processFilterString(s:string){
+	function processFilterString(s: string) {
 		switch (s) {
 			case 'accuracy':
-				return "Accuracy"
+				return 'Accuracy';
 			case 'time':
-				return "Time"
+				return 'Time';
 			case 'most_practiced':
-				return "Most Practiced"
+				return 'Most Practiced';
 			default:
-				return null
+				return null;
 		}
 	}
 
@@ -104,7 +104,9 @@
 	}
 	let accuracy = $derived(stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0);
 
-	let sortedTopics = $derived(sortTopics(Object.entries(stats.topicStats), sortBy));
+	let sortedTopics = $derived(
+		'topicStats' in stats ? sortTopics(Object.entries(stats.topicStats), sortBy) : []
+	);
 	let filteredTopics = $derived(
 		sortedTopics.filter(([topic]) => {
 			return convertTopicIndex(topic).toLowerCase().includes(topicFilter.toLowerCase());
@@ -181,7 +183,7 @@
 				/>
 				<Select onValueChange={handleSortChange} value={sortBy} type="single">
 					<SelectTrigger class="w-full sm:w-[180px]">
-						<span>{(processFilterString(sortBy) ?? "Sort by")}</span>
+						<span>{processFilterString(sortBy) ?? 'Sort by'}</span>
 					</SelectTrigger>
 					<SelectContent>
 						<SelectItem value="most_practiced">Most practiced</SelectItem>
@@ -235,6 +237,9 @@
 								<XCircle class="h-4 w-4 shrink-0 text-red-500" />
 							{/if}
 							<span class="text-sm truncate flex-grow">{item.question}</span>
+							{#if 'total' in item}
+								<span class="text-sm truncate flex-grow">{item.correct} / {item.total}</span>
+							{/if}
 						</div>
 					{/each}
 				</div>

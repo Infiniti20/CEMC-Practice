@@ -16,6 +16,7 @@
 	import type { SequenceQuestion, SequenceStats } from '$lib/types';
 	import SequenceDisplay from '$lib/components/sequence-display.svelte';
 	import { goto } from '$app/navigation';
+	import StatsDisplay from '$lib/components/stats-display.svelte';
 
 	let { data }: PageProps = $props();
 	let currentQuestion: SequenceQuestion = $state(data.question);
@@ -80,7 +81,7 @@
 			history: [
 				...stats.history,
 				{
-					question: `${formatName(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number}`,
+					question: `${formatName(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number+1}`,
 					correct: correctCount,
 					total: totalSubQuestions
 				}
@@ -185,7 +186,7 @@
 				</TabsContent>
 
 				<TabsContent value="stats" class="mt-0">
-					<!-- <StatsDisplay {stats} /> -->
+					<StatsDisplay {stats} />
 				</TabsContent>
 			</Tabs>
 		</CardContent>
