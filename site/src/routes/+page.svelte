@@ -121,15 +121,17 @@
 
 <main class="min-h-screen p-4 md:p-8 flex items-center justify-center">
 	<Card class="w-full max-w-3xl">
-		<CardHeader class="flex flex-row items-center justify-between">
-        <div>
-          <CardTitle class="text-2xl">Math Practice</CardTitle>
-          <CardDescription>Solve math problems and track your progress</CardDescription>
-        </div>
+		<CardHeader>
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <CardTitle class="text-2xl">{formatName(contest)} Contest Practice</CardTitle>
+            <CardDescription>Solve math problems and track your progress</CardDescription>
+          </div>
           <Button variant="outline" onclick={()=>{ goto("/login")}}>
             <SwitchCamera class="mr-2 h-4 w-4" />
             Switch Contests
           </Button>
+        </div>
       </CardHeader>
 		<CardContent>
 			<Tabs value="practice">
