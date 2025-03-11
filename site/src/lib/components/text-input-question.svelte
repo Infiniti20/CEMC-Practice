@@ -90,7 +90,7 @@
 
 				<div class="flex items-center gap-3">
 					<ContentEditable
-						placeholder="Enter your solution (show your work!)"
+						placeholder={subQuestion.type == "short" ? "Short answer (part marks are awarded if relevant work is shown)":"Full solution (a correct solution poorly presented will not earn full marks)"}
 						{processText}
 						value={answers[index] || ''}
 						on:input={(e) => handleInputChange(index, e)}
