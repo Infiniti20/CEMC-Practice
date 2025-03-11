@@ -14,8 +14,6 @@ function isAnswerCorrect(question: Question, option:string) {
 		let index = question.answers.indexOf(option)
 
 		if(index <0){return false}
-						console.log(correctIndex + ' ' + index);
-				console.log(correctIndex == index);
 
 		return correctIndex == index
 
