@@ -23,11 +23,19 @@
 	let { subQuestions = [], onAnswersSubmit, isSubmitted = false, contest, base }: Props = $props();
 
 	let answers: string[] = $state(Array(5).fill(''));
-	let showSolutions: boolean = $state(false);
+
 	let marks: number[] = $state([]);
 	let explanations: string[] = $state([]);
 	let isLoading: boolean = $state(false);
 
+	// Reset answers whenever subQuestions change (i.e., when a new question loads)
+	$effect(() => {
+  // Explicitly reference properties of subQuestions to create a dependency
+  const questions = subQuestions;
+  const questionCount = subQuestions.length;
+  // Reset states when subQuestions changes
+  answers = Array(5).fill('');
+});
 	function handleInputChange(index: number, event: CustomEvent<{ html: string; text: string }>) {
 		answers[index] = event.detail.html;
 		answers = [...answers]; // trigger reactivity
@@ -54,8 +62,8 @@
 
 			const result = await response.json();
 			// Extract marks and explanations from the new response shape
-			marks = result.map((item: { mark: number; }) => item.mark);
-			explanations = result.map((item: { explanation: number; }) => item.explanation);
+			marks = result.map((item: { mark: number }) => item.mark);
+			explanations = result.map((item: { explanation: number }) => item.explanation);
 
 			const totalMarks = marks.reduce((sum: number, mark: number) => sum + mark, 0);
 			onAnswersSubmit(answers, marks, totalMarks, explanations);
@@ -90,15 +98,17 @@
 
 				<div class="flex items-center gap-3">
 					<ContentEditable
-						placeholder={subQuestion.type == "short" ? "Short answer (part marks are awarded if relevant work is shown)":"Full solution (a correct solution poorly presented will not earn full marks)"}
+						placeholder={subQuestion.type == 'short'
+							? 'Short answer (part marks are awarded if relevant work is shown)'
+							: 'Full solution (a correct solution poorly presented will not earn full marks)'}
 						{processText}
 						value={answers[index] || ''}
 						on:input={(e) => handleInputChange(index, e)}
-            className = {subQuestion.type == "full" ? "h-40":""}
+						className={subQuestion.type == 'full' ? 'h-40' : ''}
 					></ContentEditable>
 
 					{#if isSubmitted}
-						{#if marks[index] / subQuestion.points > 0.5 }
+						{#if marks[index] / subQuestion.points > 0.5}
 							<CheckCircle class="h-5 w-5 text-green-500" />
 						{:else}
 							<XCircle class="h-5 w-5 text-red-500" />
@@ -113,7 +123,7 @@
 							{marks[index] / subQuestion.points > 0.5 ? 'Correct!' : `Incorrect.`}
 						</p>
 						<p class="text-sm text-muted-foreground mt-1">
-							{@html processHTMLBlock(explanations[index] + "<br><br>" + subQuestion.solution)}
+							{@html processHTMLBlock(explanations[index] + '<br><br>' + subQuestion.solution)}
 						</p>
 					</div>
 				{/if}

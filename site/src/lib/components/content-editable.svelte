@@ -29,6 +29,7 @@
 	let contentDiv: HTMLDivElement;
 	let isInitialized = false;
 	let isUserTyping = $state(false);
+	let previousValue = value; // Track previous value to detect changes
 
 	interface SavedSelection {
 		startPath: number[] | null;
@@ -230,22 +231,62 @@
 		};
 	}
 
-	run(() => {
-		if (contentDiv && value && !isUserTyping) {
+	// Improved reactive value handling
+	$effect(() => {
+    
+		// Only update the content if the value has actually changed
+		// and the user is not currently typing
+		if (contentDiv && value !== previousValue && !isUserTyping) {
 			contentDiv.innerHTML = value;
 			const processed = processText(value);
 			if (processed !== value) {
 				contentDiv.innerHTML = processed;
+				previousValue = value;
 			}
 		}
 	});
 
+	// Keep track of value changes
+	$effect(() => {
+		previousValue = value;
+	});
+
 	function handleBlur() {
 		isUserTyping = false;
-		handleKeyUp({ type: 'blur', isTrusted: true } as Event);
+		// handleKeyUp({ type: 'blur', isTrusted: true } as Event);
+	}
+	function handleEvent(e: KeyboardEvent): void {
+		switch (e.key) {
+			case 'Tab':
+				e.preventDefault();
+				document.execCommand('insertHTML', false, '    '); //Insert a 4-space tab
+				break;
+
+			case 'Enter':
+				e.preventDefault();
+				const selection = window.getSelection();
+				if (selection && selection.rangeCount > 0) {
+					const range = selection.getRangeAt(0);
+
+					// Create a <br> element
+					const br = document.createElement('br');
+
+					// Insert the <br> at current position
+					range.deleteContents();
+					range.insertNode(br);
+
+					// Move the caret after the <br>
+					range.setStartAfter(br);
+					range.setEndAfter(br);
+					selection.removeAllRanges();
+					selection.addRange(range);
+				}
+				break;
+		}
 	}
 </script>
 
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
 	bind:this={contentDiv}
 	contenteditable="true"
@@ -253,6 +294,7 @@
 	onblur={handleBlur}
 	data-placeholder={placeholder}
 	use:init
+	onkeydown={handleEvent}
 	class="{className} content-editable border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring flex w-full rounded-md border px-3 py-2 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm cursor-text"
 ></div>
 
