@@ -35,7 +35,8 @@ const model = genAI.getGenerativeModel({
 
 const shortAnswer = `
     Full marks are given for a correct answer.
-    Part marks are awarded if relevant work is shown.
+    Part marks are awarded if relevant work is shown. 
+	If the answer is correct but relevant work is not shown, it is still full marks.
 `;
 
 const fullAnswer = `
@@ -51,7 +52,7 @@ export const POST: RequestHandler = async ({ request, params, url }: RequestEven
 		if (body.answers[i]) {
 			const prompt =
 				(questions[i].type == 'full' ? fullAnswer : shortAnswer) +
-				`This question is worth ${questions[i].points} marks. The question is ${questions[i].html}. The correct solution is ${questions[i].solution}. The answer given by the user is ${body.answers[i]}. Do not award any marks for just submitting an answer.`;
+				`This question is worth ${questions[i].points} marks. The question is ${questions[i].html}. The correct solution is ${questions[i].solution}. The answer given by the user is ${body.answers[i]}. Do not award partial marks for just submitting  numerical answer.`;
 			const result = await model.generateContent(prompt);
 			results.push(JSON.parse(result.response.text()));
 		}
