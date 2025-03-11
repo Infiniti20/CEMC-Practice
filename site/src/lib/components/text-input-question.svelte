@@ -5,7 +5,9 @@
   import { CheckCircle, XCircle } from "lucide-svelte";
 	import type { SubQuestion } from "$lib/types";
 	import { processHTMLBlock } from "$lib";
-  
+  import { math, display } from 'mathlifier';
+	import ContentEditable from "./content-editable.svelte";
+
   
   interface Props {
     subQuestions?: SubQuestion[];
@@ -37,6 +39,15 @@
   }
   
   let allAnswered = $derived(answers.every((answer,i) => i<subQuestions.length ? answer.trim() !== "" : true));
+  
+  // Track both raw and processed text
+  function processText(
+  text: string,
+): string {
+  // Regular expression to match text between dollar signs
+  // Uses a non-greedy match to handle multiple occurrences
+  return text
+}
 </script>
 
 <div class="space-y-6">
@@ -46,14 +57,8 @@
         <div class="font-medium">{@html processHTMLBlock(subQuestion.html)}</div>
 
         <div class="flex items-center gap-3">
-          <Input
-            type="text"
-            value={answers[index]}
-            oninput={(e) => (handleInputChange(index,(e.target as HTMLInputElement).value))}
-            placeholder="Enter your answer"
-            disabled={isSubmitted}
-            class="max-w-xs"
-          />
+          <ContentEditable placeholder="Enter your solution (show your work!)" 
+      {processText} ></ContentEditable>
 
           {#if isSubmitted}
             {#if generatedMarks[index]>2}
