@@ -5,7 +5,7 @@ import tailwindcssAnimate from "tailwindcss-animate";
 const config: Config = {
 	darkMode: ['class'],
 	content: ['./src/**/*.{html,js,svelte,ts}'],
-	safelist: ['dark', { pattern: /-(100|900|800)$/ }],
+	safelist: ['dark', { pattern: /-(100|900|800)$/ },"h-40"],
 	theme: {
 		container: {
 			center: true,

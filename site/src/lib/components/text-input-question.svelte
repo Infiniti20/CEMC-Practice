@@ -94,6 +94,7 @@
 						{processText}
 						value={answers[index] || ''}
 						on:input={(e) => handleInputChange(index, e)}
+            className = {subQuestion.type == "full" ? "h-40":""}
 					></ContentEditable>
 
 					{#if isSubmitted}
