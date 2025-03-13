@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import type { SequenceQuestion } from '$lib/types';
 
-const ssr = false;
+// const ssr = false;
 export async function load({ fetch, params, cookies }) {
 	const contest = cookies.get('contest');
 	if (!contest) redirect(307, '/login');
