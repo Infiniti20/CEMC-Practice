@@ -115,7 +115,7 @@
 				<Alert>
 					<AlertTitle>Email Sent!</AlertTitle>
 					<AlertDescription>
-						Check your email for a sign-in link. Follow it to login.
+						Check your email for a sign-in link. Follow it on the device you want to sign in with.
 					</AlertDescription>
 				</Alert>
 			{:else if !authStore.isLoggedIn()}
