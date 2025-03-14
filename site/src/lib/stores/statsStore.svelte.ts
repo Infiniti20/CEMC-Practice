@@ -1,8 +1,8 @@
 import { browser } from '$app/environment';
 import type { Stats, SequenceStats } from '$lib/types';
-import { db } from '$lib/firebase/firebase';
+import { supabase } from '$lib/firebase/firebase';
 import { authStore } from '$lib/stores/authStore.svelte';
-import { doc, getDoc, setDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
+import type { Database } from '$lib/firebase/supabase';
 
 // Default values for stats
 const DEFAULT_STATS = {
@@ -48,8 +48,8 @@ function saveToLocalStorage<T>(key: string, value: T): void {
 	}
 }
 
-// Function to load stats from Firestore
-async function loadFromFirestore<T>(key: string, value: T): Promise<T> {
+// Function to load stats from Supabase
+async function loadFromSupabase<T>(key: string, value: T): Promise<T> {
 	if (!browser || !authStore.isLoggedIn()) return value;
 
 	try {
@@ -58,35 +58,52 @@ async function loadFromFirestore<T>(key: string, value: T): Promise<T> {
 			throw new Error('No user ID found');
 		}
 
-		const docRef = doc(db, 'userStats', userId, 'stats', key);
-		const docSnap = await getDoc(docRef);
+		const { data, error } = await supabase
+			.from('user_stats')
+			.select('stats_data')
+			.eq('user_id', userId)
+			.eq('key', key)
+			.single();
 
-		if (docSnap.exists()) {
-			const firestoreData = docSnap.data() as T;
+		if (error) {
+			// If no data exists, the error is expected
+			if (error.code === 'PGRST116') {
+				// No data found, use local data
+				if ((value as any).total > 0) {
+					// Push local data to Supabase
+					await saveToSupabase(key, value);
+				}
+				return value;
+			}
+			throw error;
+		}
+
+		if (data) {
+			const supabaseData = data.stats_data as T;
 			// Merge with local data, prioritizing the one with more total questions
 			const localTotal = (value as any).total || 0;
-			const firestoreTotal = (firestoreData as any).total || 0;
+			const supabaseTotal = (supabaseData as any).total || 0;
 
-			if (firestoreTotal >= localTotal) {
-				return firestoreData;
+			if (supabaseTotal >= localTotal) {
+				return supabaseData;
 			}
 		}
 
-		// If Firestore data doesn't exist or local data is more recent
+		// If no data or local data is more recent
 		if ((value as any).total > 0) {
-			// Push local data to Firestore
-			await saveToFirestore(key, value);
+			// Push local data to Supabase
+			await saveToSupabase(key, value);
 		}
 
 		return value;
 	} catch (e) {
-		console.error(`Failed to load stats from Firestore for ${key}:`, e);
+		console.error(`Failed to load stats from Supabase for ${key}:`, e);
 		return value;
 	}
 }
 
-// Function to save stats to Firestore
-async function saveToFirestore<T>(key: string, value: T): Promise<void> {
+// Function to save stats to Supabase
+async function saveToSupabase<T>(key: string, value: T): Promise<void> {
 	if (!browser || !authStore.isLoggedIn()) return;
 
 	try {
@@ -95,37 +112,38 @@ async function saveToFirestore<T>(key: string, value: T): Promise<void> {
 			throw new Error('No user ID found');
 		}
 
-		const docRef = doc(db, 'userStats', userId, 'stats', key);
-		const docSnap = await getDoc(docRef);
-
-		const dataToSave = {
-			...value,
-			lastUpdated: serverTimestamp()
+		const dataToSave: Database['public']['Tables']['user_stats']['Insert'] = {
+			user_id: userId,
+			key: key,
+			stats_data:
+				value as unknown as Database['public']['Tables']['user_stats']['Insert']['stats_data'],
+			last_updated: new Date().toISOString()
 		};
 
-		if (docSnap.exists()) {
-			await updateDoc(docRef, dataToSave);
-		} else {
-			await setDoc(docRef, dataToSave);
-		}
+		// Upsert operation - insert if not exists, update if exists
+		const { error } = await supabase
+			.from('user_stats')
+			.upsert(dataToSave, { onConflict: 'user_id,key' });
+
+		if (error) throw error;
 	} catch (e) {
-		console.error(`Failed to save stats to Firestore for ${key}:`, e);
+		console.error(`Failed to save stats to Supabase for ${key}:`, e);
 	}
 }
 
-// Function to sync all existing stores with Firestore
-async function syncStoresWithFirestore() {
+// Function to sync all existing stores with Supabase
+async function syncStoresWithSupabase() {
 	if (!browser || !authStore.isLoggedIn()) return;
 
 	// Sync all existing multiple choice stores
 	for (const [key, stats] of multipleChoiceStoresRegistry.entries()) {
-		const updatedStats = await loadFromFirestore(key, stats);
+		const updatedStats = await loadFromSupabase(key, stats);
 		multipleChoiceStoresRegistry.set(key, updatedStats);
 	}
 
 	// Sync all existing sequence stores
 	for (const [key, stats] of sequenceStoresRegistry.entries()) {
-		const updatedStats = await loadFromFirestore(key, stats);
+		const updatedStats = await loadFromSupabase(key, stats);
 		sequenceStoresRegistry.set(key, updatedStats);
 	}
 }
@@ -142,9 +160,9 @@ export function getMultipleChoiceStats(contest: string): Stats {
 		// Store in registry
 		multipleChoiceStoresRegistry.set(storeKey, initialValue);
 
-		// Async load from Firestore if available
+		// Async load from Supabase if available
 		if (browser && authStore.isLoggedIn()) {
-			loadFromFirestore<Stats>(storeKey, initialValue).then((updatedStats) => {
+			loadFromSupabase<Stats>(storeKey, initialValue).then((updatedStats) => {
 				multipleChoiceStoresRegistry.set(storeKey, updatedStats);
 			});
 		}
@@ -167,9 +185,9 @@ export function getSequenceStats(contest: string): SequenceStats {
 		// Store in registry
 		sequenceStoresRegistry.set(storeKey, initialValue);
 
-		// Async load from Firestore if available
+		// Async load from Supabase if available
 		if (browser && authStore.isLoggedIn()) {
-			loadFromFirestore<SequenceStats>(storeKey, initialValue).then((updatedStats) => {
+			loadFromSupabase<SequenceStats>(storeKey, initialValue).then((updatedStats) => {
 				sequenceStoresRegistry.set(storeKey, updatedStats);
 			});
 		}
@@ -190,9 +208,9 @@ export function updateMultipleChoiceStats(contest: string, newStats: Partial<Sta
 	// Save to localStorage
 	saveToLocalStorage(storeKey, updatedStats);
 
-	// Save to Firestore if user is logged in
+	// Save to Supabase if user is logged in
 	if (browser && authStore.isLoggedIn()) {
-		saveToFirestore(storeKey, updatedStats);
+		saveToSupabase(storeKey, updatedStats);
 	}
 }
 
@@ -208,9 +226,9 @@ export function updateSequenceStats(contest: string, newStats: Partial<SequenceS
 	// Save to localStorage
 	saveToLocalStorage(storeKey, updatedStats);
 
-	// Save to Firestore if user is logged in
+	// Save to Supabase if user is logged in
 	if (browser && authStore.isLoggedIn()) {
-		saveToFirestore(storeKey, updatedStats);
+		saveToSupabase(storeKey, updatedStats);
 	}
 }
 
@@ -227,9 +245,9 @@ export function resetMultipleChoiceStats(contest: string): void {
 		localStorage.removeItem(storeKey);
 	}
 
-	// Reset in Firestore if user is logged in
+	// Reset in Supabase if user is logged in
 	if (browser && authStore.isLoggedIn()) {
-		saveToFirestore(storeKey, resetStats);
+		saveToSupabase(storeKey, resetStats);
 	}
 }
 
@@ -246,13 +264,13 @@ export function resetSequenceStats(contest: string): void {
 		localStorage.removeItem(storeKey);
 	}
 
-	// Reset in Firestore if user is logged in
+	// Reset in Supabase if user is logged in
 	if (browser && authStore.isLoggedIn()) {
-		saveToFirestore(storeKey, resetStats);
+		saveToSupabase(storeKey, resetStats);
 	}
 }
 
-// Initialize sync with Firebase - to be called from components
+// Initialize sync with Supabase - to be called from components
 export function setupAuthSync() {
 	let lastAuthState = false;
 
@@ -263,7 +281,7 @@ export function setupAuthSync() {
 
 			// Only trigger when auth state changes from not logged in to logged in
 			if (isLoggedIn && !lastAuthState && loadingChanged) {
-				syncStoresWithFirestore();
+				syncStoresWithSupabase();
 			}
 
 			lastAuthState = isLoggedIn;
