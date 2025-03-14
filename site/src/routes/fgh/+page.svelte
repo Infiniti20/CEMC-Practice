@@ -35,6 +35,18 @@
 		const timeSpent = (Date.now() - startTime) / 60000; // time in minutes
 		const correctCount = marks.filter((mark) => mark > 2).length;
 
+
+		let history = [
+				...stats.history,
+				{
+					question: `${formatName(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number + 1}`,
+					correct: correctCount,
+					total: totalSubQuestions
+				}
+			]
+		if(history.length > 20){
+			history.shift()
+		}
 		// Update stats
 		const updatedStats: SequenceStats = {
 			...stats,
@@ -42,14 +54,7 @@
 			correct: stats.correct + correctCount,
 			incorrect: stats.incorrect + (totalSubQuestions - correctCount),
 			streak: correctCount === totalSubQuestions ? stats.streak + 1 : 0,
-			history: [
-				...stats.history,
-				{
-					question: `${formatName(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number + 1}`,
-					correct: correctCount,
-					total: totalSubQuestions
-				}
-			],
+			history: history,
 			time: stats.time + timeSpent
 		};
 

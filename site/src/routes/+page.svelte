@@ -47,19 +47,22 @@
 				newTopicStats[topicRef].incorrect += 1;
 			}
 		});
-
-		const updatedStats: Stats = {
-			total: stats.total + 1,
-			correct: isCorrect ? stats.correct + 1 : stats.correct,
-			incorrect: isCorrect ? stats.incorrect : stats.incorrect + 1,
-			streak: isCorrect ? stats.streak + 1 : 0,
-			history: [
+		let history = [
 				...stats.history,
 				{
 					question: `${formatName(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number}`,
 					correct: isCorrect
 				}
-			],
+			]
+		if(history.length > 20){
+			history.shift()
+		}
+		const updatedStats: Stats = {
+			total: stats.total + 1,
+			correct: isCorrect ? stats.correct + 1 : stats.correct,
+			incorrect: isCorrect ? stats.incorrect : stats.incorrect + 1,
+			streak: isCorrect ? stats.streak + 1 : 0,
+			history: history ,
 			topicStats: newTopicStats,
 			time: stats.time + timeSpent
 		};
