@@ -4,76 +4,78 @@ import type { User } from '@supabase/supabase-js';
 import type { Database } from '$lib/firebase/supabase';
 
 export class AuthStore {
-  user = $state<User | null>(null);
-  loading = $state(true);
-  emailSent = $state(false);
+	user = $state<User | null>(null);
+	loading = $state(true);
+	emailSent = $state(false);
 
-  constructor() {
-    if (browser) {
-      // Set initial session
-      supabase.auth.getUser().then(({ data }) => { this.user = data.user; });
-      
-      // Listen for auth changes
-      supabase.auth.onAuthStateChange((event, session) => {
-        this.user = session?.user || null;
-        this.loading = false;
-      });
-    }
-  }
+	constructor() {
+		if (browser) {
+			// Set initial session
+			supabase.auth.getUser().then(({ data }) => {
+				this.user = data.user;
+			});
 
-  async sendLoginLink(email: string, redirectUrl: string) {
-    try {
-      const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options: {
-          emailRedirectTo: redirectUrl,
-        }
-      });
+			// Listen for auth changes
+			supabase.auth.onAuthStateChange((event, session) => {
+				this.user = session?.user || null;
+				this.loading = false;
+			});
+		}
+	}
 
-      if (error) throw error;
-      
-      // Save the email locally to remember the user
-      window.localStorage.setItem('emailForSignIn', email);
-      this.emailSent = true;
-      return { success: true };
-    } catch (error) {
-      console.error('Error sending sign-in link to email:', error);
-      return { success: false, error };
-    }
-  }
+	async sendLoginLink(email: string, redirectUrl: string) {
+		try {
+			const { error } = await supabase.auth.signInWithOtp({
+				email,
+				options: {
+					emailRedirectTo: redirectUrl
+				}
+			});
 
-  async signOut() {
-    try {
-      const { error } = await supabase.auth.signOut();
-      if (error) throw error;
-      
-      this.emailSent = false;
-      return { success: true };
-    } catch (error) {
-      console.error('Error signing out:', error);
-      return { success: false, error };
-    }
-  }
+			if (error) throw error;
 
-  isLoggedIn() {
-    return !!this.user;
-  }
+			// Save the email locally to remember the user
+			window.localStorage.setItem('emailForSignIn', email);
+			this.emailSent = true;
+			return { success: true };
+		} catch (error) {
+			console.error('Error sending sign-in link to email:', error);
+			return { success: false, error };
+		}
+	}
 
-  getUserId() {
-    return this.user?.id;
-  }
-  
-  getUserEmail() {
-    return this.user?.email;
-  }
+	async signOut() {
+		try {
+			const { error } = await supabase.auth.signOut();
+			if (error) throw error;
 
-  getEmailSentStatus() {
-    return this.emailSent;
-  }
+			this.emailSent = false;
+			return { success: true };
+		} catch (error) {
+			console.error('Error signing out:', error);
+			return { success: false, error };
+		}
+	}
 
-  resetEmailSentStatus() {
-    this.emailSent = false;
-  }
+	isLoggedIn() {
+		return !!this.user;
+	}
+
+	getUserId() {
+		return this.user?.id;
+	}
+
+	getUserEmail() {
+		return this.user?.email;
+	}
+
+	getEmailSentStatus() {
+		return this.emailSent;
+	}
+
+	resetEmailSentStatus() {
+		this.emailSent = false;
+	}
 }
 
 export const authStore = new AuthStore();
