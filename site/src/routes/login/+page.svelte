@@ -16,6 +16,8 @@
 	import { Alert, AlertTitle, AlertDescription } from '$lib/components/ui/alert';
 	import { formatName } from '$lib';
 	import { authStore } from '$lib/stores/authStore.svelte';
+			import { browser } from '$app/environment';
+
 
 	let selectedGrade = '';
 	let selectedTopic = '';
@@ -54,7 +56,7 @@
 
 		loading = true;
 		// Generate the current URL as the redirect URL
-		const redirectUrl = window.location.href;
+		const redirectUrl = browser ? window.location.href : '';
 		const result = await authStore.sendLoginLink(email, redirectUrl);
 		loading = false;
 	}
