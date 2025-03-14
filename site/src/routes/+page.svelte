@@ -6,7 +6,7 @@
 	import QuestionDisplay from '$lib/components/question-display.svelte';
 	import SolutionDisplay from '$lib/components/solution-display.svelte';
 	import ContestLayout from '$lib/components/contest-layout.svelte';
-	import { multipleChoiceStats } from '$lib/stores/statsStore.svelte';
+	import { getMultipleChoiceStats, updateMultipleChoiceStats } from '$lib/stores/statsStore.svelte';
 
 	let { data }: PageProps = $props();
 	let currentQuestion: Question = $state(data.question);
@@ -16,13 +16,12 @@
 	let isLoadingNextQuestion = $state(false);
 	let startTime: number = Date.now();
 
-	// Create local stats object to track changes
-	let stats: Stats = $state({ ...multipleChoiceStats.get() });
+	// Get contest-specific stats using the new function
+	let stats: Stats = $state(getMultipleChoiceStats(contest));
 
 	onMount(() => {
 		startTime = Date.now();
-		  multipleChoiceStats.setupEffect();
-		stats = { ...multipleChoiceStats.get() };
+		stats = getMultipleChoiceStats(contest);
 	});
 
 	function handleAnswerSelect(answer: any) {
@@ -66,7 +65,8 @@
 		};
 
 		stats = updatedStats;
-		multipleChoiceStats.update(updatedStats);
+		// Update the contest-specific stats
+		updateMultipleChoiceStats(contest, updatedStats);
 		showSolution = true;
 	}
 
@@ -95,18 +95,18 @@
 </script>
 
 <ContestLayout {contest} {stats}>
-		<QuestionDisplay
+	<QuestionDisplay
+		question={currentQuestion}
+		{selectedAnswer}
+		onAnswerSelect={handleAnswerSelect}
+		{contest}
+	/>
+
+	{#if showSolution}
+		<SolutionDisplay
 			question={currentQuestion}
 			{selectedAnswer}
-			onAnswerSelect={handleAnswerSelect}
-			{contest}
+			onNextQuestion={handleNextQuestion}
 		/>
-
-		{#if showSolution}
-			<SolutionDisplay
-				question={currentQuestion}
-				{selectedAnswer}
-				onNextQuestion={handleNextQuestion}
-			/>
-		{/if}
+	{/if}
 </ContestLayout>

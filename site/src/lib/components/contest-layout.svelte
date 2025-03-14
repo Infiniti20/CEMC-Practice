@@ -15,6 +15,7 @@
 	import StatsDisplay from './stats-display.svelte';
 	import type { Stats, SequenceStats } from '$lib/types';
 	import type { Snippet } from 'svelte';
+	import { authStore } from '$lib/stores/authStore.svelte';
 
 	interface Props {
 		contest: string;
@@ -23,7 +24,6 @@
 		children: Snippet;
 		statsContent?: Snippet;
 	}
-
 	let { contest, stats, activeTab = 'practice', children, statsContent }: Props = $props();
 </script>
 
@@ -33,7 +33,13 @@
 			<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 				<div>
 					<CardTitle class="text-2xl">{formatName(contest)} Contest Practice</CardTitle>
-					<CardDescription>Solve math problems and track your progress</CardDescription>
+					<CardDescription
+						>Solve math problems and track your progress. 
+						{#if authStore.isLoggedIn()}
+						<br />
+						({authStore.getUserEmail()})
+						{/if}
+					</CardDescription>
 				</div>
 				<Button variant="outline" onclick={() => goto('/login')}>
 					<SwitchCamera class="mr-2 h-4 w-4" />

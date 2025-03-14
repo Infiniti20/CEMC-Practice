@@ -5,7 +5,7 @@
 	import type { SequenceQuestion, SequenceStats } from '$lib/types';
 	import SequenceDisplay from '$lib/components/sequence-display.svelte';
 	import ContestLayout from '$lib/components/contest-layout.svelte';
-	import { sequenceStats } from '$lib/stores/statsStore.svelte';
+	import { getSequenceStats, updateSequenceStats } from '$lib/stores/statsStore.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { Loader2 } from 'lucide-svelte';
 
@@ -18,13 +18,12 @@
 	let solutions: string[] = $state([]);
 	let startTime: number = Date.now();
 
-	// Create local stats object to track changes
-	let stats: SequenceStats = $state({ ...sequenceStats.get() });
+	// Get contest-specific stats
+	let stats: SequenceStats = $state(getSequenceStats(contest));
 
 	onMount(() => {
 		startTime = Date.now();
-		  sequenceStats.setupEffect();
-		stats = { ...sequenceStats.get() };
+		stats = getSequenceStats(contest);
 	});
 
 	function handleSequenceSubmit(answers: string[], marks: number[], customSolutions: string[]) {
@@ -55,7 +54,8 @@
 		};
 
 		stats = updatedStats;
-		sequenceStats.update(updatedStats);
+		// Update contest-specific stats
+		updateSequenceStats(contest, updatedStats);
 	}
 
 	async function handleNextQuestion() {
@@ -84,21 +84,21 @@
 </script>
 
 <ContestLayout {contest} {stats}>
-		<SequenceDisplay
-			question={currentQuestion}
-			onSequenceSubmit={handleSequenceSubmit}
-			{isSubmitted}
-			{contest}
-		/>
+	<SequenceDisplay
+		question={currentQuestion}
+		onSequenceSubmit={handleSequenceSubmit}
+		{isSubmitted}
+		{contest}
+	/>
 
-		{#if isSubmitted}
-			<Button class="w-full mt-4" onclick={handleNextQuestion} disabled={isLoadingNextQuestion}>
-				{#if isLoadingNextQuestion}
-					<Loader2 class="h-4 w-4 mr-2 animate-spin" />
-					Loading Next Question...
-				{:else}
-					Next Question
-				{/if}
-			</Button>
-		{/if}
+	{#if isSubmitted}
+		<Button class="w-full mt-4" onclick={handleNextQuestion} disabled={isLoadingNextQuestion}>
+			{#if isLoadingNextQuestion}
+				<Loader2 class="h-4 w-4 mr-2 animate-spin" />
+				Loading Next Question...
+			{:else}
+				Next Question
+			{/if}
+		</Button>
+	{/if}
 </ContestLayout>
