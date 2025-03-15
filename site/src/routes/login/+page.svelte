@@ -41,6 +41,7 @@
 
 	function handleStartPractice() {
 		if (selectedGrade && selectedTopic) {
+			loading = true;
 			document.cookie = `contest=${selectedTopic}`;
 			console.log(selectedTopic);
 			if (selectedTopic == 'fryer') {
