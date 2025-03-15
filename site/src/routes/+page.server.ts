@@ -1,12 +1,13 @@
 import { redirect } from '@sveltejs/kit';
 import type { Question } from '$lib/types';
+import { isSequenceContest } from '$lib';
 
 
 // const ssr = false;
 export async function load({ fetch, params ,cookies }) {
     	const contest = cookies.get('contest');
         if(!contest) redirect(307, '/login');
-        if(contest == "fryer") redirect(307, '/fgh');
+        if(isSequenceContest(contest)) redirect(307, '/fgh');
 
 
     const response = await fetch(`/api/getQuestion?contest=${contest}`, {

@@ -96,4 +96,7 @@ function formatName(s: string) {
 	}
 	return legend[s]
 }
-export { processAnswer, processHTMLBlock, isAnswerCorrect,getQuestionTopics,isMultipleChoice, formatName};
+function isSequenceContest(s:string){
+	return ["fryer"].includes(s)
+}
+export { processAnswer, processHTMLBlock, isAnswerCorrect,getQuestionTopics,isMultipleChoice, formatName, isSequenceContest};
