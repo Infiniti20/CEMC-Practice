@@ -75,7 +75,7 @@
 				throw new Error('Failed to fetch next question');
 			}
 
-			currentQuestion = await response.json();
+			currentQuestion = (await response.json()).question;
 			sequenceAnswers = [];
 			solutions = [];
 			isSubmitted = false;
@@ -88,7 +88,7 @@
 	}
 </script>
 
-<ContestLayout {contest} {stats}>
+<ContestLayout {contest} {stats} legend={data.legend}>
 	<SequenceDisplay
 		question={currentQuestion}
 		onSequenceSubmit={handleSequenceSubmit}
