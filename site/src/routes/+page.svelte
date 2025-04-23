@@ -85,7 +85,7 @@
 				throw new Error('Failed to fetch next question');
 			}
 
-			currentQuestion = await response.json();
+			currentQuestion = (await response.json()).question;
 			selectedAnswer = undefined;
 			showSolution = false;
 			startTime = Date.now();
@@ -103,6 +103,7 @@
 		{selectedAnswer}
 		onAnswerSelect={handleAnswerSelect}
 		{contest}
+		legend={data.legend}
 	/>
 
 	{#if showSolution}

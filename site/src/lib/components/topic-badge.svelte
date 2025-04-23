@@ -8,13 +8,21 @@
 			primaryTopics: number[];
 			secondaryTopics: number[];
 		};
-		legend: {[key:string]:string}
+		legend: { [key: string]: string };
 	}
-	let { topics,legend }: Props = $props();
+	let { topics, legend }: Props = $props();
 	let fullTopicsArray: number[] = $derived.by(() => {
 		return getQuestionTopics(topics);
 	});
-
+	function flip(obj: { [key: string]: string }) {
+		return Object.keys(obj).reduce(
+			(ret, key) => {
+				ret[obj[key]] = key;
+				return ret;
+			},
+			{} as { [key: string]: string }
+		);
+	}
 	const topicColors = {
 		Addition: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300',
 		Subtraction: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300',
@@ -24,7 +32,6 @@
 		Percentages: 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-300',
 		'Order of Operations': 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300'
 	};
-
 
 	function generateColor(index: number) {
 		const colorList = [
@@ -60,7 +67,7 @@
 			class={`${generateColor(topic) || 'bg-gray-900 text-neutral-50 dark:bg-gray-700 dark:text-gray-300'} font-medium`}
 			variant="secondary"
 		>
-			{legend[topic.toString() as keyof typeof legend]}
+			{flip(legend)[topic as keyof typeof legend]}
 		</Badge>
 	{/each}
 </div>

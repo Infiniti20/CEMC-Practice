@@ -16,16 +16,24 @@
 	import type { SequenceStats, Stats, TopicStats } from '$lib/types';
 
 	interface Props {
-		legend: {[key:string]:string},
-		stats: Stats | SequenceStats
+		legend: { [key: string]: string };
+		stats: Stats | SequenceStats;
 	}
 
-	
+	function flip(obj: { [key: string]: string }) {
+		return Object.keys(obj).reduce(
+			(ret, key) => {
+				ret[obj[key]] = key;
+				return ret;
+			},
+			{} as { [key: string]: string }
+		);
+	}
 
 	function convertTopicIndex(topicInt: string) {
-		return legend[topicInt as keyof typeof legend];
+		return flip(legend)[topicInt as keyof typeof legend];
 	}
-	let { stats,legend }: Props= $props();
+	let { stats, legend }: Props = $props();
 
 	let topicFilter = $state('');
 	let sortBy = $state('most_practiced'); // Default sort option
@@ -157,7 +165,7 @@
 					<AccordionItem value={topic}>
 						<AccordionTrigger class="hover:no-underline">
 							<div class="flex items-center justify-between w-full">
-								<TopicBadge topics={{ primaryTopics: [+topic], secondaryTopics: [] }} {legend}/>
+								<TopicBadge topics={{ primaryTopics: [+topic], secondaryTopics: [] }} {legend} />
 								<div class="text-sm text-muted-foreground">
 									Accuracy: {topicStats.total > 0
 										? Math.round((topicStats.correct / topicStats.total) * 100)

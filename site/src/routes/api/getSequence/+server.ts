@@ -12,10 +12,11 @@ export const POST: RequestHandler = async ({ request, params, url }: RequestEven
 	let questionData: SequenceQuestion;
 	let topic = parseInt(url.searchParams.get('topic') ?? '0');
 	let contest = url.searchParams.get('contest')?.toLowerCase();
-
-	let data = jsonFiles[`/static/contest_files/${contest}_questions.json`]['data'];
+	const c =jsonFiles[`/static/contest_files/${contest}_questions.json`]
+	let data = ['data'];
 	let question = data[Math.floor(Math.random() * data.length)];
 	questionData = JSON.parse(JSON.stringify(question)) as SequenceQuestion;
+	
     if(questionData.base) questionData.base = decodeBase64Compression(questionData.base);
 	for (let i = 0; i < questionData.subQuestions.length; i++) {
 		questionData.subQuestions[i].html = decodeBase64Compression(questionData.subQuestions[i].html);
@@ -25,7 +26,7 @@ export const POST: RequestHandler = async ({ request, params, url }: RequestEven
 	}
 	// questionData.solutions.solution = decodeBase64Compression(questionData.solutions.solution);
 
-	return new Response(JSON.stringify(questionData));
+	return new Response(JSON.stringify({question:questionData,legend:c.legend}));
 };
 
 function decodeBase64Compression(base64: string): string {

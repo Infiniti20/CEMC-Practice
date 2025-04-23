@@ -8,8 +8,12 @@ export async function load({ fetch, params, cookies }) {
 	if (!contest) redirect(307, '/login');
 	if(!isSequenceContest(contest)) redirect(307,"/")
 
-	let question: SequenceQuestion = await (
-		await fetch(`/api/getSequence?contest=${contest}`, { method: 'POST', body: JSON.stringify({}) })
-	).json();
-	return { question: question, contest: contest };
+	    const response = await fetch(`/api/getSequence?contest=${contest}`, {
+				method: 'POST',
+				body: JSON.stringify({})
+			});
+			    const { question, legend }: { question: SequenceQuestion; legend: { [key: string]: string } } =
+						await response.json();
+
+	return { question: question, contest: contest,legend };
 }

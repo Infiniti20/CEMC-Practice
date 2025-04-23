@@ -10,8 +10,8 @@ export const POST: RequestHandler = async ({ request, params, url }: RequestEven
 	let questionData;
 	let topic = parseInt(url.searchParams.get('topic') ?? '0');
 	let contest = url.searchParams.get('contest')?.toLowerCase();
-
-	let data = jsonFiles[`/static/contest_files/${contest}_questions.json`]['data'];
+	const c = jsonFiles[`/static/contest_files/${contest}_questions.json`];
+	let data = c['data'];
 	if (topic == 0) {
 		let question = data[Math.floor(Math.random() * data.length)];
 		questionData = JSON.parse(JSON.stringify(question));
@@ -23,7 +23,7 @@ export const POST: RequestHandler = async ({ request, params, url }: RequestEven
 	questionData.question = decodeBase64Compression(questionData.question);
 	questionData.solutions.solution = decodeBase64Compression(questionData.solutions.solution);
 
-	return new Response(JSON.stringify(questionData));
+	return new Response(JSON.stringify({question: questionData, legend:c.legend}));
 };
 
 function decodeBase64Compression(base64: string): string {

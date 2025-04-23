@@ -16,9 +16,10 @@
 		selectedAnswer: string | undefined;
 		onAnswerSelect: (option: string) => void;
 		contest: string;
+		legend:{[key:string]:string}
 	}
 
-	let { question, selectedAnswer, onAnswerSelect, contest }: Props = $props();
+	let { question, selectedAnswer, onAnswerSelect, contest,legend }: Props = $props();
 	function handleSelect(option: string) {
 		if (!selectedAnswer) {
 			onAnswerSelect(option);
@@ -38,7 +39,7 @@
 <div class="space-y-4">
 	<div class="space-y-2 p-4 rounded-lg">
 		<div class="text-xl font-medium" id="question">{@html processHTMLBlock(question.question)}</div>
-		<TopicBadge topics={question.topics} />
+		<TopicBadge topics={question.topics} legend={legend} />
 	</div>
 	{#if isMultipleChoice(question.solutions.ans)}
 		<RadioGroup value={selectedAnswer} class="space-y-2">
