@@ -23,8 +23,9 @@
 		activeTab?: 'practice' | 'stats';
 		children: Snippet;
 		statsContent?: Snippet;
+		legend:{[key:string]:string}
 	}
-	let { contest, stats, activeTab = 'practice', children, statsContent }: Props = $props();
+	let { contest, stats, activeTab = 'practice', children, statsContent,legend }: Props = $props();
 </script>
 
 <main class="min-h-screen p-4 md:p-8 flex items-center justify-center">
@@ -82,7 +83,7 @@
 				</TabsContent>
 
 				<TabsContent value="stats" class="mt-0">
-					<StatsDisplay {stats} />
+					<StatsDisplay {stats} legend={legend} />
 					{@render statsContent?.()}
 				</TabsContent>
 			</Tabs>

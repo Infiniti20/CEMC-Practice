@@ -15,57 +15,17 @@
 	import { Input } from '$lib/components/ui/input/';
 	import type { SequenceStats, Stats, TopicStats } from '$lib/types';
 
-	const legend = {
-		'1': 'Algebra and Equations',
-		'2': 'Angles',
-		'3': 'Area',
-		'4': 'Averages',
-		'5': 'Circles',
-		'6': 'Coordinate Geometry',
-		'7': 'Counting',
-		'8': 'Counting and Probability',
-		'9': 'Cylinders',
-		'10': 'Data Analysis',
-		'11': 'Decimals',
-		'12': 'Digits',
-		'13': 'Divisibility',
-		'14': 'Equations Solving',
-		'15': 'Equations of Lines',
-		'16': 'Estimation',
-		'17': 'Exponents',
-		'18': 'Expressions',
-		'19': 'Factoring',
-		'20': 'Fractions/Ratios',
-		'21': 'Games',
-		'22': 'Geometry and Measurement',
-		'23': 'Graphs',
-		'24': 'Inequalities',
-		'25': 'Logic',
-		'26': 'Measurement',
-		'27': 'Number Sense',
-		'28': 'Operations',
-		'29': 'Optimization',
-		'30': 'Other',
-		'31': 'Patterning/Sequences/Series',
-		'32': 'Percentages',
-		'33': 'Perimeter',
-		'34': 'Polygons',
-		'35': 'Prime Numbers',
-		'36': 'Prisms',
-		'37': 'Probability',
-		'38': 'Quadrilaterals',
-		'39': 'Rates',
-		'40': 'Spheres',
-		'41': 'Surface Area',
-		'42': 'Transformations',
-		'43': 'Triangles',
-		'44': 'Volume'
-	};
+	interface Props {
+		legend: {[key:string]:string},
+		stats: Stats | SequenceStats
+	}
+
+	
 
 	function convertTopicIndex(topicInt: string) {
 		return legend[topicInt as keyof typeof legend];
 	}
-	let { stats }: { stats: Stats | SequenceStats } = $props();
+	let { stats,legend }: Props= $props();
 
 	let topicFilter = $state('');
 	let sortBy = $state('most_practiced'); // Default sort option
@@ -197,7 +157,7 @@
 					<AccordionItem value={topic}>
 						<AccordionTrigger class="hover:no-underline">
 							<div class="flex items-center justify-between w-full">
-								<TopicBadge topics={{ primaryTopics: [+topic], secondaryTopics: [] }} />
+								<TopicBadge topics={{ primaryTopics: [+topic], secondaryTopics: [] }} {legend}/>
 								<div class="text-sm text-muted-foreground">
 									Accuracy: {topicStats.total > 0
 										? Math.round((topicStats.correct / topicStats.total) * 100)

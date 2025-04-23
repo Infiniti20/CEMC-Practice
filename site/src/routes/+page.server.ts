@@ -14,6 +14,6 @@ export async function load({ fetch, params ,cookies }) {
         method: "POST",
         body: JSON.stringify({})
     });
-    const question: Question = await response.json();
-    return {question:question, contest:contest}
+    const {question, legend}:{question:Question, legend:{[key:string]:string}} = await response.json();
+    return {question:question, contest:contest,legend:legend}
 }

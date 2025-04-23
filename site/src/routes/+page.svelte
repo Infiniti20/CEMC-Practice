@@ -97,7 +97,7 @@
 	}
 </script>
 
-<ContestLayout {contest} {stats}>
+<ContestLayout {contest} {stats} legend={data.legend}>
 	<QuestionDisplay
 		question={currentQuestion}
 		{selectedAnswer}

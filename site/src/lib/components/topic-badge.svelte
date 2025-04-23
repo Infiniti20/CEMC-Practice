@@ -1,14 +1,16 @@
 <script lang="ts">
 	import { getQuestionTopics } from '$lib';
 	import { Badge } from '$lib/components/ui/badge';
+	import type { StringSchema } from '@google/generative-ai';
 
 	interface Props {
 		topics?: {
 			primaryTopics: number[];
 			secondaryTopics: number[];
 		};
+		legend: {[key:string]:string}
 	}
-	let { topics }: Props = $props();
+	let { topics,legend }: Props = $props();
 	let fullTopicsArray: number[] = $derived.by(() => {
 		return getQuestionTopics(topics);
 	});
@@ -23,52 +25,6 @@
 		'Order of Operations': 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300'
 	};
 
-	const legend = {
-		'1': 'Algebra and Equations',
-		'2': 'Angles',
-		'3': 'Area',
-		'4': 'Averages',
-		'5': 'Circles',
-		'6': 'Coordinate Geometry',
-		'7': 'Counting',
-		'8': 'Counting and Probability',
-		'9': 'Cylinders',
-		'10': 'Data Analysis',
-		'11': 'Decimals',
-		'12': 'Digits',
-		'13': 'Divisibility',
-		'14': 'Equations Solving',
-		'15': 'Equations of Lines',
-		'16': 'Estimation',
-		'17': 'Exponents',
-		'18': 'Expressions',
-		'19': 'Factoring',
-		'20': 'Fractions/Ratios',
-		'21': 'Games',
-		'22': 'Geometry and Measurement',
-		'23': 'Graphs',
-		'24': 'Inequalities',
-		'25': 'Logic',
-		'26': 'Measurement',
-		'27': 'Number Sense',
-		'28': 'Operations',
-		'29': 'Optimization',
-		'30': 'Other',
-		'31': 'Patterning/Sequences/Series',
-		'32': 'Percentages',
-		'33': 'Perimeter',
-		'34': 'Polygons',
-		'35': 'Prime Numbers',
-		'36': 'Prisms',
-		'37': 'Probability',
-		'38': 'Quadrilaterals',
-		'39': 'Rates',
-		'40': 'Spheres',
-		'41': 'Surface Area',
-		'42': 'Transformations',
-		'43': 'Triangles',
-		'44': 'Volume'
-	};
 
 	function generateColor(index: number) {
 		const colorList = [
