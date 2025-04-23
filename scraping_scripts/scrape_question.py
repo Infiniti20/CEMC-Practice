@@ -8,7 +8,7 @@ import brotli
 
 # Fetch the metadata from the URL with the specified headers
 year = 2024;
-url = f"https://cemc.uwaterloo.ca/sites/default/files/documents/{year}/{year}Gauss7Contest.html"
+url = f"https://cemc.uwaterloo.ca/sites/default/files/documents/{year}/{year}Gauss8Contest.html"
 headers = {"Accept": "application/vnd.citationstyles.csl+json"}
 response = requests.get(url, headers=headers)
 response.encoding = "utf-8"
@@ -23,7 +23,7 @@ soup = BeautifulSoup(metadata, "lxml")
 
 
 # Read json id file
-with open('contest_data/gauss7/gauss7_id.json', 'r') as file:
+with open('contest_data/gauss8/gauss8_id.json', 'r') as file:
     topic_data = json.load(file)
 
 # Find all <ol> elements that are direct children of <body> and skip the first one
@@ -77,7 +77,7 @@ def get_solutions():
         # Find direct <ol> children of the body tag
         ol = body.findAll("ol",{type:None},recursive=False)
         button = body.find("button")
-        index = 0;
+        index = 1;
         # if(len(ol) == 2 and button is None):
         #     index = 1
 
@@ -118,7 +118,7 @@ def get_solutions():
         solution_data.append({"solution":solution_base64, "ans":ans})
     return solution_data
 
-output_file = f"contest_data/gauss7/gauss7_questions.json"
+output_file = f"contest_data/gauss8/gauss8_questions.json"
 if os.path.exists(output_file):
     with open(output_file, "r", encoding="utf8") as json_file:
             question_data = json.load(json_file)["data"]
@@ -210,7 +210,7 @@ for i in range(min(25, len(questions))):
     })
 
 
-output_file = f"contest_data/gauss7/gauss7_questions.json"
+output_file = f"contest_data/gauss8/gauss8_questions.json"
 with open(output_file, "w", encoding="utf8") as json_file:
     json.dump({"data":question_data,"legend":topic_data["legend"]}, json_file, indent=4)
 

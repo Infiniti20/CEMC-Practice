@@ -29,7 +29,7 @@
 	const topicOptions = {
 		'9th Grade': ['pascal', 'fryer'],
 		'7th Grade': ['gauss7'],
-		'8th Grade': ['Linear Equations', 'Functions', 'Pythagorean Theorem']
+		'8th Grade': ['gauss8']
 	};
 
 	onMount(() => {

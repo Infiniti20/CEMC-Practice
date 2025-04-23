@@ -92,7 +92,8 @@ function formatName(s: string) {
 	const legend: { [key: string]: string } = {
 		"pascal": "Pascal",
 		"gauss7": "Gauss (Gr. 7)",
-		"fryer":"Fryer"
+		"fryer":"Fryer",
+		"gauss8": "Gauss (Gr. 8)"
 	}
 	return legend[s]
 }

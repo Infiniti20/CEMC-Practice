@@ -13,7 +13,7 @@ const PRIMARY_TOPICS = [
 
 const API_BASE_URL = "https://cemc2.math.uwaterloo.ca/contest/PSG";
 const REFERRER_URL = `${API_BASE_URL}/school/topicGen.php`;
-const DEFAULT_GRADE = "07";
+const DEFAULT_GRADE = "08";
 
 /**
  * Creates a properly encoded request body for API calls
@@ -242,4 +242,4 @@ async function runFullScrape(outputFile = "pascal.json") {
   }
 }
 
-runFullScrape("./contest_data/gauss7/gauss7.json")
+runFullScrape("./contest_data/gauss8/gauss8.json")

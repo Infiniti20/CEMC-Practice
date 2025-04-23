@@ -114,6 +114,6 @@ def add_solution_curve(questions, output):
     # Optionally, write the updated questions back to a new JSON file
     with open(output, "w", encoding="utf-8") as f:
         json.dump(updated_questions, f, indent=2)
-# process_json("contest_data/gauss7/gauss7.json","contest_data/gauss7/gauss7_id.json")
+# process_json("contest_data/gauss8/gauss8.json","contest_data/gauss8/gauss8_id.json")
 # add_solution_data("contest_data/pascal/pascal_questions.json","test/all_pascal_results.csv","contest_data/pascal/pascal_questions.json")
-add_solution_curve("contest_data/gauss7/gauss7_questions.json","contest_data/gauss7/gauss7_questions.json")
+add_solution_curve("contest_data/gauss8/gauss8_questions.json","contest_data/gauss8/gauss8_questions.json")
