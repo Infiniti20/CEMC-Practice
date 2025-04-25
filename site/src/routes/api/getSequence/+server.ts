@@ -13,7 +13,7 @@ export const POST: RequestHandler = async ({ request, params, url }: RequestEven
 	let topic = parseInt(url.searchParams.get('topic') ?? '0');
 	let contest = url.searchParams.get('contest')?.toLowerCase();
 	const c =jsonFiles[`/static/contest_files/${contest}_questions.json`]
-	let data = ['data'];
+	let data = c['data'];
 	let question = data[Math.floor(Math.random() * data.length)];
 	questionData = JSON.parse(JSON.stringify(question)) as SequenceQuestion;
 	
