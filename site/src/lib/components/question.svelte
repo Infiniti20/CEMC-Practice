@@ -65,7 +65,30 @@
 		// Update topicStats for each topic in the question
 	}
 
-	async function handleNextQuestion() {}
+	async function handleNextQuestion() {
+		isLoadingNextQuestion = true;
+		try {
+			const response = await fetch(`/api/get${isSequenceContest(contest) ? "Sequence":"Question"}?contest=${contest}&topic=1`, {
+				method: 'POST',
+				body: JSON.stringify(stats)
+			});
+
+			if (!response.ok) {
+				throw new Error('Failed to fetch next question');
+			}
+
+			showSolution = false;
+			answer = { multipleChoice: '', sequence: Array(10).fill('')}
+			solutionFeedback = []
+			
+			currentQuestion = (await response.json()).question;
+			startTime = Date.now();
+		} catch (error) {
+			console.error('Error fetching next question:', error);
+		} finally {
+			isLoadingNextQuestion = false;
+		}
+	}
 
 	async function mark(answers: string[]) {
 		let q = currentQuestion as SequenceQuestion;
