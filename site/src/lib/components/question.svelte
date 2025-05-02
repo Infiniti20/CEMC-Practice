@@ -35,13 +35,15 @@
 	let answer = $state({ multipleChoice: '' as string, sequence: Array(10).fill('') as string[] });
 	let solutionFeedback: { mark: number; explanation: string }[] = $state([]);
 
-	// Get contest-specific stats using the new function
+	// Get contest-specific stats using the new function - this now returns a reactive rune
 	let stats: Stats | SequenceStats = $state(
 		isSequenceContest(contest) ? getSequenceStats(contest) : getMultipleChoiceStats(contest)
 	);
 
 	onMount(() => {
 		startTime = Date.now();
+		// Re-assign on mount in case the rune was created/updated by another component first
+		// or if sync happened between initial load and mount.
 		stats = isSequenceContest(contest)
 			? getSequenceStats(contest)
 			: getMultipleChoiceStats(contest);
@@ -50,12 +52,12 @@
 	async function handleSubmission(value: string | string[]) {
 		if (isSequenceContest(contest)) {
 			isLoadingNextQuestion = true;
-			await mark(value as string[]);
+			let res = await mark(value as string[]);
 			isLoadingNextQuestion = false;
 			showSolution = true;
+			updateSeqStats(res);
 		} else {
-			console.log(isAnswerCorrect(currentQuestion as Question, value as string));
-			//TODO Update multiple choice stats
+			updateMCStats(isAnswerCorrect(currentQuestion as Question, value as string));
 
 			if (isMultipleChoice((currentQuestion as Question).solutions.ans)) {
 				showSolution = true;
@@ -116,6 +118,7 @@
 			const result: { explanation: string; mark: number }[] = await response.json();
 
 			solutionFeedback = result;
+			return result;
 		} catch (error) {
 			console.error('Error checking answers:', error);
 			// Fallback to random marks if API fails
@@ -124,15 +127,15 @@
 			});
 
 			solutionFeedback = generatedResult;
+			return generatedResult;
 		}
-		//TODO Update stats
 	}
 
 	function updateMCStats(isCorrect: boolean) {
 		const timeSpent = (Date.now() - startTime) / 60000; // time in minutes
 
 		// Update topicStats for each topic in the question
-		const newTopicStats = { ...(stats as Stats).topicStats };
+		const newTopicStats = JSON.parse(JSON.stringify({ ...(stats as Stats).topicStats }));
 
 		getQuestionTopics((currentQuestion as Question).topics).forEach((topic) => {
 			let topicRef = topic;
@@ -150,7 +153,7 @@
 		let history = [
 			...(stats as Stats).history,
 			{
-				question: `${formatName(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number}`,
+				question: `${formatName(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number + 1}`,
 				correct: isCorrect
 			}
 		];
@@ -167,8 +170,7 @@
 			time: stats.time + timeSpent
 		};
 
-		stats = updatedStats;
-		// Update the contest-specific stats
+		// Update the contest-specific stats via the store function
 		updateMultipleChoiceStats(contest, updatedStats);
 	}
 
@@ -203,8 +205,7 @@
 			time: stats.time + timeSpent
 		};
 
-		stats = updatedStats;
-		// Update contest-specific stats
+		// Update contest-specific stats via the store function
 		updateSequenceStats(contest, updatedStats);
 	}
 	// $inspect(answer)

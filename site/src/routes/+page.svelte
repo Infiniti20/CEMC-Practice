@@ -14,7 +14,7 @@
 	import { ChartBar, CheckCircle, SwitchCamera } from 'lucide-svelte';
 	import { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
 	import { authStore } from '$lib/stores/authStore.svelte';
-	import { formatName } from '$lib';
+	import { formatName, isSequenceContest } from '$lib';
 	import { goto } from '$app/navigation';
 	import { Progress } from '$lib/components/ui/progress';
 	import StatsDisplay from '$lib/components/stats-display.svelte';
@@ -23,12 +23,18 @@
 	let { data }: PageProps = $props();
 	let initialQuestion: Question|SequenceQuestion = $state(data.question);
 	let contest: string = data.contest;
-	let activeTab;
+	let activeTab = "practice";
 
 	// Get contest-specific stats using the new function
-	let stats: Stats | SequenceStats = $state(
-		contest != 'fryer' ? getMultipleChoiceStats(contest) : getSequenceStats(contest)
+	let s: Stats | SequenceStats = $state(
+		isSequenceContest(contest) ? getSequenceStats(contest) : getMultipleChoiceStats(contest)
 	);
+
+	onMount(() => {
+		s = isSequenceContest(contest)
+			? getSequenceStats(contest)
+			: getMultipleChoiceStats(contest);
+	});
 </script>
 
 <main class="min-h-screen p-4 md:p-8 flex items-center justify-center">
@@ -67,17 +73,17 @@
 							<div class="flex items-center gap-2">
 								<span class="font-medium">Streak:</span>
 								<span class="flex items-center gap-1">
-									{stats.streak}
+									{s.streak}
 									<CheckCircle class="h-4 w-4 text-green-500" />
 								</span>
 							</div>
 							<div class="flex items-center gap-2">
 								<span class="font-medium">Accuracy:</span>
 								<Progress
-									value={stats.total > 0 ? (stats.correct / stats.total) * 100 : 0}
+									value={s.total > 0 ? (s.correct / s.total) * 100 : 0}
 									class="w-24 h-2"
 								/>
-								<span>{stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0}%</span
+								<span>{s.total > 0 ? Math.round((s.correct / s.total) * 100) : 0}%</span
 								>
 							</div>
 						</div>
@@ -86,7 +92,7 @@
 				</TabsContent>
 
 				<TabsContent value="stats" class="mt-0">
-					<StatsDisplay {stats} legend={data.legend} />
+					<StatsDisplay {contest} legend={data.legend} />
 				</TabsContent>
 			</Tabs>
 		</CardContent>
