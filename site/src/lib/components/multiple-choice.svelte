@@ -19,7 +19,6 @@
 		contest: string;
 		legend: { [key: string]: string };
 		shouldShowSolution: boolean;
-		isLoading: boolean;
 		answer:string;
 		children?:Snippet<[]>
 	}

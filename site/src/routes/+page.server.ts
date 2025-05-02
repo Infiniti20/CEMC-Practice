@@ -10,7 +10,6 @@ export async function load({ fetch, params ,cookies }) {
         let verb = "Question"
         if(isSequenceContest(contest)) verb = "Sequence";
 
-
     const response = await fetch(`/api/get${verb}?contest=${contest}`, {
         method: "POST",
         body: JSON.stringify({})
