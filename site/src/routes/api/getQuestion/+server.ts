@@ -12,7 +12,7 @@ export const POST: RequestHandler = async ({ request, params, url }: RequestEven
 	let contest = url.searchParams.get('contest')?.toLowerCase();
 	const c = jsonFiles[`/static/contest_files/${contest}_questions.json`];
 	let data = c['data'];
-	if (topic == 0) {
+	if (topic == 0) {		
 		let question = data[Math.floor(Math.random() * data.length)];
 		questionData = JSON.parse(JSON.stringify(question));
 	} else {
@@ -49,7 +49,8 @@ function selectNextQuestion(questions: Question[], userStats: Stats) {
 			let s = getStatsPerQuestionTopics(topic, userStats.topicStats);
 			let topicAccuracy = s.accuracy;
 			let avgTimeForTopic = s.time;
-			let overallAvgTime = userStats.time / userStats.total;
+			let overallAvgTime = (userStats.time / (userStats.total || 1));
+
 			topicWeight = 1 - topicAccuracy; // Lower accuracy → higher weight
 			timeFactorWeight = Math.min(1.5, avgTimeForTopic / overallAvgTime);
 		}
@@ -63,6 +64,7 @@ function selectNextQuestion(questions: Question[], userStats: Stats) {
 
 		// Calculate final question weight
 		let weight = topicWeight * difficultyWeight * timeFactorWeight;
+		
 	
 
 		// Apply decay to recently answered questions

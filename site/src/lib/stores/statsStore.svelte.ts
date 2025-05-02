@@ -15,9 +15,9 @@ const DEFAULT_STATS = {
 	time: 0
 };
 
-// Store registries to track created stores by contest
-const multipleChoiceStoresRegistry = new Map<string, Stats>();
-const sequenceStoresRegistry = new Map<string, SequenceStats>();
+// Store registries to track created stores by contest, now storing $state runes
+const multipleChoiceStoresRegistry = new Map<string, Stats>(); // Using Stats type hint, but will hold $state<Stats>
+const sequenceStoresRegistry = new Map<string, SequenceStats>(); // Using SequenceStats type hint, but will hold $state<SequenceStats>
 
 // Helper function to generate store keys
 function getStoreKey(type: 'mc' | 'seq', contest: string): string {
@@ -49,8 +49,11 @@ function saveToLocalStorage<T>(key: string, value: T): void {
 }
 
 // Function to load stats from Supabase
-async function loadFromSupabase<T>(key: string, value: T): Promise<T> {
-	if (!browser || !authStore.isLoggedIn()) return value;
+async function loadFromSupabase<T extends Stats | SequenceStats>(
+	key: string,
+	currentStatsRune: T
+): Promise<void> {
+	if (!browser || !authStore.isLoggedIn()) return;
 
 	try {
 		const userId = authStore.getUserId();
@@ -65,40 +68,45 @@ async function loadFromSupabase<T>(key: string, value: T): Promise<T> {
 			.eq('key', key)
 			.single();
 
+		let statsToUse: T;
+
 		if (error) {
-			// If no data exists, the error is expected
 			if (error.code === 'PGRST116') {
-				// No data found, use local data
-				if ((value as any).total > 0) {
-					// Push local data to Supabase
-					await saveToSupabase(key, value);
+				// No data found
+				// If local data has progress, push it to Supabase
+				if (currentStatsRune.total > 0) {
+					await saveToSupabase(key, currentStatsRune);
 				}
-				return value;
+				return; // Keep local/default data
 			}
 			throw error;
 		}
 
 		if (data) {
-			const supabaseData = data.stats_data as T;
-			// Merge with local data, prioritizing the one with more total questions
-			const localTotal = (value as any).total || 0;
-			const supabaseTotal = (supabaseData as any).total || 0;
+			const supabaseData = data.stats_data as unknown as T;
+			const localTotal = currentStatsRune.total || 0;
+			const supabaseTotal = supabaseData.total || 0;
 
+			// Prioritize data with more progress
 			if (supabaseTotal >= localTotal) {
-				return supabaseData;
+				statsToUse = supabaseData;
+			} else {
+				statsToUse = currentStatsRune;
+				// Push local data to Supabase as it's more up-to-date
+				await saveToSupabase(key, currentStatsRune);
+			}
+		} else {
+			// No data in Supabase, use local and push if necessary
+			statsToUse = currentStatsRune;
+			if (currentStatsRune.total > 0) {
+				await saveToSupabase(key, currentStatsRune);
 			}
 		}
 
-		// If no data or local data is more recent
-		if ((value as any).total > 0) {
-			// Push local data to Supabase
-			await saveToSupabase(key, value);
-		}
-
-		return value;
+		// Update the properties of the existing rune
+		Object.assign(currentStatsRune, statsToUse);
 	} catch (e) {
-		console.error(`Failed to load stats from Supabase for ${key}:`, e);
-		return value;
+		console.error(`Failed to load/sync stats from Supabase for ${key}:`, e);
 	}
 }
 
@@ -135,100 +143,103 @@ async function saveToSupabase<T>(key: string, value: T): Promise<void> {
 async function syncStoresWithSupabase() {
 	if (!browser || !authStore.isLoggedIn()) return;
 
+	console.log('Syncing stores with Supabase...');
+
 	// Sync all existing multiple choice stores
-	for (const [key, stats] of multipleChoiceStoresRegistry.entries()) {
-		const updatedStats = await loadFromSupabase(key, stats);
-		multipleChoiceStoresRegistry.set(key, updatedStats);
+	for (const [key, statsRune] of multipleChoiceStoresRegistry.entries()) {
+		await loadFromSupabase(key, statsRune); // Pass the rune itself
 	}
 
 	// Sync all existing sequence stores
-	for (const [key, stats] of sequenceStoresRegistry.entries()) {
-		const updatedStats = await loadFromSupabase(key, stats);
-		sequenceStoresRegistry.set(key, updatedStats);
+	for (const [key, statsRune] of sequenceStoresRegistry.entries()) {
+		await loadFromSupabase(key, statsRune); // Pass the rune itself
 	}
+	console.log('Sync complete.');
 }
 
 // Function to get multiple choice stats for a specific contest
 export function getMultipleChoiceStats(contest: string): Stats {
 	const storeKey = getStoreKey('mc', contest);
 
-	// Check if we already have this store in memory
+	// Check if we already have this store rune in memory
 	if (!multipleChoiceStoresRegistry.has(storeKey)) {
 		// Load from localStorage first
 		const initialValue = loadFromLocalStorage<Stats>(storeKey, { ...DEFAULT_STATS } as Stats);
 
-		// Store in registry
-		multipleChoiceStoresRegistry.set(storeKey, initialValue);
+		// Create a $state rune with the initial value
+		const statsRune = $state(initialValue);
 
-		// Async load from Supabase if available
+		// Store the rune in the registry
+		multipleChoiceStoresRegistry.set(storeKey, statsRune);
+
+		// Async load/sync from Supabase if available
 		if (browser && authStore.isLoggedIn()) {
-			loadFromSupabase<Stats>(storeKey, initialValue).then((updatedStats) => {
-				multipleChoiceStoresRegistry.set(storeKey, updatedStats);
-			});
+			loadFromSupabase<Stats>(storeKey, statsRune); // Pass the rune
 		}
 	}
-
-	return multipleChoiceStoresRegistry.get(storeKey) || ({ ...DEFAULT_STATS } as Stats);
+	// Return the rune from the registry
+	return multipleChoiceStoresRegistry.get(storeKey)!;
 }
 
 // Function to get sequence stats for a specific contest
 export function getSequenceStats(contest: string): SequenceStats {
 	const storeKey = getStoreKey('seq', contest);
 
-	// Check if we already have this store in memory
+	// Check if we already have this store rune in memory
 	if (!sequenceStoresRegistry.has(storeKey)) {
 		// Load from localStorage first
 		const initialValue = loadFromLocalStorage<SequenceStats>(storeKey, {
 			...DEFAULT_STATS
 		} as SequenceStats);
 
-		// Store in registry
-		sequenceStoresRegistry.set(storeKey, initialValue);
+		// Create a $state rune
+		const statsRune = $state(initialValue);
 
-		// Async load from Supabase if available
+		// Store the rune in the registry
+		sequenceStoresRegistry.set(storeKey, statsRune);
+
+		// Async load/sync from Supabase if available
 		if (browser && authStore.isLoggedIn()) {
-			loadFromSupabase<SequenceStats>(storeKey, initialValue).then((updatedStats) => {
-				sequenceStoresRegistry.set(storeKey, updatedStats);
-			});
+			loadFromSupabase<SequenceStats>(storeKey, statsRune); // Pass the rune
 		}
 	}
-
-	return sequenceStoresRegistry.get(storeKey) || ({ ...DEFAULT_STATS } as SequenceStats);
+	// Return the rune from the registry
+	return sequenceStoresRegistry.get(storeKey)!;
 }
 
 // Function to update multiple choice stats
-export function updateMultipleChoiceStats(contest: string, newStats: Partial<Stats>): void {
+export function updateMultipleChoiceStats(contest: string, newStats: Stats): void {
 	const storeKey = getStoreKey('mc', contest);
-	const currentStats = getMultipleChoiceStats(contest);
-	const updatedStats = { ...currentStats, ...newStats };
+	// Get the reactive rune (this ensures it exists)
+	const statsRune = getMultipleChoiceStats(contest);
 
-	// Update in memory
-	multipleChoiceStoresRegistry.set(storeKey, updatedStats);
+	// Update the properties of the rune directly
+	Object.assign(statsRune, newStats);
 
 	// Save to localStorage
-	saveToLocalStorage(storeKey, updatedStats);
+	saveToLocalStorage(storeKey, newStats);
 
 	// Save to Supabase if user is logged in
 	if (browser && authStore.isLoggedIn()) {
-		saveToSupabase(storeKey, updatedStats);
+		saveToSupabase(storeKey, newStats);
 	}
 }
 
 // Function to update sequence stats
-export function updateSequenceStats(contest: string, newStats: Partial<SequenceStats>): void {
+export function updateSequenceStats(contest: string, newStats: SequenceStats): void {
 	const storeKey = getStoreKey('seq', contest);
-	const currentStats = getSequenceStats(contest);
-	const updatedStats = { ...currentStats, ...newStats };
+	// Get the reactive rune
+	const statsRune = getSequenceStats(contest);
 
-	// Update in memory
-	sequenceStoresRegistry.set(storeKey, updatedStats);
+	// Update the properties of the rune directly
+	Object.assign(statsRune, newStats);
 
 	// Save to localStorage
-	saveToLocalStorage(storeKey, updatedStats);
+	saveToLocalStorage(storeKey, newStats);
 
 	// Save to Supabase if user is logged in
 	if (browser && authStore.isLoggedIn()) {
-		saveToSupabase(storeKey, updatedStats);
+		saveToSupabase(storeKey, newStats);
 	}
 }
 
@@ -236,9 +247,11 @@ export function updateSequenceStats(contest: string, newStats: Partial<SequenceS
 export function resetMultipleChoiceStats(contest: string): void {
 	const storeKey = getStoreKey('mc', contest);
 	const resetStats = { ...DEFAULT_STATS } as Stats;
+	// Get the reactive rune
+	const statsRune = getMultipleChoiceStats(contest);
 
-	// Update in memory
-	multipleChoiceStoresRegistry.set(storeKey, resetStats);
+	// Update the properties of the rune directly
+	Object.assign(statsRune, resetStats);
 
 	// Remove from localStorage
 	if (browser) {
@@ -247,7 +260,7 @@ export function resetMultipleChoiceStats(contest: string): void {
 
 	// Reset in Supabase if user is logged in
 	if (browser && authStore.isLoggedIn()) {
-		saveToSupabase(storeKey, resetStats);
+		saveToSupabase(storeKey, resetStats); // Save the default state
 	}
 }
 
@@ -255,9 +268,11 @@ export function resetMultipleChoiceStats(contest: string): void {
 export function resetSequenceStats(contest: string): void {
 	const storeKey = getStoreKey('seq', contest);
 	const resetStats = { ...DEFAULT_STATS } as SequenceStats;
+	// Get the reactive rune
+	const statsRune = getSequenceStats(contest);
 
-	// Update in memory
-	sequenceStoresRegistry.set(storeKey, resetStats);
+	// Update the properties of the rune directly
+	Object.assign(statsRune, resetStats);
 
 	// Remove from localStorage
 	if (browser) {
@@ -266,7 +281,7 @@ export function resetSequenceStats(contest: string): void {
 
 	// Reset in Supabase if user is logged in
 	if (browser && authStore.isLoggedIn()) {
-		saveToSupabase(storeKey, resetStats);
+		saveToSupabase(storeKey, resetStats); // Save the default state
 	}
 }
 
