@@ -44,11 +44,7 @@
 			loading = true;
 			document.cookie = `contest=${selectedTopic}`;
 			console.log(selectedTopic);
-			if (selectedTopic == 'fryer') {
-				goto('/fgh');
-			} else {
 				goto(`/`);
-			}
 		}
 	}
 
