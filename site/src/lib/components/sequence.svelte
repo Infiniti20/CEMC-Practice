@@ -35,14 +35,14 @@
 </script>
 
 <div class="space-y-4">
-	<div class="text-xl font-medium p-4 rounded-lg">
+	<div class="text-xl font-medium p-4 rounded-lg" id="question">
 		{@html processHTMLBlock(question.base)}
 	</div>
 	<div class="space-y-6">
 		{#each question.subQuestions as subQuestion, index}
 			<Card class="p-4">
-				<div class="space-y-4">
-					<div class="font-medium">{@html processHTMLBlock(subQuestion.html)}</div>
+				<div class="space-y-4 cont">
+					<div class="font-medium subquestion">{@html processHTMLBlock(subQuestion.html)}</div>
 
 					<div class="flex items-center gap-3">
 						<ContentEditable
@@ -88,3 +88,30 @@
 		Source: {`${formatName(contest)} ${question.source.year} #${question.source.number + 1}`}
 	</div>
 </div>
+<style>
+	div :global(p) {
+		margin: 1em 0;
+	}
+	div :global(.center) {
+		text-align: center;
+	}
+  div :global(.tml-display){
+    		margin: 1em 0;
+  }
+	
+
+	:global(.subquestion > :first-child) {
+		margin: 1em 0;
+		margin-top:0;
+	}
+
+	div#question :global(img) {
+		max-width: 100%;
+		min-width: 250px;
+	}
+	div.subquestion :global(img) {
+		max-width: 100%;
+		min-width: 250px;
+	}
+	
+</style>

@@ -106,3 +106,26 @@
   </Card>
 </div>
 {/if}
+<style>
+	div :global(p) {
+		margin: 1em 0;
+	}
+	div :global(.center) {
+		text-align: center;
+	}
+  div :global(.tml-display){
+    		margin: 1em 0;
+  }
+	
+
+	:global(#question > :last-child) {
+		margin: 1em 0;
+		margin-bottom: 0.5em;
+	}
+
+	div#question :global(img) {
+		max-width: 100%;
+		min-width: 250px;
+	}
+	
+</style>
