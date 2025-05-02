@@ -6,6 +6,7 @@ function remove(str: string, pattern: string | RegExp): string {
 	return str.replaceAll(pattern, '');
 }
 
+// TODO: Implement isAnswerCorrect globally
 function isAnswerCorrect(question: Question, option:string) {
 
 	if(Number.isNaN(parseInt(question.solutions.ans))){

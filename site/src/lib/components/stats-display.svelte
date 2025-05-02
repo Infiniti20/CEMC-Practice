@@ -13,26 +13,11 @@
 	} from '$lib/components/ui/accordion';
 	import { Select, SelectContent, SelectItem, SelectTrigger } from '$lib/components/ui/select';
 	import { Input } from '$lib/components/ui/input/';
-	import type { Stats, TopicStats, SequenceStats } from '$lib/types';
-	import { isSequenceContest } from '$lib';
-	import { getMultipleChoiceStats, getSequenceStats,} from '$lib/stores/statsStore.svelte';
-	import { onMount } from 'svelte';
-
-	let { contest, legend }: Props = $props();
-
-	let stats: Stats | SequenceStats = $state(
-		isSequenceContest(contest) ? getSequenceStats(contest) : getMultipleChoiceStats(contest)
-	);
-
-	onMount(() => {
-		stats = isSequenceContest(contest)
-			? getSequenceStats(contest)
-			: getMultipleChoiceStats(contest);
-	});
+	import type { SequenceStats, Stats, TopicStats } from '$lib/types';
 
 	interface Props {
 		legend: { [key: string]: string };
-		contest:string
+		stats: Stats | SequenceStats;
 	}
 
 	function flip(obj: { [key: string]: string }) {
@@ -48,6 +33,7 @@
 	function convertTopicIndex(topicInt: string) {
 		return flip(legend)[topicInt as keyof typeof legend];
 	}
+	let { stats, legend }: Props = $props();
 
 	let topicFilter = $state('');
 	let sortBy = $state('most_practiced'); // Default sort option
@@ -213,7 +199,7 @@
 				<div class="space-y-2 max-h-60 overflow-y-auto">
 					{#each [...stats.history].reverse() as item, index (index)}
 						<div class="flex items-center gap-2 p-2 rounded-lg bg-muted/50">
-							{#if (typeof item.correct === 'number' ? (item.correct / item.total > 0.5) : item.correct)}
+							{#if item.correct}
 								<CheckCircle class="h-4 w-4 shrink-0 text-green-500" />
 							{:else}
 								<XCircle class="h-4 w-4 shrink-0 text-red-500" />
