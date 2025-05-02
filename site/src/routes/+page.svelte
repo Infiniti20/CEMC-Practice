@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { Question, SequenceStats, Stats } from '$lib/types';
+	import type { Question, SequenceQuestion, SequenceStats, Stats } from '$lib/types';
 	import type { PageProps } from './$types';
 	import { getMultipleChoiceStats, getSequenceStats } from '$lib/stores/statsStore.svelte';
 	import {
@@ -18,15 +18,17 @@
 	import { goto } from '$app/navigation';
 	import { Progress } from '$lib/components/ui/progress';
 	import StatsDisplay from '$lib/components/stats-display.svelte';
-
+	import QuestionComp from '$lib/components/question.svelte';
 
 	let { data }: PageProps = $props();
-	let initialQuestion: Question = $state(data.question);
+	let initialQuestion: Question|SequenceQuestion = $state(data.question);
 	let contest: string = data.contest;
 	let activeTab;
 
 	// Get contest-specific stats using the new function
-	let stats: Stats|SequenceStats = $state(contest != "fryer" ? getMultipleChoiceStats(contest) : getSequenceStats(contest));
+	let stats: Stats | SequenceStats = $state(
+		contest != 'fryer' ? getMultipleChoiceStats(contest) : getSequenceStats(contest)
+	);
 </script>
 
 <main class="min-h-screen p-4 md:p-8 flex items-center justify-center">
@@ -79,7 +81,7 @@
 								>
 							</div>
 						</div>
-						componenty here
+						<QuestionComp {contest} {initialQuestion} legend={data.legend}></QuestionComp>
 					</div>
 				</TabsContent>
 

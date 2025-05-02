@@ -13,7 +13,8 @@ export const POST: RequestHandler = async ({ request, params, url }: RequestEven
 	const c = jsonFiles[`/static/contest_files/${contest}_questions.json`];
 	let data = c['data'];
 	if (topic == 0) {
-		let question = data[Math.floor(Math.random() * data.length)];
+		let question = data.filter((e) => !Number.isNaN(parseInt(e.solutions.ans)))[0];
+		// let question = data[Math.floor(Math.random() * data.length)];
 		questionData = JSON.parse(JSON.stringify(question));
 	} else {
 		const body = await request.json();

@@ -1,5 +1,5 @@
 import { redirect } from '@sveltejs/kit';
-import type { Question } from '$lib/types';
+import type { Question, SequenceQuestion } from '$lib/types';
 import { isSequenceContest } from '$lib';
 
 
@@ -7,13 +7,14 @@ import { isSequenceContest } from '$lib';
 export async function load({ fetch, params ,cookies }) {
     	const contest = cookies.get('contest');
         if(!contest) redirect(307, '/login');
-        if(isSequenceContest(contest)) redirect(307, '/fgh');
+        let verb = "Question"
+        if(isSequenceContest(contest)) verb = "Sequence";
 
 
-    const response = await fetch(`/api/getQuestion?contest=${contest}`, {
+    const response = await fetch(`/api/get${verb}?contest=${contest}`, {
         method: "POST",
         body: JSON.stringify({})
     });
-    const {question, legend}:{question:Question, legend:{[key:string]:string}} = await response.json();
+    const {question, legend}:{question:Question|SequenceQuestion, legend:{[key:string]:string}} = await response.json();
     return {question:question, contest:contest,legend:legend}
 }
