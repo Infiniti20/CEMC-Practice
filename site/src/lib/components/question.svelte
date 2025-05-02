@@ -2,16 +2,17 @@
 	import { onMount } from 'svelte';
 	import {
 		isAnswerCorrect,
-		formatName,
-		getQuestionTopics,
 		isSequenceContest,
-		isMultipleChoice
+		isMultipleChoice,
+		getQuestionTopics,
+		formatName
 	} from '$lib';
 	import type { Question, SequenceQuestion, SequenceStats, Stats } from '$lib/types';
 	import {
 		getMultipleChoiceStats,
 		getSequenceStats,
-		updateMultipleChoiceStats
+		updateMultipleChoiceStats,
+		updateSequenceStats
 	} from '$lib/stores/statsStore.svelte';
 	import MultipleChoice from './multiple-choice.svelte';
 	import Sequence from './sequence.svelte';
@@ -68,19 +69,22 @@
 	async function handleNextQuestion() {
 		isLoadingNextQuestion = true;
 		try {
-			const response = await fetch(`/api/get${isSequenceContest(contest) ? "Sequence":"Question"}?contest=${contest}&topic=1`, {
-				method: 'POST',
-				body: JSON.stringify(stats)
-			});
+			const response = await fetch(
+				`/api/get${isSequenceContest(contest) ? 'Sequence' : 'Question'}?contest=${contest}&topic=1`,
+				{
+					method: 'POST',
+					body: JSON.stringify(stats)
+				}
+			);
 
 			if (!response.ok) {
 				throw new Error('Failed to fetch next question');
 			}
 
 			showSolution = false;
-			answer = { multipleChoice: '', sequence: Array(10).fill('')}
-			solutionFeedback = []
-			
+			answer = { multipleChoice: '', sequence: Array(10).fill('') };
+			solutionFeedback = [];
+
 			currentQuestion = (await response.json()).question;
 			startTime = Date.now();
 		} catch (error) {
@@ -122,6 +126,86 @@
 			solutionFeedback = generatedResult;
 		}
 		//TODO Update stats
+	}
+
+	function updateMCStats(isCorrect: boolean) {
+		const timeSpent = (Date.now() - startTime) / 60000; // time in minutes
+
+		// Update topicStats for each topic in the question
+		const newTopicStats = { ...(stats as Stats).topicStats };
+
+		getQuestionTopics((currentQuestion as Question).topics).forEach((topic) => {
+			let topicRef = topic;
+			if (!newTopicStats[topicRef]) {
+				newTopicStats[topicRef] = { total: 0, correct: 0, incorrect: 0, time: 0 };
+			}
+			newTopicStats[topicRef].total += 1;
+			newTopicStats[topicRef].time += timeSpent;
+			if (isCorrect) {
+				newTopicStats[topicRef].correct += 1;
+			} else {
+				newTopicStats[topicRef].incorrect += 1;
+			}
+		});
+		let history = [
+			...(stats as Stats).history,
+			{
+				question: `${formatName(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number}`,
+				correct: isCorrect
+			}
+		];
+		if (history.length > 20) {
+			history.shift();
+		}
+		const updatedStats: Stats = {
+			total: stats.total + 1,
+			correct: isCorrect ? stats.correct + 1 : stats.correct,
+			incorrect: isCorrect ? stats.incorrect : stats.incorrect + 1,
+			streak: isCorrect ? stats.streak + 1 : 0,
+			history: history,
+			topicStats: newTopicStats,
+			time: stats.time + timeSpent
+		};
+
+		stats = updatedStats;
+		// Update the contest-specific stats
+		updateMultipleChoiceStats(contest, updatedStats);
+	}
+
+	function updateSeqStats(results: { explanation: string; mark: number }[]) {
+		let subQuestions = (currentQuestion as SequenceQuestion).subQuestions;
+
+		const totalMarks = results.reduce((sum: number, q) => sum + q.mark, 0);
+
+		const totalSubQuestions = subQuestions?.length || 0;
+		const timeSpent = (Date.now() - startTime) / 60000; // time in minutes
+		const correctCount = results.filter((r, i) => r.mark / subQuestions[i].points > 0.5).length;
+
+		let history = [
+			...(stats as SequenceStats).history,
+			{
+				question: `${formatName(contest)} ${currentQuestion.source.year} #${currentQuestion.source.number + 1}`,
+				correct: correctCount,
+				total: totalSubQuestions
+			}
+		];
+		if (history.length > 20) {
+			history.shift();
+		}
+		// Update stats
+		const updatedStats: SequenceStats = {
+			...stats,
+			total: stats.total + totalSubQuestions,
+			correct: stats.correct + correctCount,
+			incorrect: stats.incorrect + (totalSubQuestions - correctCount),
+			streak: correctCount === totalSubQuestions ? stats.streak + 1 : 0,
+			history: history,
+			time: stats.time + timeSpent
+		};
+
+		stats = updatedStats;
+		// Update contest-specific stats
+		updateSequenceStats(contest, updatedStats);
 	}
 	// $inspect(answer)
 </script>
